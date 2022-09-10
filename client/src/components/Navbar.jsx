@@ -15,7 +15,6 @@ export default function Navbar() {
     useEffect(() => {
       function handleClickOutside(event) {
         if (ref.current && !ref.current.contains(event.target)) {
-
           setIcon("nav__toggler");
           setActive("nav__menu");
         }
@@ -83,7 +82,12 @@ export default function Navbar() {
     <nav className="nav" ref={wrapperRef}>
       <div className="nav-side-div">
         <div
+          onClick={(e) => {
+            e.preventDefault()
+            navigate("/");
+          }}
           style={{
+            cursor: "pointer",
             gap: 10,
             display: "flex",
             alignItems: "center",
@@ -146,7 +150,7 @@ export default function Navbar() {
           </li>
 
           <li className="nav__item">
-          <Link
+            <Link
               // onClick={(e) => {
               //   e.preventDefault();
               //   navigate("/recentep");

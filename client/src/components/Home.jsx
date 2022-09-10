@@ -39,7 +39,7 @@ export default function Home() {
           id={"trending"}
           sectiontitle={"Trending"}
         ></AnimeSection>
-        <RecentSection></RecentSection>
+        {/* <RecentSection></RecentSection> */}
         <InfiniteSection
           url={"https://consumet-api.herokuapp.com/meta/anilist/popular"}
           itemlimit={18}

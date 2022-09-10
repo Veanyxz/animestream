@@ -20,7 +20,7 @@ const App = () => {
 
   const override = {
     position: "fixed",
-    zIndex: 1,
+    zIndex: 800000,
     left: 0,
     right: 0,
     top: 0,
@@ -33,7 +33,7 @@ const App = () => {
   const onOpenModal = () => {
     console.log("model opened");
     setOpen(true);
-  }
+  };
   const onCloseModal = () => setOpen(false);
 
   return (
