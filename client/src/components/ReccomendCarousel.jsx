@@ -1,6 +1,8 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import CarouselCard from "./CarouselCard";
+import UpcomingCard from "./UpcomingCard";
+import ReccomendCard from "./ReccomendCard";
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 export default function ReccomendCarousel({ finalQuery }) {
@@ -16,9 +18,8 @@ export default function ReccomendCarousel({ finalQuery }) {
     else if (windowSize >= 1600) return 50;
     else if (windowSize >= 1100) return 44;
     else if (windowSize >= 790) return 48;
-    else if (windowSize >= 600) return 34;
-    else if (windowSize >= 450) return 44;
-    else if (windowSize > 350) return 75;
+    else if (windowSize >= 450) return 60;
+    else if (windowSize >= 350) return 74;
     else return 80;
   };
   return (
@@ -36,13 +37,13 @@ export default function ReccomendCarousel({ finalQuery }) {
       stopOnHover={true}
     >
       {finalQuery.map((query, index) => (
-        <CarouselCard
+        <ReccomendCard
           title={query.title.english}
           image={query.image}
           key={uuidv4()}
           rating={query.rating}
           id={query.id}
-        ></CarouselCard>
+        ></ReccomendCard>
       ))}
     </Carousel>
   );
