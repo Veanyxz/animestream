@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import Navbar from "./Navbar";
 setConfiguration({ breakpoints: [768, 1170, 1500, 1700, 1800, 1900] });
 
-export default function SearchResults({ setAnimeInfo, onOpenModal }) {
+export default function SearchResults({ setAnimeInfo }) {
   const location = useLocation();
 
   return (
@@ -29,11 +29,16 @@ export default function SearchResults({ setAnimeInfo, onOpenModal }) {
         <Row justify="start" gutterWidth={12}>
           {location.state.finalResults.map((query, index) => {
             return (
-              <Col align="center" xxl={2} md={2} sm={4} xs={3.95} key={uuidv4()}>
-
+              <Col
+                align="center"
+                xxl={2}
+                md={2}
+                sm={4}
+                xs={3.95}
+                key={uuidv4()}
+              >
                 <GridCard
                   setAnimeInfo={setAnimeInfo}
-                  onOpenModal={onOpenModal}
                   title={query.title.english}
                   id={query.id}
                   image={query.image}

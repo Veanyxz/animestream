@@ -15,8 +15,7 @@ const App = () => {
   const [open, setOpen] = useState(false);
   const [animeInfo, setAnimeInfo] = useState(null);
   const [videoIsLoading, setVideoIsLoading] = useState(false);
-  useEffect(() => {
-  }, [animeInfo]);
+  useEffect(() => {}, [animeInfo]);
 
   const override = {
     position: "fixed",
@@ -45,25 +44,6 @@ const App = () => {
       }}
     >
       <div className="App">
-        <Modal
-          classNames={{
-            modal: "customModal",
-
-            modalAnimationIn: "customEnterModalAnimation",
-            modalAnimationOut: "customLeaveModalAnimation",
-          }}
-          open={open}
-          onClose={onCloseModal}
-          center
-          showCloseIcon={true}
-          animationDuration={600}
-          closeIcon={"Back"}
-        >
-          <AnimePlayer
-            onOpenModal={onOpenModal}
-            animeInfo={animeInfo}
-          ></AnimePlayer>
-        </Modal>
         {videoIsLoading && (
           <ClockLoader
             color={"white"}
@@ -102,7 +82,6 @@ const App = () => {
                 path="/search"
                 element={
                   <SearchResults
-                    onOpenModal={onOpenModal}
                     setAnimeInfo={setAnimeInfo}
                   />
                 }

@@ -85,6 +85,7 @@ export default function Navbar() {
           onClick={(e) => {
             e.preventDefault();
             navigate("/");
+            window.location.reload();
           }}
           style={{
             cursor: "pointer",
