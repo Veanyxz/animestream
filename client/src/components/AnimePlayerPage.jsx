@@ -85,9 +85,11 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
       }
     }
   }
+
   return (
     <>
       <Navbar></Navbar>
+
       {currentStreamUrl !== null && anime && (
         <div
           style={{
@@ -98,6 +100,7 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
           }}
         >
           {animestate.setVideoIsLoading(false)}
+
           <ShakaPlayer autoPlay src={currentStreamUrl} />
 
           <div

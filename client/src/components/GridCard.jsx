@@ -27,9 +27,7 @@ export default function GridCard({
       .then((res) => {
         animestate.setAnimeInfo(res.data);
 
-        // animestate.onOpenModal();
-        navigate("/animeplay", { state: { animeInfo: res.data } });
-        // animestate.setVideoIsLoading(false);
+        navigate("/animeplay");
       })
       .catch((e) => {
         console.log(e);

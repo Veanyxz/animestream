@@ -9,6 +9,7 @@ import { faListOl } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TextTruncate from "react-text-truncate";
 import { SharedState } from "../App";
+import { useNavigate } from "react-router-dom";
 export default function HeaderCarouselCard({
   duration,
   cover,
@@ -19,6 +20,8 @@ export default function HeaderCarouselCard({
   epcount,
   coversmall,
 }) {
+  const navigate = useNavigate();
+
   const animestate = useContext(SharedState);
   const override = {
     position: "fixed",
@@ -42,7 +45,8 @@ export default function HeaderCarouselCard({
       .get("https://consumet-api.herokuapp.com/meta/anilist/info/" + id)
       .then((res) => {
         animestate.setAnimeInfo(res.data);
-        animestate.onOpenModal();
+
+        navigate("/animeplay");
         animestate.setVideoIsLoading(false);
       })
       .catch((e) => {
