@@ -10,7 +10,7 @@ const GridRenderer = ({ finalQuery, setAnimeInfo, onOpenModal }) => {
     <Container fluid={true}>
       <Row justify="center" gutterWidth={12}>
         {finalQuery.map((query, index) => (
-          <Col align="center" xxl={2} md={2.4} sm={4} xs={6} key={uuidv4()}>
+          <Col align="center" xxl={2} md={2} sm={4} xs={3.95} key={uuidv4()}>
             <GridCard
               setAnimeInfo={setAnimeInfo}
               onOpenModal={onOpenModal}

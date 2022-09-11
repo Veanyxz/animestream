@@ -42,17 +42,23 @@ export default function GridCard({
         console.log(e);
       });
   }
-
+  // else if (windowSize >= 475 && windowSize < 800) {
+  //   return [180, 145];
+  // } else if (windowSize >= 440 && windowSize < 475) return [160, 130];
+  // else if (windowSize >= 420 && windowSize < 440) return [170, 125];
+  // else if (windowSize >= 390 && windowSize < 420) return [140, 115];
+  // else if (windowSize >= 360 && windowSize < 390) return [140, 110];
+  // else return [90, 100];
   const calculateSize = (windowSize) => {
     if (windowSize > 1500) return [380, 280];
     else if (windowSize > 1168 && windowSize < 1500) return [250, 210];
     else if (windowSize >= 800 && windowSize < 1300) return [180, 270];
-    else if (windowSize >= 475 && windowSize < 800) return [280, 225];
-    else if (windowSize >= 440 && windowSize < 475) return [230, 200];
-    else if (windowSize >= 420 && windowSize < 440) return [225, 185];
-    else if (windowSize >= 390 && windowSize < 420) return [225, 175];
-    else if (windowSize >= 360 && windowSize < 390) return [220, 165];
-    else return [230, 150];
+    else if (windowSize >= 475 && windowSize < 800) return [180, 145];
+    else if (windowSize >= 440 && windowSize < 475) return [160,130];
+    else if (windowSize >= 420 && windowSize < 440) return [170,125];
+    else if (windowSize >= 390 && windowSize < 420) return [140,115];
+    else if (windowSize >= 360 && windowSize < 390) return [140,110];
+    else return [120, 100];
   };
   useEffect(() => {
     window.addEventListener("resize", () => {
