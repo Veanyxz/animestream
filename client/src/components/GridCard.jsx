@@ -84,16 +84,17 @@ export default function GridCard({
           <div
             style={{
               color: "yellow",
-              backgroundColor: "black",
+              backgroundColor: "rgba(0,0,0, 0.6)",
               padding: "2px 7px",
               position: "absolute",
-              opacity: 0.7,
-              // marginLeft: 5,
-              // marginTop: 5,
+
               borderRadius: 5,
-              fontSize: "1.5rem",
-              display:"flex",
-              gap:4,justifyContent:"center",alignItems:"center"
+              fontSize: "1.35rem",
+              display: "flex",
+              gap: 4,
+              borderTopLeftRadius:10,
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             <StarFilled />
@@ -105,29 +106,6 @@ export default function GridCard({
           <h5 style={{ color: "white", fontWeight: "lighter" }}>
             Episode {episodeNum}
           </h5>
-        )}
-        {rating && year && (
-          <div
-            style={{ display: "flex", gap: 10, marginTop: 8 }}
-            className="gridcardinfo"
-          >
-            <p
-              style={{
-                color: "white",
-                fontSize: windowSize < 768 ? "1.15rem" : "1.35rem",
-              }}
-            >
-              {year}
-            </p>
-            <p
-              style={{
-                color: "white",
-                fontSize: windowSize < 768 ? "1.15rem" : "1.35rem",
-              }}
-            >
-              Rating: {rating}
-            </p>
-          </div>
         )}
 
         <h4
@@ -142,6 +120,22 @@ export default function GridCard({
         >
           {title}
         </h4>
+
+        {year && (
+          <div
+            style={{ display: "flex", gap: 10, marginTop: 4 }}
+            className="gridcardinfo"
+          >
+            <p
+              style={{
+                color: "white",
+                fontSize: windowSize < 768 ? "1.15rem" : "1.35rem",
+              }}
+            >
+              {year}
+            </p>
+          </div>
+        )}
       </div>
     </>
   );
