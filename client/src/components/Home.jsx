@@ -21,14 +21,11 @@ export default function Home() {
   useEffect(() => {
     const onPageLoad = () => {
       setTimeout(() => {
-        document.querySelector("#popular").scrollIntoView();
-        setTimeout(() => {
-          window.scroll({
-            top: 0,
-            left: 0,
-            behavior: "smooth",
-          });
-        }, 1000);
+        window.scrollTo({
+          top: 2390,
+          left: 100,
+          behavior: "smooth",
+        });
       }, 1500);
     };
 
@@ -51,13 +48,6 @@ export default function Home() {
       <>
         <Header></Header>
         <UpcomingSection></UpcomingSection>
-        {/* <AnimeSection
-          url={
-            "https://consumet-api.herokuapp.com/meta/anilist/recent-episodes"
-          }
-          id={"recent"}
-          sectiontitle={"Recent Episodes"}
-        ></AnimeSection> */}
 
         <AnimeSection
           url={

@@ -97,6 +97,7 @@ export default function InfiniteSection({
         {fetchedData.length > 0 && (
           <>
             <h1
+              className={id + "-title"}
               style={{ color: "#fdba74", fontSize: "3rem", marginLeft: "20px" }}
             >
               {sectiontitle}
