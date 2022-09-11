@@ -9,10 +9,13 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./Navbar";
 const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
+  const animestate = useContext(SharedState);
+
+  animestate.setVideoIsLoading(true);
+
   if (animeInfo) {
     localStorage.setItem("animeInfo", JSON.stringify(animeInfo));
   }
-  const animestate = useContext(SharedState);
   const [anime, setAnime] = useState(
     animeInfo ? animeInfo : JSON.parse(localStorage.getItem("animeInfo"))
   );
