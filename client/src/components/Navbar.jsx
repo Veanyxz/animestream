@@ -151,14 +151,7 @@ export default function Navbar() {
           </li>
 
           <li className="nav__item">
-            <Link
-              // onClick={(e) => {
-              //   e.preventDefault();
-              //   navigate("/recentep");
-              // }}
-              to="/recentep"
-              style={{ color: "white", font: "inherit" }}
-            >
+            <Link to="/recentep" style={{ color: "white", font: "inherit" }}>
               Recent Ep
             </Link>
           </li>

@@ -3,6 +3,7 @@ import TextTruncate from "react-text-truncate";
 import axios from "axios";
 import { SharedState } from "../App";
 import { useNavigate } from "react-router-dom";
+import { StarFilled } from "@ant-design/icons";
 export default function CarouselCard({
   title,
   image,
@@ -66,6 +67,8 @@ export default function CarouselCard({
           textAlign: "center",
         }}
       >
+
+      
         <div
           style={{
             borderRadius: "10px",

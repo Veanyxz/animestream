@@ -94,8 +94,6 @@ export default function InfiniteSection({
           marginTop: querytype === "&" ? 80 : "",
         }}
       >
-        {/* <ToastContainer /> */}
-
         {fetchedData.length > 0 && (
           <>
             <h1
@@ -116,6 +114,7 @@ export default function InfiniteSection({
                 justifyContent: "center",
               }}
             >
+             
               <div
                 className="pagination"
                 style={{

@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { SharedState } from "../App";
 import { useNavigate } from "react-router-dom";
-
+import { StarFilled } from "@ant-design/icons";
 export default function GridCard({
   title,
   image,
@@ -80,7 +80,26 @@ export default function GridCard({
             backgroundPosition: "center",
             backgroundSize: "cover",
           }}
-        ></div>
+        >
+          <div
+            style={{
+              color: "yellow",
+              backgroundColor: "black",
+              padding: "2px 7px",
+              position: "absolute",
+              opacity: 0.7,
+              // marginLeft: 5,
+              // marginTop: 5,
+              borderRadius: 5,
+              fontSize: "1.5rem",
+              display:"flex",
+              gap:4,justifyContent:"center",alignItems:"center"
+            }}
+          >
+            <StarFilled />
+            {rating / 10}
+          </div>
+        </div>
 
         {episodeNum > 0 && (
           <h5 style={{ color: "white", fontWeight: "lighter" }}>
