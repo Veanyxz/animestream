@@ -1,16 +1,15 @@
 import { useEffect, useState, useContext } from "react";
 import GridRenderer from "./GridRenderer.jsx";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Cutter } from "./Cutter.jsx";
 import ClockLoader from "react-spinners/ClockLoader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { v4 as uuidv4 } from "uuid";
-
+import toast, { Toaster } from 'react-hot-toast';
 import {
   faArrowLeftLong,
   faArrowRightLong,
 } from "@fortawesome/free-solid-svg-icons";
-
 const override = {
   position: "fixed",
   zIndex: 1,
@@ -95,7 +94,7 @@ export default function InfiniteSection({
           marginTop: querytype === "&" ? 80 : "",
         }}
       >
-        <ToastContainer />
+        {/* <ToastContainer /> */}
 
         {fetchedData.length > 0 && (
           <>
@@ -135,7 +134,7 @@ export default function InfiniteSection({
                   className="previousPageButton"
                   onClick={(e) => {
                     if (currpage <= 1) {
-                      nopreviouspageerror();
+                     toast.error("You are on the first page!")
                     } else {
                       updatePageNumberButtons(e);
                       setCurrpage((prev) => prev - 1);
@@ -193,7 +192,7 @@ export default function InfiniteSection({
                       updatePageNumberButtons(e);
                       setCurrpage((curr) => curr + 1);
                     } else {
-                      nonextpageerror.error();
+                      toast.error("This is the last page!")
                     }
                   }}
                   style={{
@@ -213,6 +212,19 @@ export default function InfiniteSection({
             </div>
           </>
         )}
+         <Toaster position="top-right"  toastOptions={{
+    success: {
+      style: {
+        background: 'green',
+      },
+    },
+    error: {
+      style: {
+        background: 'rgb(216, 67, 21)',
+        color:"white"
+      },
+    },
+  }}/>
       </section>
     </>
   );

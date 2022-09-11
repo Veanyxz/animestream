@@ -23,7 +23,7 @@ export default function CarouselRenderer({
     });
   });
   const breakPoints = [
-    { width: 1, itemsToShow: isTrending ? 2 : 2 },
+    { width: 1, itemsToShow: isTrending ? 2 : 3 },
 
     { width: 670, itemsToShow: isTrending ? 3 : 3 },
 

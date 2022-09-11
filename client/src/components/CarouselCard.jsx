@@ -6,7 +6,6 @@ import { SharedState } from "../App";
 export default function CarouselCard({
   title,
   image,
-  rowTitle,
   episodeNumber,
   rating,
   id,
@@ -25,13 +24,20 @@ export default function CarouselCard({
     else if (windowSize > 1600 && windowSize < 1700) return [230, 360];
     else if (windowSize > 1300 && windowSize < 1600) return [200, 310];
     else if (windowSize >= 800 && windowSize < 1300) return [180, 270];
+    // else if (windowSize >= 475 && windowSize < 800) {
+    //   return [230, 225];
+    // } else if (windowSize >= 440 && windowSize < 475) return [130, 210];
+    // else if (windowSize >= 420 && windowSize < 440) return [130, 185];
+    // else if (windowSize >= 390 && windowSize < 420) return [110, 175];
+    // else if (windowSize >= 360 && windowSize < 390) return [110, 165];
+    // else return [90, 150];
     else if (windowSize >= 475 && windowSize < 800) {
-      return [230, 225];
-    } else if (windowSize >= 440 && windowSize < 475) return [130, 210];
-    else if (windowSize >= 420 && windowSize < 440) return [130, 185];
-    else if (windowSize >= 390 && windowSize < 420) return [110, 175];
-    else if (windowSize >= 360 && windowSize < 390) return [110, 165];
-    else return [90, 150];
+      return [180, 145];
+    } else if (windowSize >= 440 && windowSize < 475) return [160, 130];
+    else if (windowSize >= 420 && windowSize < 440) return [170, 125];
+    else if (windowSize >= 390 && windowSize < 420) return [140, 115];
+    else if (windowSize >= 360 && windowSize < 390) return [140, 110];
+    else return [90, 100];
   };
 
   async function fetchVideo(id) {

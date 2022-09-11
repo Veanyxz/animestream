@@ -11,10 +11,37 @@ import { useRef } from "react";
 import Caro from "./ReccomendCarousel";
 import RecentSection from "./RecentSection";
 import AnimeSection from "./AnimeSection";
+import Cutter from "./Cutter";
 export const SharedState = React.createContext();
 export default function Home() {
+  const location = useLocation();
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
+  console.log(location.state);
+
+  useEffect(() => {
+    const onPageLoad = () => {
+      console.log("bruh");
+      setTimeout(() => {
+        document.querySelector("#popular").scrollIntoView();
+        console.log(document.querySelector(".scrolltop"));
+        setTimeout(() => {
+          window.scroll({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+          });
+        }, 1000);
+      }, 1500);
+    };
+
+    if (document.readyState === "complete") {
+      onPageLoad();
+    } else {
+      window.addEventListener("load", onPageLoad);
+      return () => window.removeEventListener("load", onPageLoad);
+    }
+  }, []);
   return (
     <SharedState.Provider
       value={{
@@ -27,13 +54,13 @@ export default function Home() {
       <>
         <Header></Header>
         <UpcomingSection></UpcomingSection>
-        <AnimeSection
+        {/* <AnimeSection
           url={
             "https://consumet-api.herokuapp.com/meta/anilist/recent-episodes"
           }
           id={"recent"}
           sectiontitle={"Recent Episodes"}
-        ></AnimeSection>
+        ></AnimeSection> */}
         <AnimeSection
           url={"https://consumet-api.herokuapp.com/meta/anilist/trending"}
           id={"trending"}
@@ -49,7 +76,7 @@ export default function Home() {
         ></InfiniteSection>
 
         {/* <PopularSection></PopularSection> */}
-        <ScrollToTop top={1500} smooth color="#6f00ff" />
+        <ScrollToTop className="scrolltop" top={1500} smooth color="#6f00ff" />
       </>
     </SharedState.Provider>
   );

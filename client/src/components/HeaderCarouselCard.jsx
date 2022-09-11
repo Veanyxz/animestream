@@ -8,7 +8,6 @@ import { useState, useEffect, useContext } from "react";
 import { faListOl } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TextTruncate from "react-text-truncate";
-import MoonLoader from "react-spinners/MoonLoader";
 import { SharedState } from "../App";
 export default function HeaderCarouselCard({
   duration,
@@ -37,13 +36,14 @@ export default function HeaderCarouselCard({
 
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   async function fetchVideo(id) {
-    setVideoIsLoading(true);
+    animestate.setVideoIsLoading(true);
+
     return await axios
       .get("https://consumet-api.herokuapp.com/meta/anilist/info/" + id)
       .then((res) => {
         animestate.setAnimeInfo(res.data);
         animestate.onOpenModal();
-        setVideoIsLoading(false);
+        animestate.setVideoIsLoading(false);
       })
       .catch((e) => {
         console.log(e);
@@ -63,14 +63,6 @@ export default function HeaderCarouselCard({
 
   return (
     <>
-      {videoIsLoading && (
-        <MoonLoader
-          color={"white"}
-          loading={videoIsLoading}
-          cssOverride={override}
-          size={80}
-        />
-      )}
       <div
         className="header-card"
         style={{
