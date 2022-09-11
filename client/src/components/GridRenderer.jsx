@@ -5,7 +5,9 @@ import GridCard from "./GridCard";
 
 setConfiguration({ breakpoints: [768, 1000, 1700, 1800, 1900] });
 
-const GridRenderer = ({ finalQuery, setAnimeInfo, onOpenModal }) => {
+const GridRenderer = ({ finalQuery, setAnimeInfo }) => {
+  console.log(finalQuery);
+
   return (
     <Container fluid={true}>
       <Row justify="center" gutterWidth={12}>
@@ -13,13 +15,13 @@ const GridRenderer = ({ finalQuery, setAnimeInfo, onOpenModal }) => {
           <Col align="center" xxl={2} md={2} sm={4} xs={3.95} key={uuidv4()}>
             <GridCard
               setAnimeInfo={setAnimeInfo}
-              onOpenModal={onOpenModal}
               title={query.title.english}
               id={query.id}
               image={query.image}
               key={uuidv4()}
               rating={query.rating}
               year={query.releaseDate}
+              episodeNumber={query.episodeNumber ? query.episodeNumber : 0}
               results={query}
             ></GridCard>
           </Col>

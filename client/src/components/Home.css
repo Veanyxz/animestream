@@ -99,7 +99,6 @@ button.rec-dot:focus {
 
   .pagination {
     margin-top: 5px;
-    justify-content: space-between;
   }
   .previousPageButton * {
     order: 1;

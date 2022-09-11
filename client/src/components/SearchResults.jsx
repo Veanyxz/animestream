@@ -44,6 +44,7 @@ export default function SearchResults({ setAnimeInfo }) {
                   image={query.image}
                   key={uuidv4()}
                   rating={query.rating}
+                  
                   year={query.releaseDate}
                   results={query}
                 ></GridCard>

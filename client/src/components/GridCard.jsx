@@ -6,7 +6,7 @@ import { StarFilled } from "@ant-design/icons";
 export default function GridCard({
   title,
   image,
-  episodeNum,
+  episodeNumber,
   year,
   rating,
   setAnimeInfo,
@@ -102,9 +102,9 @@ export default function GridCard({
           </div>
         </div>
 
-        {episodeNum > 0 && (
+        {episodeNumber > 0 && (
           <h5 style={{ color: "white", fontWeight: "lighter" }}>
-            Episode {episodeNum}
+            Episode {episodeNumber}
           </h5>
         )}
 

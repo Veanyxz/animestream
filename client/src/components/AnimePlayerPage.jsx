@@ -1,9 +1,17 @@
 import ShakaPlayer from "shaka-player-react";
 import "shaka-player-react/dist/controls.css";
 import Select from "react-select";
+import ScrollToTop from "react-scroll-to-top";
+
 import { useEffect, useState, useContext } from "react";
 import TextTruncate from "react-text-truncate";
 import ReccomendCarousel from "./ReccomendCarousel";
+import {
+  StarFilled,
+  CalendarOutlined,
+  OrderedListOutlined,
+  PlayCircleOutlined,
+} from "@ant-design/icons";
 import { SharedState } from "../App";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
@@ -100,7 +108,18 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
           }}
         >
           {animestate.setVideoIsLoading(false)}
-
+          <div
+            style={{
+              backgroundColor: "rgb(38, 50, 56)",
+              height: 35,
+              borderRadius: "3px 3px 0px 0px",
+              display: "flex",
+              alignItems: "center",
+              padding: "0px 15px",
+            }}
+          >
+            <span style={{ color: "white" }}> EP {selectedOption}</span>
+          </div>
           <ShakaPlayer autoPlay src={currentStreamUrl} />
 
           <div
@@ -119,19 +138,20 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
               style={{ marginTop: 5, display: "flex", gap: 25 }}
             >
               <span style={{ color: "white" }} className="curranime-platform">
-                TV Show
+                <PlayCircleOutlined /> TV Show
               </span>
               <span style={{ color: "white" }} className="curranime-score">
-                Rating: {anime.rating}
+                Rating: <StarFilled style={{ color: "yellow" }} />{" "}
+                {anime.rating / 10}
               </span>
               <span style={{ color: "white" }} className="curranime-epaired">
-                Ep Total: {anime.episodes.length}
+                <OrderedListOutlined /> Ep Total: {anime.episodes.length}
               </span>
               <span
                 style={{ color: "white" }}
                 className="curranime-releaseyear"
               >
-                {anime.releaseDate}
+                <CalendarOutlined /> {anime.releaseDate}
               </span>
             </div>
 
@@ -143,10 +163,12 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
                   maxHeight: 100,
                   height: "fit-content",
                   display: "grid",
-                  gap: "5px",
+                  gap: "4px 4px",
                   justifyItems: "start",
+                  justifyContent: "start",
+                  alignItems: "start",
 
-                  gridTemplateColumns: "repeat(auto-fit, minmax(45px, 1fr))",
+                  gridTemplateColumns: "repeat(auto-fill, minmax(50px, 1fr))",
                 }}
               >
                 {epArray.map((ep, index) => {
@@ -158,8 +180,8 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
                       }}
                       style={{
                         cursor: "pointer",
-                        height: 25,
-                        width: 45,
+                        height: 30,
+                        width: 50,
                         color: "white",
                         backgroundColor: "#366083",
                         display: "flex",
@@ -175,7 +197,10 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
               </div>
             </form>
 
-            <hr style={{ marginTop: 20, background: "grey" }}></hr>
+            <hr
+              style={{ border: 0, borderTop: "2px solid #ddd", marginTop: 20 }}
+            ></hr>
+
             <h3 style={{ color: "red", marginTop: 10 }}>Summary</h3>
             <p style={{ textAlign: "justify", color: "white" }}>
               <TextTruncate
@@ -183,7 +208,9 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
                 line={window.innerWidth < 800 ? 4 : 8}
               ></TextTruncate>
             </p>
+
             <br />
+
             <h4 style={{ color: "red" }}>
               Genres:&nbsp;
               <span style={{ color: "white" }}>{anime.genres.join(", ")}</span>
@@ -217,6 +244,7 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
           </div>
         </div>
       )}
+      <ScrollToTop className="scrolltop" top={"300"} smooth color="#6f00ff" />
     </>
   );
 };

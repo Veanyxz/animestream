@@ -93,7 +93,7 @@ const AnimePlayer = ({ animeInfo, onOpenModal }) => {
                 TV Show
               </span>
               <span style={{ color: "white" }} className="curranime-score">
-                Rating: {anime.rating}
+                Rating: {anime.rating/10}
               </span>
               <span style={{ color: "white" }} className="curranime-epaired">
                 Episodes Aired: {anime.episodes.length}

@@ -114,7 +114,6 @@ export default function InfiniteSection({
                 justifyContent: "center",
               }}
             >
-             
               <div
                 className="pagination"
                 style={{
