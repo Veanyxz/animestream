@@ -15,7 +15,6 @@ export default function AnimeSection({
       .then((response) => response.json())
       .then((data) => {
         setFetchedData(data.results);
-        console.log(data.results);
       });
   }, []);
   return (

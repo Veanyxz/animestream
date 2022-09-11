@@ -84,7 +84,14 @@ export default function CarouselCard({
         ></div>
 
         {episodeNumber > 0 && (
-          <h5 style={{ color: "white", marginTop: 5 }}>
+          <h5
+            style={{
+              color: "white",
+              fontWeight: "lighter",
+              marginTop: 5,
+              fontSize: windowSize < 768 ? "1.15rem" : "1.35rem",
+            }}
+          >
             Episode {episodeNumber}
           </h5>
         )}
@@ -92,7 +99,11 @@ export default function CarouselCard({
         <a
           href="/"
           className="anime-card-title"
-          style={{ color: "white", fontSize:windowSize<768?"1.2rem":"1.5rem", marginTop: 5 }}
+          style={{
+            color: "white",
+            fontSize: windowSize < 768 ? "1.2rem" : "1.5rem",
+            marginTop: 5,
+          }}
         >
           <TextTruncate text={title} line={2}></TextTruncate>
         </a>

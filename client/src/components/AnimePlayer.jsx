@@ -12,18 +12,23 @@ const AnimePlayer = ({ animeInfo, onOpenModal }) => {
   const animestate = useContext(SharedState);
 
   const [anime, setAnime] = useState(animeInfo);
-  const [selectedOption, setSelectedOption] = useState({ value: 1, label: 1 });
+  const [selectedOption, setSelectedOption] = useState(1);
   const [currentStreamUrl, setCurrentStreamUrl] = useState(null);
   const [currentId, setCurrentId] = useState(anime.episodes[0].id);
-  const options = [];
-  const selectStyles = {
-    menuList: (styles) => {
-      return {
-        ...styles,
-        maxHeight: 180,
-      };
-    },
-  };
+  const epArray = [];
+  for (let i = 1; i < anime.episodes.length; i++) {
+    epArray.push(i);
+  }
+
+  useEffect(() => {
+    let epindexes = document.querySelectorAll(".epindex");
+
+    Array.from(epindexes).forEach((epindex) => {
+      if (epindex.innerText === selectedOption)
+        epindex.style.backgroundColor = "red";
+      else epindex.style.backgroundColor = "#366083";
+    });
+  }, [selectedOption]);
 
   async function fetchVideoById(url) {
     return await axios.get(url).then((response) => {
@@ -34,11 +39,10 @@ const AnimePlayer = ({ animeInfo, onOpenModal }) => {
   }
 
   const changeStream = () => {
-    setCurrentId(anime.episodes[selectedOption.value - 1].id);
+    setCurrentId(anime.episodes[selectedOption - 1].id);
   };
 
   useEffect(() => {
-    console.log("id changed: " + currentId);
     fetchVideoById(
       " https://consumet-api.herokuapp.com/meta/anilist/watch/" + currentId
     );
@@ -50,15 +54,9 @@ const AnimePlayer = ({ animeInfo, onOpenModal }) => {
   }, [animeInfo]);
 
   useEffect(() => {
+    console.log(selectedOption);
     changeStream();
   }, [selectedOption]);
-
-  for (let i = 1; i <= anime.episodes.length; i++) {
-    options.push({
-      value: i,
-      label: i,
-    });
-  }
 
   let regexeddescription = anime.description.replaceAll(
     /<\/?[\w\s]*>|<.+[\W]>/g,
@@ -111,16 +109,46 @@ const AnimePlayer = ({ animeInfo, onOpenModal }) => {
               </span>
             </div>
 
-            <form style={{ marginTop: 10 }}>
-              <div style={{ width: 100 }}>
-                <Select
-                  defaultValue={selectedOption}
-                  onChange={setSelectedOption}
-                  options={options}
-                  styles={selectStyles}
-                />
+            <form style={{ marginTop: 15 }}>
+              <div
+                className="contindex"
+                style={{
+                  overflowY: "scroll",
+                  maxHeight: 95,
+                  height: "fit-content",
+                  display: "grid",
+                  gap: "5px",
+                  justifyItems: "start",
+
+                  gridTemplateColumns: "repeat(auto-fit, minmax(50px, 1fr))",
+                }}
+              >
+                {epArray.map((ep, index) => {
+                  return (
+                    <div
+                      className="epindex"
+                      onClick={(e) => {
+                        setSelectedOption(e.target.innerText);
+                      }}
+                      style={{
+                        cursor: "pointer",
+                        height: 30,
+                        width: 50,
+                        color: "white",
+                        backgroundColor: "#366083",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      {ep}
+                    </div>
+                  );
+                })}
               </div>
             </form>
+
+            <hr style={{ marginTop: 20,background:"grey" }}></hr>
             <h3 style={{ color: "red", marginTop: 10 }}>Summary</h3>
             <p style={{ textAlign: "justify", color: "white" }}>
               <TextTruncate

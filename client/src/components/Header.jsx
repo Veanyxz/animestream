@@ -7,7 +7,7 @@ const Header = () => {
   const [finalResults, setFinalResults] = useState([]);
 
   useEffect(() => {
-    fetch("https://consumet-api.herokuapp.com/meta/anilist/popular")
+    fetch("https://consumet-api.herokuapp.com/meta/anilist/trending")
       .then((response) => response.json())
       .then((data) => {
         setFinalResults(data.results);

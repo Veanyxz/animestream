@@ -29,7 +29,8 @@ export default function SearchResults({ setAnimeInfo, onOpenModal }) {
         <Row justify="start" gutterWidth={12}>
           {location.state.finalResults.map((query, index) => {
             return (
-              <Col align="center" xxl={2} md={2.4} sm={4} xs={6} key={uuidv4()}>
+              <Col align="center" xxl={2} md={2} sm={4} xs={3.95} key={uuidv4()}>
+
                 <GridCard
                   setAnimeInfo={setAnimeInfo}
                   onOpenModal={onOpenModal}

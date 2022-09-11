@@ -5,7 +5,7 @@ import { Cutter } from "./Cutter.jsx";
 import ClockLoader from "react-spinners/ClockLoader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { v4 as uuidv4 } from "uuid";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 import {
   faArrowLeftLong,
   faArrowRightLong,
@@ -134,7 +134,7 @@ export default function InfiniteSection({
                   className="previousPageButton"
                   onClick={(e) => {
                     if (currpage <= 1) {
-                     toast.error("You are on the first page!")
+                      toast.error("You are on the first page!");
                     } else {
                       updatePageNumberButtons(e);
                       setCurrpage((prev) => prev - 1);
@@ -192,7 +192,7 @@ export default function InfiniteSection({
                       updatePageNumberButtons(e);
                       setCurrpage((curr) => curr + 1);
                     } else {
-                      toast.error("This is the last page!")
+                      toast.error("This is the last page!");
                     }
                   }}
                   style={{
@@ -212,19 +212,22 @@ export default function InfiniteSection({
             </div>
           </>
         )}
-         <Toaster position="top-right"  toastOptions={{
-    success: {
-      style: {
-        background: 'green',
-      },
-    },
-    error: {
-      style: {
-        background: 'rgb(216, 67, 21)',
-        color:"white"
-      },
-    },
-  }}/>
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            success: {
+              style: {
+                background: "green",
+              },
+            },
+            error: {
+              style: {
+                background: "rgb(216, 67, 21)",
+                color: "white",
+              },
+            },
+          }}
+        />
       </section>
     </>
   );

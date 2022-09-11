@@ -124,7 +124,7 @@ export default function GridCard({
           className="grid-card-title"
           style={{
             textAlign: "center",
-            color: "white",
+            color: "white",marginTop:1,
             fontWeight: "lighter",
             fontSize: windowSize < 768 ? "1.2rem" : "1.5rem",
           }}

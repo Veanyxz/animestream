@@ -46,10 +46,7 @@ a {
 .nav__link {
   color: white;
 }
-.signoutli {
-  display: fixed !important;
-  right: 40 !important;
-}
+
 .nav__brand {
   display: flex;
   align-items: center;
@@ -95,11 +92,10 @@ a {
   }
 
   .nav__menu {
-    font-size: 6rem !important;
     position: fixed;
     z-index: 1;
-    gap: 2rem;
-    top: 64px !important;
+    gap: 0.8rem;
+    top: 58px !important;
     right: 0;
 
     width: 100vw;
@@ -114,12 +110,27 @@ a {
     background-color: #10141e;
     border-radius: 5px;
     flex-direction: column;
-    font-size: 3px !important;
+    font-size: 7px !important;
     transform: translateX(100%);
     transition: 0.1s ease-in;
   }
+  /* .nav__toggler {
+    width: 10px !important;
+    background-color: red;
+  } */
   .nav__item {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    width: 99% !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+
+    color: #d1d5db !important;
+    /* background-color: red !important; */
+  }
+  .nav__item:hover {
+    border-radius: 6px !important;
+    background-color: #374151 !important;
+    /* background-color: red !important; */
   }
 }
 
@@ -168,4 +179,5 @@ a {
 .searchbar:hover,
 .searchbar:focus {
   border: 1px solid violet;
+  color: white;
 }

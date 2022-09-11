@@ -15,7 +15,6 @@ export default function CarouselRenderer({
   setIsPlaying,
   setTrailerId,
 }) {
-  console.log(finalQuery);
   const [windowSize, setWindowSize] = useState(window.innerWidth);
 
   useEffect(() => {
