@@ -26,7 +26,7 @@ export default function SearchResults({ setAnimeInfo, onOpenModal }) {
         <span style={{ color: "yellow" }}> {location.state.input}</span>
       </h1>
       <Container fluid={true}>
-        <Row justify="center" gutterWidth={12}>
+        <Row justify="start" gutterWidth={12}>
           {location.state.finalResults.map((query, index) => {
             return (
               <Col align="center" xxl={2} md={2.4} sm={4} xs={6} key={uuidv4()}>

@@ -42,6 +42,7 @@ export default function CarouselRenderer({
           fontSize: "3rem",
           marginLeft: "21px",
           marginBottom: "5px",
+          
         }}
       >
         {rowTitle}

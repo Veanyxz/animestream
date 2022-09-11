@@ -95,8 +95,20 @@ export default function GridCard({
             style={{ display: "flex", gap: 10, marginTop: 8 }}
             className="gridcardinfo"
           >
-            <p style={{ color: "white", fontSize: "1.35rem" }}>{year}</p>
-            <p style={{ color: "white", fontSize: "1.35rem" }}>
+            <p
+              style={{
+                color: "white",
+                fontSize: windowSize < 768 ? "1.15rem" : "1.35rem",
+              }}
+            >
+              {year}
+            </p>
+            <p
+              style={{
+                color: "white",
+                fontSize: windowSize < 768 ? "1.15rem" : "1.35rem",
+              }}
+            >
               Rating: {rating}
             </p>
           </div>
@@ -108,6 +120,7 @@ export default function GridCard({
             textAlign: "center",
             color: "white",
             fontWeight: "lighter",
+            fontSize: windowSize < 768 ? "1.2rem" : "1.5rem",
           }}
         >
           {title}

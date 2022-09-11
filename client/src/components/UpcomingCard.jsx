@@ -83,7 +83,11 @@ const UpcomingCard = ({
           }}
           href="/"
           className="anime-card-title"
-          style={{ color: "white", fontWeight: "lighter", marginTop: 5 }}
+          style={{
+            color: "white",
+            fontSize: windowSize < 768 ? "1.2rem" : "1.5rem",
+            marginTop: 5,
+          }}
         >
           <TextTruncate text={title} line={2}></TextTruncate>
         </a>

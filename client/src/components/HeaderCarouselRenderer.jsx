@@ -22,7 +22,7 @@ const HeaderCarouselRenderer = ({ finalResults }) => {
   return (
     <Carousel
       ref={carouselRef}
-      enableAutoPlay={true}
+      // enableAutoPlay={true}
       showArrows={false}
       autoPlaySpeed={2000}
       breakPoints={breakPoints}

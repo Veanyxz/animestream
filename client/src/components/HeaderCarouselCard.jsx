@@ -88,6 +88,7 @@ export default function HeaderCarouselCard({
             style={{
               fontSize: windowSize < 766 ? "2.5rem" : "4rem",
               color: "white",
+              fontFamily: "'Poppins', sans-serif"
             }}
           >
             {title !== "" && title}
@@ -96,17 +97,38 @@ export default function HeaderCarouselCard({
             className="anime-info"
             style={{ color: "white", display: "flex", gap: "20px" }}
           >
-            <p style={{ fontSize: windowSize < 766 ? "1.4rem" : "" }}>
+            <p
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: windowSize < 766 ? "1.4rem" : "",
+              }}
+            >
               {" "}
               <PlayCircleOutlined /> TV
             </p>
-            <p style={{ fontSize: windowSize < 766 ? "1.4rem" : "" }}>
+
+            <p
+              style={{
+                fontSize: windowSize < 766 ? "1.4rem" : "",
+                fontFamily: "'Inter', sans-serif",
+              }}
+            >
               <FontAwesomeIcon icon={faListOl} /> {epcount} Episodes
             </p>
-            <p style={{ fontSize: windowSize < 766 ? "1.4rem" : "" }}>
+            <p
+              style={{
+                fontSize: windowSize < 766 ? "1.4rem" : "",
+                fontFamily: "'Inter', sans-serif",
+              }}
+            >
               <ClockCircleOutlined /> {duration} Minutes
             </p>
-            <p style={{ fontSize: windowSize < 766 ? "1.4rem" : "" }}>
+            <p
+              style={{
+                fontSize: windowSize < 766 ? "1.4rem" : "",
+                fontFamily: "'Inter', sans-serif",
+              }}
+            >
               <CalendarOutlined /> {year}
             </p>
           </div>
@@ -116,7 +138,8 @@ export default function HeaderCarouselCard({
               textAlign: "justify",
               color: "white",
               fontSize: windowSize < 766 ? "1.4rem" : "",
-
+              fontFamily: "'Inter', sans-serif",
+              lineHeight: "1.5",
               width: windowSize < 766 ? "100%" : "50%",
             }}
           >
