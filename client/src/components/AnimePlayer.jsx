@@ -148,7 +148,7 @@ const AnimePlayer = ({ animeInfo, onOpenModal }) => {
               </div>
             </form>
 
-            <hr style={{ marginTop: 20,background:"grey" }}></hr>
+            <hr style={{ marginTop: 20, background: "grey" }}></hr>
             <h3 style={{ color: "red", marginTop: 10 }}>Summary</h3>
             <p style={{ textAlign: "justify", color: "white" }}>
               <TextTruncate

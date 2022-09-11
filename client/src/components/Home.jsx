@@ -17,14 +17,11 @@ export default function Home() {
   const location = useLocation();
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
-  console.log(location.state);
 
   useEffect(() => {
     const onPageLoad = () => {
-      console.log("bruh");
       setTimeout(() => {
         document.querySelector("#popular").scrollIntoView();
-        console.log(document.querySelector(".scrolltop"));
         setTimeout(() => {
           window.scroll({
             top: 0,

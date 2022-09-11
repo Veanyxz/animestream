@@ -16,7 +16,6 @@ const App = () => {
   const [animeInfo, setAnimeInfo] = useState(null);
   const [videoIsLoading, setVideoIsLoading] = useState(false);
   useEffect(() => {
-    console.log("anime info changed");
   }, [animeInfo]);
 
   const override = {
@@ -32,7 +31,6 @@ const App = () => {
     borderColor: "red",
   };
   const onOpenModal = () => {
-    console.log("model opened");
     setOpen(true);
   };
   const onCloseModal = () => setOpen(false);

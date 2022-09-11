@@ -9,12 +9,19 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./Navbar";
 const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
-  console.log(animeInfo);
+  if (animeInfo) {
+    localStorage.setItem("animeInfo", JSON.stringify(animeInfo));
+  }
   const animestate = useContext(SharedState);
-  const [anime, setAnime] = useState(animeInfo);
+  const [anime, setAnime] = useState(
+    animeInfo ? animeInfo : JSON.parse(localStorage.getItem("animeInfo"))
+  );
+  useEffect(() => {
+    console.log(JSON.parse(localStorage.getItem("animeInfo")));
+  }, []);
   const [selectedOption, setSelectedOption] = useState(1);
   const [currentStreamUrl, setCurrentStreamUrl] = useState(null);
-  const [currentId, setCurrentId] = useState(animeInfo.episodes[0].id);
+  const [currentId, setCurrentId] = useState("");
   const epArray = [];
   for (let i = 1; i < anime.episodes.length; i++) {
     epArray.push(i);
@@ -33,8 +40,6 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
   async function fetchVideoById(url) {
     return await axios.get(url).then((response) => {
       setCurrentStreamUrl(response.data.sources[1].url);
-      console.log("stream url changed");
-      console.log(currentStreamUrl);
     });
   }
 
@@ -49,12 +54,13 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
   }, [currentId]);
 
   useEffect(() => {
-    setAnime(animeInfo);
-    setCurrentId(animeInfo.episodes[0].id);
+    if (animeInfo) {
+      setAnime(animeInfo);
+      setCurrentId(animeInfo.episodes[selectedOption - 1].id);
+    }
   }, [animeInfo]);
 
   useEffect(() => {
-    console.log(selectedOption);
     changeStream();
   }, [selectedOption]);
 
@@ -71,7 +77,6 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
   if (anime.relations !== null) {
     for (let i = 0; i < anime.relations.length; i++) {
       if (anime.relations[i].relationType === "ADAPTATION") {
-        console.log(anime.relations[i].title.english);
         adaptation =
           anime.relations[i].title.english || anime.relations[i].title.romaji;
       }
@@ -80,7 +85,7 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
   return (
     <>
       <Navbar></Navbar>
-      {currentStreamUrl !== null && (
+      {currentStreamUrl !== null && anime && (
         <div
           style={{
             width: "100%",
@@ -96,7 +101,7 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
             className="curranime"
             style={{
               height: "100%",
-              padding: 12,
+              padding: 15,
               backgroundColor: "#10141e",
               fontFamily: "'Inter', sans-serif",
               lineHeight: "1.5",
