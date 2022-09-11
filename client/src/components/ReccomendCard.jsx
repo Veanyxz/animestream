@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import TextTruncate from "react-text-truncate";
 import axios from "axios";
 import { SharedState } from "../App";
-
+import { useNavigate } from "react-router-dom";
 export default function ReccomendCard({
   title,
   image,
@@ -12,7 +12,7 @@ export default function ReccomendCard({
   id,
 }) {
   const animestate = useContext(SharedState);
-
+  const navigate = useNavigate();
   useEffect(() => {
     window.addEventListener("resize", () => {
       setWindowSize(window.innerWidth);
@@ -27,7 +27,7 @@ export default function ReccomendCard({
     else if (windowSize >= 800 && windowSize < 1300) return [180, 270];
     // else if (windowSize >= 475 && windowSize < 800) {
     //   return [130, 165];
-     else if (windowSize >= 440 && windowSize < 800) return [130, 185];
+    else if (windowSize >= 440 && windowSize < 800) return [130, 185];
     else if (windowSize >= 420 && windowSize < 440) return [130, 185];
     else if (windowSize >= 390 && windowSize < 420) return [110, 175];
     else if (windowSize >= 360 && windowSize < 390) return [110, 165];
@@ -40,8 +40,7 @@ export default function ReccomendCard({
       .get("https://consumet-api.herokuapp.com/meta/anilist/info/" + id)
       .then((res) => {
         animestate.setAnimeInfo(res.data);
-        animestate.onOpenModal();
-        animestate.setVideoIsLoading(false);
+        navigate("/animeplay", { state: { animeInfo: res.data } });
       })
       .catch((e) => {
         console.log(e);

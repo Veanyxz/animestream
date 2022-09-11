@@ -14,11 +14,11 @@ export default function ReccomendCarousel({ finalQuery }) {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
 
   const calculateCenterSlidePercent = () => {
-    if (windowSize >= 1700) return 34;
-    else if (windowSize >= 1600) return 50;
+    if (windowSize >= 1700) return 22;
+    else if (windowSize >= 1600) return 25;
     else if (windowSize >= 1100) return 44;
-    else if (windowSize >= 790) return 48;
-    else if (windowSize >= 450) return 60;
+    else if (windowSize >= 790) return 40;
+    else if (windowSize >= 450) return 45;
     else if (windowSize >= 350) return 74;
     else return 80;
   };

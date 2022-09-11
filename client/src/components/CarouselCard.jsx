@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import TextTruncate from "react-text-truncate";
 import axios from "axios";
 import { SharedState } from "../App";
-
+import { useNavigate } from "react-router-dom";
 export default function CarouselCard({
   title,
   image,
@@ -10,6 +10,7 @@ export default function CarouselCard({
   rating,
   id,
 }) {
+  const navigate = useNavigate();
   const animestate = useContext(SharedState);
 
   useEffect(() => {
@@ -24,13 +25,6 @@ export default function CarouselCard({
     else if (windowSize > 1600 && windowSize < 1700) return [230, 360];
     else if (windowSize > 1300 && windowSize < 1600) return [200, 310];
     else if (windowSize >= 800 && windowSize < 1300) return [180, 270];
-    // else if (windowSize >= 475 && windowSize < 800) {
-    //   return [230, 225];
-    // } else if (windowSize >= 440 && windowSize < 475) return [130, 210];
-    // else if (windowSize >= 420 && windowSize < 440) return [130, 185];
-    // else if (windowSize >= 390 && windowSize < 420) return [110, 175];
-    // else if (windowSize >= 360 && windowSize < 390) return [110, 165];
-    // else return [90, 150];
     else if (windowSize >= 475 && windowSize < 800) {
       return [180, 145];
     } else if (windowSize >= 440 && windowSize < 475) return [160, 130];
@@ -46,8 +40,9 @@ export default function CarouselCard({
       .get("https://consumet-api.herokuapp.com/meta/anilist/info/" + id)
       .then((res) => {
         animestate.setAnimeInfo(res.data);
-        animestate.onOpenModal();
-        animestate.setVideoIsLoading(false);
+        // animestate.onOpenModal();
+        navigate("/animeplay", { state: { animeInfo: res.data } });
+        // animestate.setVideoIsLoading(false);
       })
       .catch((e) => {
         console.log(e);

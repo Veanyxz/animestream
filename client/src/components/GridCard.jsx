@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { SharedState } from "../App";
+import { useNavigate } from "react-router-dom";
 
 export default function GridCard({
   title,
@@ -14,6 +15,7 @@ export default function GridCard({
   navstate,
   results,
 }) {
+  const navigate = useNavigate();
   const animestate = useContext(SharedState);
 
   const [windowSize, setWindowSize] = useState(window.innerWidth);
@@ -23,20 +25,11 @@ export default function GridCard({
     return await axios
       .get("https://consumet-api.herokuapp.com/meta/anilist/info/" + id)
       .then((res) => {
-        if (!onOpenModal) {
-          animestate.setAnimeInfo(res.data);
+        animestate.setAnimeInfo(res.data);
 
-          animestate.onOpenModal();
-        } else {
-          setAnimeInfo(res.data);
-
-          onOpenModal();
-        }
-        if (!navstate) {
-          animestate.setVideoIsLoading(false);
-        } else {
-          navstate.setVideoIsLoading(false);
-        }
+        // animestate.onOpenModal();
+        navigate("/animeplay", { state: { animeInfo: res.data } });
+        // animestate.setVideoIsLoading(false);
       })
       .catch((e) => {
         console.log(e);
@@ -54,10 +47,10 @@ export default function GridCard({
     else if (windowSize > 1168 && windowSize < 1500) return [250, 210];
     else if (windowSize >= 800 && windowSize < 1300) return [180, 270];
     else if (windowSize >= 475 && windowSize < 800) return [180, 145];
-    else if (windowSize >= 440 && windowSize < 475) return [160,130];
-    else if (windowSize >= 420 && windowSize < 440) return [170,125];
-    else if (windowSize >= 390 && windowSize < 420) return [140,115];
-    else if (windowSize >= 360 && windowSize < 390) return [140,110];
+    else if (windowSize >= 440 && windowSize < 475) return [160, 130];
+    else if (windowSize >= 420 && windowSize < 440) return [170, 125];
+    else if (windowSize >= 390 && windowSize < 420) return [140, 115];
+    else if (windowSize >= 360 && windowSize < 390) return [140, 110];
     else return [120, 100];
   };
   useEffect(() => {
@@ -124,7 +117,8 @@ export default function GridCard({
           className="grid-card-title"
           style={{
             textAlign: "center",
-            color: "white",marginTop:1,
+            color: "white",
+            marginTop: 1,
             fontWeight: "lighter",
             fontSize: windowSize < 768 ? "1.2rem" : "1.5rem",
           }}

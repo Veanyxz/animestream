@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AnimePlayer from "./components/AnimePlayer";
 import { Modal } from "react-responsive-modal";
 import ClockLoader from "react-spinners/ClockLoader";
+import AnimePlayerPage from "./components/AnimePlayerPage";
 import MoviesSection from "./components/MoviesSection";
 import RecentSection from "./components/RecentSection";
 import SearchResults from "./components/SearchResults";
@@ -80,6 +81,11 @@ const App = () => {
               <Route
                 path="/recentep"
                 element={<RecentSection></RecentSection>}
+              />
+
+              <Route
+                path="/animeplay"
+                element={<AnimePlayerPage animeInfo={animeInfo} />}
               />
 
               <Route path="/" element={<Home />} />
