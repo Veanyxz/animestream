@@ -67,7 +67,16 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
     regexeddescription.indexOf("("),
     4
   );
-
+  let adaptation = "";
+  if (anime.relations !== null) {
+    for (let i = 0; i < anime.relations.length; i++) {
+      if (anime.relations[i].relationType === "ADAPTATION") {
+        console.log(anime.relations[i].title.english);
+        adaptation =
+          anime.relations[i].title.english || anime.relations[i].title.romaji;
+      }
+    }
+  }
   return (
     <>
       <Navbar></Navbar>
@@ -75,19 +84,19 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
         <div
           style={{
             width: "100%",
-            maxWidth: 1200,
+            maxWidth: 1100,
             margin: "0 auto",
             marginTop: 70,
           }}
         >
           {animestate.setVideoIsLoading(false)}
+          <ShakaPlayer autoPlay src={currentStreamUrl} />
 
-          <ShakaPlayer width="100vw" autoPlay src={currentStreamUrl} />
           <div
             className="curranime"
             style={{
               height: "100%",
-              padding: 20,
+              padding: 12,
               backgroundColor: "#10141e",
               fontFamily: "'Inter', sans-serif",
               lineHeight: "1.5",
@@ -105,16 +114,13 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
                 Rating: {anime.rating}
               </span>
               <span style={{ color: "white" }} className="curranime-epaired">
-                Episodes Aired: {anime.episodes.length}
+                Ep Total: {anime.episodes.length}
               </span>
               <span
                 style={{ color: "white" }}
                 className="curranime-releaseyear"
               >
                 {anime.releaseDate}
-              </span>
-              <span style={{ color: "white" }} className="curranime-status">
-                {anime.status}
               </span>
             </div>
 
@@ -123,13 +129,13 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
                 className="contindex"
                 style={{
                   overflowY: "scroll",
-                  maxHeight: 95,
+                  maxHeight: 100,
                   height: "fit-content",
                   display: "grid",
                   gap: "5px",
                   justifyItems: "start",
 
-                  gridTemplateColumns: "repeat(auto-fit, minmax(50px, 1fr))",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(45px, 1fr))",
                 }}
               >
                 {epArray.map((ep, index) => {
@@ -141,13 +147,14 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
                       }}
                       style={{
                         cursor: "pointer",
-                        height: 30,
-                        width: 50,
+                        height: 25,
+                        width: 45,
                         color: "white",
                         backgroundColor: "#366083",
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
+                        fontSize: "1.3rem",
                       }}
                     >
                       {ep}
@@ -175,9 +182,18 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
               <span style={{ color: "white" }}>{anime.studios.join(", ")}</span>
             </h4>
 
-            <h4 style={{ color: "red" }}>Adapation: </h4>
-
-            <h4 style={{ color: "red" }}>Sequel: </h4>
+            {adaptation !== "" && (
+              <h4 style={{ color: "red" }}>
+                Adapation:&nbsp;
+                <span style={{ color: "white" }}>{adaptation}</span>
+              </h4>
+            )}
+            <h4 style={{ color: "red" }}>
+              Status:&nbsp;
+              <span style={{ color: "white" }} className="curranime-status">
+                {anime.status}
+              </span>
+            </h4>
 
             <br />
             <div className="recommendations">

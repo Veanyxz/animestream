@@ -24,10 +24,9 @@ export default function ReccomendCard({
     if (windowSize > 1700) return [340, 230];
     else if (windowSize > 1600 && windowSize < 1700) return [230, 360];
     else if (windowSize > 1300 && windowSize < 1600) return [200, 310];
-    else if (windowSize >= 800 && windowSize < 1300) return [180, 270];
-    // else if (windowSize >= 475 && windowSize < 800) {
-    //   return [130, 165];
-    else if (windowSize >= 440 && windowSize < 800) return [130, 185];
+    else if (windowSize >= 768 && windowSize < 1300) return [180, 270];
+  
+    else if (windowSize >= 440 && windowSize <768) return [130, 185];
     else if (windowSize >= 420 && windowSize < 440) return [130, 185];
     else if (windowSize >= 390 && windowSize < 420) return [110, 175];
     else if (windowSize >= 360 && windowSize < 390) return [110, 165];

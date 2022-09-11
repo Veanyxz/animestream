@@ -40,9 +40,9 @@ export default function CarouselCard({
       .get("https://consumet-api.herokuapp.com/meta/anilist/info/" + id)
       .then((res) => {
         animestate.setAnimeInfo(res.data);
-        // animestate.onOpenModal();
+        console.log(res.data);
+
         navigate("/animeplay", { state: { animeInfo: res.data } });
-        // animestate.setVideoIsLoading(false);
       })
       .catch((e) => {
         console.log(e);

@@ -18,8 +18,9 @@ export default function ReccomendCarousel({ finalQuery }) {
     else if (windowSize >= 1600) return 25;
     else if (windowSize >= 1100) return 44;
     else if (windowSize >= 790) return 40;
+    else if (windowSize >= 560) return 40;
     else if (windowSize >= 450) return 45;
-    else if (windowSize >= 350) return 74;
+    else if (windowSize >= 350) return 50;
     else return 80;
   };
   return (
