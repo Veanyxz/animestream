@@ -29,7 +29,7 @@ export default function UpcomingSection() {
         <CarouselRenderer
           finalQuery={upcoming}
           rowTitle="Upcoming"
-          isTrending={true}
+          isUpcoming={true}
           setIsPlaying={setIsPlaying}
           setTrailerId={setTrailerId}
         ></CarouselRenderer>

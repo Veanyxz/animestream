@@ -78,6 +78,7 @@ export default function CarouselCard({
             height: calculateSize(windowSize)[0],
             width: calculateSize(windowSize)[1],
             backgroundPosition: "center",
+            backgroundSize:"cover",
             animation: "x 1s",
           }}
         ></div>
