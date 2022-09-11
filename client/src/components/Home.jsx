@@ -66,7 +66,13 @@ export default function Home() {
           id={"trending"}
           sectiontitle={"Trending"}
         ></AnimeSection>
-        {/* <RecentSection></RecentSection> */}
+        <AnimeSection
+          url={
+            "https://consumet-api.herokuapp.com/meta/anilist/advanced-search?format=SPECIAL"
+          }
+          id={"special"}
+          sectiontitle={"Special"}
+        ></AnimeSection>
         <InfiniteSection
           url={"https://consumet-api.herokuapp.com/meta/anilist/popular"}
           itemlimit={18}
@@ -74,8 +80,6 @@ export default function Home() {
           id="popular"
           querytype={"?"}
         ></InfiniteSection>
-
-        {/* <PopularSection></PopularSection> */}
         <ScrollToTop className="scrolltop" top={1500} smooth color="#6f00ff" />
       </>
     </SharedState.Provider>

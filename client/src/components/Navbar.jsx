@@ -83,7 +83,7 @@ export default function Navbar() {
       <div className="nav-side-div">
         <div
           onClick={(e) => {
-            e.preventDefault()
+            e.preventDefault();
             navigate("/");
           }}
           style={{
@@ -133,7 +133,7 @@ export default function Navbar() {
               href="/"
               className="nav__link"
             >
-              Top Anime
+              Popular
             </a>
           </li>
           <li className="nav__item">

@@ -72,13 +72,19 @@ const AnimePlayer = ({ animeInfo, onOpenModal }) => {
 
   return (
     <>
-      {currentStreamUrl !== null &&  (
+      {currentStreamUrl !== null && (
         <>
           <ShakaPlayer autoPlay src={currentStreamUrl} />
 
           <div
             className="curranime"
-            style={{ height: "100%", padding: 30, backgroundColor: "#10141e",fontFamily: "'Inter', sans-serif",lineHeight:"1.5" }}
+            style={{
+              height: "100%",
+              padding: 30,
+              backgroundColor: "#10141e",
+              fontFamily: "'Inter', sans-serif",
+              lineHeight: "1.5",
+            }}
           >
             <h2 style={{ color: "red" }}>{anime.title.english}</h2>
             <div

@@ -88,7 +88,6 @@ export default function HeaderCarouselCard({
             style={{
               fontSize: windowSize < 766 ? "2.5rem" : "4rem",
               color: "white",
-              fontFamily: "'Poppins', sans-serif"
             }}
           >
             {title !== "" && title}
