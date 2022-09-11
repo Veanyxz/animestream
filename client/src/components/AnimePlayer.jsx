@@ -16,7 +16,7 @@ const AnimePlayer = ({ animeInfo, onOpenModal }) => {
   const [currentStreamUrl, setCurrentStreamUrl] = useState(null);
   const [currentId, setCurrentId] = useState(anime.episodes[0].id);
   const epArray = [];
-  for (let i = 1; i < anime.episodes.length; i++) {
+  for (let i = 1; i <= anime.episodes.length; i++) {
     epArray.push(i);
   }
 

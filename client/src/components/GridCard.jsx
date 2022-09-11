@@ -92,7 +92,7 @@ export default function GridCard({
               fontSize: "1.35rem",
               display: "flex",
               gap: 4,
-              borderTopLeftRadius:10,
+              borderTopLeftRadius: 10,
               justifyContent: "center",
               alignItems: "center",
             }}
