@@ -38,7 +38,7 @@ export default function Home() {
       }}
     >
       <>
-        {/* <Header></Header> */}
+        <Header></Header>
         <UpcomingSection></UpcomingSection>
 
         <AnimeSection
