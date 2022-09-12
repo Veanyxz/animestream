@@ -1,7 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import GridRenderer from "./GridRenderer.jsx";
 import "react-toastify/dist/ReactToastify.css";
-import { Cutter } from "./Cutter.jsx";
 import ClockLoader from "react-spinners/ClockLoader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { v4 as uuidv4 } from "uuid";
@@ -97,7 +96,6 @@ export default function InfiniteSection({
         {fetchedData.length > 0 && (
           <>
             <h1
-              className={id + "-title"}
               style={{ color: "#fdba74", fontSize: "3rem", marginLeft: "20px" }}
             >
               {sectiontitle}

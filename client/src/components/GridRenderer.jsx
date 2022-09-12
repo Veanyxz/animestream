@@ -6,8 +6,6 @@ import GridCard from "./GridCard";
 setConfiguration({ breakpoints: [768, 1000, 1700, 1800, 1900] });
 
 const GridRenderer = ({ finalQuery, setAnimeInfo }) => {
-  console.log(finalQuery);
-
   return (
     <Container fluid={true}>
       <Row justify="center" gutterWidth={12}>

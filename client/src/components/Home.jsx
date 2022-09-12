@@ -5,27 +5,19 @@ import "react-responsive-modal/styles.css";
 import InfiniteSection from "./InfiniteSection";
 import ScrollToTop from "react-scroll-to-top";
 import Header from "./Header";
-import MoviesSection from "./MoviesSection";
 import UpcomingSection from "./UpcomingSection";
-import { useRef } from "react";
-import Caro from "./ReccomendCarousel";
 import RecentSection from "./RecentSection";
 import AnimeSection from "./AnimeSection";
-import Cutter from "./Cutter";
+import GenresCard from "./GenresCard";
 export const SharedState = React.createContext();
 export default function Home() {
-  const location = useLocation();
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
 
   useEffect(() => {
     const onPageLoad = () => {
       setTimeout(() => {
-        window.scrollTo({
-          top: 2390,
-          left: 100,
-          behavior: "smooth",
-        });
+        document.querySelector("#popular").scrollIntoView();
       }, 1500);
     };
 
@@ -46,7 +38,7 @@ export default function Home() {
       }}
     >
       <>
-        <Header></Header>
+        {/* <Header></Header> */}
         <UpcomingSection></UpcomingSection>
 
         <AnimeSection
@@ -56,6 +48,8 @@ export default function Home() {
           id={"recent"}
           sectiontitle={"Recent"}
         ></AnimeSection>
+
+        {/* <GenresCard></GenresCard> */}
         <AnimeSection
           url={"https://consumet-api.herokuapp.com/meta/anilist/trending"}
           id={"trending"}

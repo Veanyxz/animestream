@@ -4,6 +4,7 @@ import axios from "axios";
 import { SharedState } from "../App";
 import { useNavigate } from "react-router-dom";
 import { StarFilled } from "@ant-design/icons";
+import "./CarouselCard.css";
 export default function CarouselCard({
   title,
   image,
@@ -15,25 +16,15 @@ export default function CarouselCard({
   const animestate = useContext(SharedState);
 
   useEffect(() => {
-    window.addEventListener("resize", () => {
+    const handleWindowResize = () => {
       setWindowSize(window.innerWidth);
-    });
-  });
+    };
+    window.addEventListener("resize", handleWindowResize);
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
   const [windowSize, setWindowSize] = useState(window.innerWidth);
-
-  const calculateSize = (windowSize) => {
-    if (windowSize > 1700) return [340, 230];
-    else if (windowSize > 1600 && windowSize < 1700) return [230, 360];
-    else if (windowSize > 1300 && windowSize < 1600) return [200, 310];
-    else if (windowSize >= 800 && windowSize < 1300) return [180, 270];
-    else if (windowSize >= 475 && windowSize < 800) {
-      return [180, 145];
-    } else if (windowSize >= 440 && windowSize < 475) return [160, 130];
-    else if (windowSize >= 420 && windowSize < 440) return [170, 125];
-    else if (windowSize >= 390 && windowSize < 420) return [140, 115];
-    else if (windowSize >= 360 && windowSize < 390) return [140, 110];
-    else return [90, 100];
-  };
 
   async function fetchVideo(id) {
     animestate.setVideoIsLoading(true);
@@ -67,14 +58,13 @@ export default function CarouselCard({
           textAlign: "center",
         }}
       >
-
-      
         <div
+          className="animecard-card"
           style={{
             borderRadius: "10px",
             backgroundImage: `url(${image})`,
-            height: calculateSize(windowSize)[0],
-            width: calculateSize(windowSize)[1],
+            // height: calculateSize(windowSize)[0],
+            // width: calculateSize(windowSize)[1],
             backgroundPosition: "center",
             backgroundSize: "cover",
             animation: "x 1s",

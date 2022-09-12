@@ -45,7 +45,9 @@ button.rec-dot {
 }
 
 .animecard-wrapper:hover,
-.gridcard-wrapper:hover {
+.gridcard-wrapper:hover,
+.recommend-card:hover,
+.recommend-wrapper:hover {
   transform: scale(1.02);
   transition: 150ms ease;
 }
@@ -72,7 +74,32 @@ button.rec-dot:focus {
 .epindex:hover {
   background-color: #3f1e26 !important;
 }
+
+.recommend-card {
+  height: 250px;
+  width: 210px;
+}
+
+.recommend-div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: minmax(14rem, 1fr);
+  grid-auto-rows: 1fr;
+  grid-gap: 10px;
+  grid-auto-flow: dense;
+}
+
 @media screen and (max-width: 768px) {
+  .recommend-carousel {
+    display: none !important;
+  }
+  .recommend-card {
+    /* grid-template-columns: repeat(auto-fit, minmax(900px, 1fr)); */
+
+    height: 50px !important;
+    width: 50px !important;
+  }
+
   .react-responsive-modal-closeButton {
     padding: 6px 15px !important;
   }
@@ -91,6 +118,7 @@ button.rec-dot:focus {
     font-size: 1.2rem !important;
   }
 }
+
 @media screen and (max-width: 1000px) {
   .pageindex {
     gap: 1px !important;
@@ -147,3 +175,4 @@ button.rec-dot:focus {
 .btn-pageindex:hover {
   border: 1px solid dodgerblue !important;
 }
+

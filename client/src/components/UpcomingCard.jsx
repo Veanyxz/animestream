@@ -1,44 +1,16 @@
-import { useEffect, useState } from "react";
 import TextTruncate from "react-text-truncate";
-
+import "./UpcomingCard.css";
 import { motion } from "framer-motion";
 const UpcomingCard = ({
   title,
   image,
 
-  rowTitle,
   episodeNum,
   trailerVideoId,
   setIsPlaying,
   setTrailerId,
   id,
 }) => {
-  const [windowSize, setWindowSize] = useState(window.innerWidth);
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setWindowSize(window.innerWidth);
-    });
-  });
-
-  const calculateSize = (windowSize) => {
-    if (windowSize > 1750) return [240, 430];
-    else if (windowSize >= 1600 && windowSize < 1750) return [230, 360];
-    else if (windowSize >= 1300 && windowSize < 1600) return [200, 310];
-    else if (windowSize >= 800 && windowSize < 1300) return [180, 270];
-    // else if (windowSize >= 475 && windowSize < 800) return [130, 225];
-    // else if (windowSize >= 440 && windowSize < 475) return [130, 210];
-    // else if (windowSize >= 420 && windowSize < 440) return [130, 185];
-    // else if (windowSize >= 390 && windowSize < 420) return [110, 175];
-    // else if (windowSize >= 360 && windowSize < 390) return [110, 165];
-    // else return [90, 150];
-    else if (windowSize >= 475 && windowSize < 800) {
-      return [130, 220];
-    } else if (windowSize >= 440 && windowSize < 475) return [130, 200];
-    else if (windowSize >= 420 && windowSize < 440) return [130, 190];
-    else if (windowSize >= 390 && windowSize < 420) return [110, 180];
-    else if (windowSize >= 360 && windowSize < 390) return [100, 167];
-    else return [90, 150];
-  };
   return (
     <>
       <motion.div
@@ -48,26 +20,12 @@ const UpcomingCard = ({
 
           setIsPlaying(true);
         }}
-        className="animecard-wrapper"
-        style={{
-          display: "flex",
-
-          flexDirection: "column",
-          alignItems: "center",
-          height: "fit-content",
-
-          justifyContent: "center",
-          textAlign: "center",
-        }}
+        className="upcomingcard-wrapper"
       >
         <div
+          className="upcomingcard-card"
           style={{
-            borderRadius: "10px",
             backgroundImage: `url(${image})`,
-            height: calculateSize(windowSize)[0],
-            width: calculateSize(windowSize)[1],
-            backgroundPosition: "center",
-            backgroundSize: "cover",
           }}
         ></div>
 
@@ -82,12 +40,7 @@ const UpcomingCard = ({
             e.preventDefault();
           }}
           href="/"
-          className="anime-card-title"
-          style={{
-            color: "white",
-            fontSize: windowSize < 768 ? "1.2rem" : "1.5rem",
-            marginTop: 5,
-          }}
+          className="upcoming-card-title"
         >
           <TextTruncate text={title} line={2}></TextTruncate>
         </a>

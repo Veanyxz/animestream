@@ -26,6 +26,7 @@ const HeaderCarouselRenderer = ({ finalResults }) => {
       showArrows={false}
       autoPlaySpeed={2000}
       breakPoints={breakPoints}
+
       onNextEnd={({ index }) => {
         clearTimeout(resetTimeout);
         resetTimeout = setTimeout(() => {

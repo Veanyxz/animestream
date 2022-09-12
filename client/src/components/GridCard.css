@@ -1,0 +1,97 @@
+.gridcardinfo-year {
+  color: white;
+  font-size: 1.15rem;
+  margin-top: 4px;
+}
+.grid-card-title {
+  text-align: center;
+  color: white;
+  margin-top: 1px;
+  font-weight: lighter;
+  font-size: 1.2rem;
+}
+.gridcard-card {
+  background-position: center;
+  background-size: cover;
+  border-radius: 15px;
+}
+@media screen and (max-width: 359px) {
+  .gridcard-card {
+    height: 120px;
+    width: 100px;
+  }
+}
+
+@media screen and (min-width: 390px) {
+  .upcomingcard-card {
+    height: 110px;
+    width: 180px;
+  }
+}
+@media screen and (min-width: 420px) {
+  .gridcard-card {
+    height: 170px;
+    width: 125px;
+  }
+}
+@media screen and (min-width: 440px) {
+  .upcomingcard-card {
+    height: 160px;
+    width: 130px;
+  }
+}
+@media screen and (min-width: 475px) {
+  .gridcard-card {
+    height: 180px;
+    width: 145px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .gridcard-card {
+    height: 180px;
+    width: 270px;
+  }
+  .gridcardinfo-year {
+    font-size: 1.35rem;
+  }
+  .grid-card-title {
+    font-size: 1.5rem;
+  }
+}
+
+.stardiv {
+  color: yellow;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 2px 7px;
+  position: absolute;
+  border-radius: 5px;
+  font-size: 1.35rem;
+  display: flex;
+  gap: 4px;
+  border-top-left-radius: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.gridcard-wrapper {
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+.gridcard-epnumber {
+  color: white;
+  font-weight: lighter;
+}
+
+@media screen and (min-width: 1168px) {
+  .gridcard-card {
+    height: 250px;
+    width: 210px;
+  }
+}
+@media screen and (min-width: 1500px) {
+  .gridcard-card {
+    height: 380px;
+    width: 280px;
+  }
+}

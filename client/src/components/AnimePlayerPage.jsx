@@ -244,7 +244,18 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
           </div>
         </div>
       )}
-      <ScrollToTop className="scrolltop" top={"300"} smooth color="#6f00ff" />
+      <ScrollToTop
+          style={{
+            border: "1px solid dodgerblue",
+            background: "rgb(33, 33, 33)",
+            color: "white",
+            boxShadow: "none",
+          }}
+          className="scrolltop"
+          top={1500}
+          smooth
+          color="#fff"
+        />
     </>
   );
 };

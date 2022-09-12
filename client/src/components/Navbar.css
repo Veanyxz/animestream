@@ -30,7 +30,7 @@ a {
   left: 0;
   right: 0;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding-right: 25px;
   height: 65px;
   z-index: 2000;
@@ -165,7 +165,6 @@ a {
   display: inline-block;
   padding: 10px 15px;
   border-radius: 0.7rem;
-
   border: none;
   font-size: 1.5rem;
   color: #9aa2ae;

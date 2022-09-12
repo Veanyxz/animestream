@@ -10,6 +10,7 @@ export default function CarouselRenderer({
   isRecent,
   isUpcoming,
   stretchedA,
+  width,
   type = "",
   initialActiveIndex,
   setIsPlaying,
@@ -27,10 +28,10 @@ export default function CarouselRenderer({
 
     { width: 670, itemsToShow: isUpcoming ? 3 : 3 },
 
-    { width: 950, itemsToShow: isUpcoming ? 3 : 3 },
+    { width: 1100, itemsToShow: isUpcoming ? 3 : 4 },
 
-    { width: 1200, itemsToShow: isUpcoming ? 4 : 4 },
-    { width: 1673, itemsToShow: isUpcoming ? 4 : 7 },
+    { width: 1580, itemsToShow: isUpcoming ? 4 : 4 },
+    { width: 1720, itemsToShow: isUpcoming ? 4 : 7 },
   ];
 
   return (
@@ -39,6 +40,7 @@ export default function CarouselRenderer({
         style={{
           color: "#fdba74",
           fontSize: "3rem",
+          width: "60%",
           marginLeft: "21px",
           marginBottom: "5px",
         }}
@@ -46,6 +48,7 @@ export default function CarouselRenderer({
         {rowTitle}
       </h1>
       <Carousel
+        style={{ width: windowSize > 1000 ? (width ? width : "") : "" }}
         initialActiveIndex={initialActiveIndex}
         enableTilt={true}
         enableAutoPlay={true}

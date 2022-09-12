@@ -15,7 +15,6 @@ export default function AnimeSection({
       .then((response) => response.json())
       .then((data) => {
         setFetchedData(data.results);
-
       });
   }, []);
   return (
@@ -24,6 +23,7 @@ export default function AnimeSection({
         <CarouselRenderer
           finalQuery={fetchedData}
           stretchedA={true}
+          // width={"75%"}
           rowTitle={sectiontitle}
         ></CarouselRenderer>
       )}
