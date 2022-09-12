@@ -27,8 +27,7 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
   const [anime, setAnime] = useState(
     animeInfo ? animeInfo : JSON.parse(localStorage.getItem("animeInfo"))
   );
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
   const [selectedOption, setSelectedOption] = useState(1);
   const [currentStreamUrl, setCurrentStreamUrl] = useState(null);
   const [currentId, setCurrentId] = useState("");

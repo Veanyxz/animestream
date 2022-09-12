@@ -36,7 +36,7 @@ export default function RecommendCard({
         className="recommend-wrapper"
       >
         <div
-          className="recommend-div"
+          className="recommend-card"
           style={{
             backgroundImage: `url(${image})`,
           }}

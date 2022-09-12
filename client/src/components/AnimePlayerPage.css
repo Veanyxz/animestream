@@ -5,6 +5,14 @@
   margin-top: 70px;
 }
 
+.recommend-div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-rows: minmax(14rem, 1fr);
+  grid-auto-rows: 1fr;
+  grid-gap: 10px;
+  grid-auto-flow: dense;
+}
 .top-narrowbar {
   background-color: rgb(38, 50, 56);
   height: 35px;
@@ -35,11 +43,14 @@ hr {
   border-top: 2px solid #ddd;
   margin-top: 20px;
 }
-.recommendations-title{
-    color: red;
+.recommendations-title {
+  color: red;
 }
-.curranime-status,.curranime-adaptation,.curranime-genres,.curranime-studios{
-    color: white;
+.curranime-status,
+.curranime-adaptation,
+.curranime-genres,
+.curranime-studios {
+  color: white;
 }
 .summary-content {
   text-align: justify;
@@ -73,4 +84,28 @@ hr {
   background-color: #10141e;
   font-family: "Inter", sans-serif;
   line-height: 1.5;
+}
+.recommend-carousel .recommend-card {
+  height: 110px;
+  width: 170px;
+}
+@media screen and (max-width: 768px) {
+  .recommend-card {
+    height: 150px;
+    width: 10px;
+  }
+}
+@media screen and (max-width: 670px) {
+  .recommend-div {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 670px) {
+  .recommend-carousel {
+    display: none !important;
+  }
+}
+.recommend-carousel {
+  display: initial;
 }

@@ -48,7 +48,6 @@ export default function CarouselRenderer({
         {rowTitle}
       </h1>
       <Carousel
-        style={{ width: windowSize > 1000 ? (width ? width : "") : "" }}
         initialActiveIndex={initialActiveIndex}
         enableTilt={true}
         enableAutoPlay={true}
