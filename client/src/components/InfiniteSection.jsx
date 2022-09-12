@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 import GridRenderer from "./GridRenderer.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import ClockLoader from "react-spinners/ClockLoader";
@@ -28,8 +28,6 @@ export default function InfiniteSection({
   id,
   querytype,
 }) {
-  const nopreviouspageerror = () => toast.warning("You are on the first page!");
-  const nonextpageerror = () => toast.warning("You are on the last page!");
   const [fetchedData, setFetchedData] = useState([]);
   const [currpage, setCurrpage] = useState(1);
   const [loading, setLoading] = useState(false);

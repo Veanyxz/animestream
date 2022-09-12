@@ -5,7 +5,7 @@ import { SharedState } from "../App";
 import "./RecommendCard.css";
 import { useNavigate } from "react-router-dom";
 import { StarFilled } from "@ant-design/icons";
-export default function ReccomendCard({
+export default function RecommendCard({
   title,
   image,
   episodeNumber,

@@ -1,0 +1,76 @@
+.animeplayer-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+
+.top-narrowbar {
+  background-color: rgb(38, 50, 56);
+  height: 35px;
+  border-radius: 3px 3px 0px 0px;
+  display: flex;
+  align-items: center;
+  padding: 0px 15px;
+}
+
+.curranimeinfo {
+  margin-top: 5px;
+  display: flex;
+  gap: 25px;
+}
+.contindex {
+  overflow-y: scroll;
+  max-height: 100px;
+  height: fit-content;
+  display: grid;
+  gap: 4px 4px;
+  justify-items: start;
+  justify-content: start;
+  align-items: start;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+}
+hr {
+  border: 0;
+  border-top: 2px solid #ddd;
+  margin-top: 20px;
+}
+.recommendations-title{
+    color: red;
+}
+.curranime-status,.curranime-adaptation,.curranime-genres,.curranime-studios{
+    color: white;
+}
+.summary-content {
+  text-align: justify;
+  color: white;
+}
+.summary-title {
+  color: red;
+  margin-top: 10px;
+}
+.epindex {
+  cursor: pointer;
+  height: 30px;
+  width: 50px;
+  color: white;
+  background-color: #366083;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+}
+.curranime-platform,
+.curranime-score,
+.curranime-epaired,
+.curranime-releaseyear {
+  color: white;
+}
+
+.curranime {
+  height: 100%;
+  padding: 15px;
+  background-color: #10141e;
+  font-family: "Inter", sans-serif;
+  line-height: 1.5;
+}

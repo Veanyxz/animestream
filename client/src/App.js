@@ -3,8 +3,6 @@ import "./App.css";
 import Home from "./components/Home";
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AnimePlayer from "./components/AnimePlayer";
-import { Modal } from "react-responsive-modal";
 import ClockLoader from "react-spinners/ClockLoader";
 import AnimePlayerPage from "./components/AnimePlayerPage";
 import MoviesSection from "./components/MoviesSection";

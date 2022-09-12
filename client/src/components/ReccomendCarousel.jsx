@@ -1,8 +1,6 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-// import { Carousel } from "react-responsive-carousel";
-import CarouselCard from "./CarouselCard";
-import UpcomingCard from "./UpcomingCard";
-import ReccomendCard from "./ReccomendCard";
+
+import RecommendCard from "./RecommendCard";
 import Carousel from "react-elastic-carousel";
 
 import { useEffect, useState } from "react";
@@ -37,29 +35,28 @@ export default function ReccomendCarousel({ finalQuery }) {
       showArrows={false}
     >
       {finalQuery.map((query, index) => (
-        <ReccomendCard
+        <RecommendCard
           title={query.title.english}
           image={query.image}
           key={uuidv4()}
           rating={query.rating}
           id={query.id}
-        ></ReccomendCard>
+        ></RecommendCard>
       ))}
     </Carousel>
   ) : (
     <div className="recommend-div">
       {finalQuery.map((query, index) =>
         index <= 9 ? (
-          <ReccomendCard
+          <RecommendCard
             title={query.title.english}
             image={query.image}
             key={uuidv4()}
             rating={query.rating}
             id={query.id}
-          ></ReccomendCard>
+          ></RecommendCard>
         ) : null
       )}
     </div>
   );
 }
-
