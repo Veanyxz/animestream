@@ -47,7 +47,7 @@ export default function GridCard({
         >
           <div className="stardiv">
             <StarFilled />
-            {rating / 10}
+            <span style={{ color: "white" }}>{rating / 10}</span>
           </div>
         </div>
 

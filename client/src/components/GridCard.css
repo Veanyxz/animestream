@@ -21,9 +21,14 @@
     width: 100px;
   }
 }
-
+@media screen and (min-width: 360px) {
+  .gridcard-card {
+    height: 140px !important;
+    width: 110px !important;
+  }
+}
 @media screen and (min-width: 390px) {
-  .upcomingcard-card {
+  .gridcard-card {
     height: 110px;
     width: 180px;
   }
@@ -35,7 +40,7 @@
   }
 }
 @media screen and (min-width: 440px) {
-  .upcomingcard-card {
+  .gridcard-card {
     height: 160px;
     width: 130px;
   }

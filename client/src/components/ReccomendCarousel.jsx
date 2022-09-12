@@ -45,7 +45,14 @@ export default function ReccomendCarousel({ finalQuery }) {
       ))}
     </Carousel>
   ) : (
-    <div className="recommend-div">
+    <div
+      className="recommend-div"
+      style={{
+        display: "grid",
+        height: "fit-content",
+        gridTemplateColumns: " repeat(auto-fit, minmax(200px, 1fr))",
+      }}
+    >
       {finalQuery.map((query, index) =>
         index <= 9 ? (
           <RecommendCard
