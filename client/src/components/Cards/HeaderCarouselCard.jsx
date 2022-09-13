@@ -6,7 +6,7 @@ import {
 import axios from "axios";
 import "./HeaderCarouselCard.css";
 import { useContext } from "react";
-import { faListOl } from "@fortawesome/free-solid-svg-icons";
+import { faListOl,faChevronRight,faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TextTruncate from "react-text-truncate";
 import { SharedState } from "../../App";
