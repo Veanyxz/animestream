@@ -180,12 +180,19 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
             <div className="recommendations-title">
               <h3>Recommendations</h3>
 
-              <ReccomendCarousel
+              {/* <ReccomendCarousel
+                finalQuery={anime.recommendations}
+              ></ReccomendCarousel> */}
+            </div>
+          </div>
+          <div style={{marginLeft:10}}>
+          <ReccomendCarousel
                 finalQuery={anime.recommendations}
               ></ReccomendCarousel>
             </div>
           </div>
-        </div>
+      
+      
       )}
       <ScrollToTop
         style={{

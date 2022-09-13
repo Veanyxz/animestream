@@ -6,14 +6,14 @@ import { v4 as uuidv4 } from "uuid";
 export default function ReccomendCarousel({ finalQuery }) {
   const breakPoints = [
     { width: 1, itemsToShow: 2 },
-    { width: 480, itemsToShow: 3 },
+    { width: 310, itemsToShow: 3 },
 
-    { width: 520, itemsToShow: 4 },
+    { width: 610, itemsToShow: 4 },
   ];
 
   return (
     <>
-        <Carousel
+      <Carousel
         style={{ marginTop: 3 }}
         className="recommend-carousel"
         autoPlay={true}
@@ -34,8 +34,8 @@ export default function ReccomendCarousel({ finalQuery }) {
           ></RecommendCard>
         ))}
       </Carousel>
-    {/* <div className="recommend-carousel"><Jedi  finalQuery={finalQuery}></Jedi></div> */}
-      
+      {/* <div className="recommend-carousel"><Jedi  finalQuery={finalQuery}></Jedi></div> */}
+
       <div className="recommend-div">
         {finalQuery.map((query, index) =>
           index <= 9 ? (
@@ -49,7 +49,6 @@ export default function ReccomendCarousel({ finalQuery }) {
           ) : null
         )}
       </div>
-  
     </>
   );
 }

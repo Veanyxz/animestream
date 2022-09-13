@@ -1,5 +1,6 @@
 .recommend-wrapper {
   justify-content: center;
+  width: 200px;
   text-align: center;
   align-items: center;
 }
@@ -15,6 +16,7 @@
 .recommend-card-title {
   color: white;
   font-weight: lighter;
+  font-size: 1.4rem;
   margin-top: 5px;
 }
 
