@@ -9,10 +9,8 @@ import {
 } from "@vime/react";
 import toast, { Toaster } from "react-hot-toast";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { DoubleLeftOutlined, DoubleRightOutlined } from "@ant-design/icons";
 import "@vime/core/themes/default.css";
 import "@vime/core/themes/light.css";
 export default function AnimePlayer({ src }) {

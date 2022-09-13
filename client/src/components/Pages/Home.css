@@ -106,11 +106,18 @@ button.rec-dot:focus {
     display: none;
   }
 }
+@media screen and (max-width: 360px) {
+  .pageindex {
+display: none !important;  
+  }
+}
+
 
 @media screen and (max-width: 1000px) {
   .pageindex {
     gap: 1px !important;
     font-size: 2rem !important;
+    width: fit-content !important;
   }
 
   .pagination {

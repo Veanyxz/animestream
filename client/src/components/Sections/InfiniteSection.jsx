@@ -154,7 +154,6 @@ export default function InfiniteSection({
                   style={{
                     display: "flex",
                     gap: 40,
-                    flexWrap: "wrap",
                     justifyContent: "center",
                   }}
                   className="pageindex"
