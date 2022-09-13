@@ -78,9 +78,6 @@ button.rec-dot:focus {
 }
 
 @media screen and (max-width: 768px) {
-  .react-responsive-modal-closeButton {
-    padding: 6px 15px !important;
-  }
   .header-card {
     height: 350px !important;
   }
@@ -93,7 +90,13 @@ button.rec-dot:focus {
     align-items: "center" !important;
   }
   .curranime {
-    font-size: 1.2rem !important;
+    font-size: 1.4rem !important;
+  }
+
+
+  .additional-anime-info {
+    font-size: 1.4rem !important;
+    /* font-weight: lighter !important; */
   }
 }
 
@@ -121,32 +124,6 @@ button.rec-dot:focus {
   }
 }
 
-.customModal {
-  margin-top: 80px !important;
-  width: 80vw !important;
-  background-color: black !important;
-  height: fit-content !important;
-  padding: 0 !important;
-  border-radius: 6px !important;
-  overflow-y: hidden !important;
-}
-
-@keyframes customEnterModalAnimation {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes customLeaveModalAnimation {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
-}
 .btn-index {
   cursor: pointer;
 }

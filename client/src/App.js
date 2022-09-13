@@ -10,7 +10,6 @@ import RecentSection from "./components/RecentSection";
 import SearchResults from "./components/SearchResults";
 export const SharedState = React.createContext();
 const App = () => {
-  const [open, setOpen] = useState(false);
   const [animeInfo, setAnimeInfo] = useState(null);
   const [videoIsLoading, setVideoIsLoading] = useState(false);
   useEffect(() => {}, [animeInfo]);
@@ -27,16 +26,11 @@ const App = () => {
 
     borderColor: "red",
   };
-  const onOpenModal = () => {
-    setOpen(true);
-  };
-  const onCloseModal = () => setOpen(false);
 
   return (
     <SharedState.Provider
       value={{
         setAnimeInfo,
-        onOpenModal,
 
         setVideoIsLoading,
       }}
@@ -44,6 +38,7 @@ const App = () => {
       <div className="App">
         {videoIsLoading && (
           <ClockLoader
+            className="spinner"
             color={"white"}
             loading={videoIsLoading}
             cssOverride={override}
@@ -69,7 +64,6 @@ const App = () => {
                 path="/movies"
                 element={
                   <MoviesSection
-                    onOpenModal={onOpenModal}
                     setAnimeInfo={setAnimeInfo}
                     setVideoIsLoading={setVideoIsLoading}
                   ></MoviesSection>
@@ -78,11 +72,7 @@ const App = () => {
 
               <Route
                 path="/search"
-                element={
-                  <SearchResults
-                    setAnimeInfo={setAnimeInfo}
-                  />
-                }
+                element={<SearchResults setAnimeInfo={setAnimeInfo} />}
               />
             </Routes>
           </>

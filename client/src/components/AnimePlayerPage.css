@@ -41,6 +41,7 @@
 }
 hr {
   border: 0;
+  background-color: cyan;
   border-top: 2px solid #ddd;
   margin-top: 20px;
 }
@@ -63,6 +64,7 @@ hr {
 }
 .epindex {
   cursor: pointer;
+  border-radius: 3px;
   height: 30px;
   width: 50px;
   color: white;

@@ -36,16 +36,14 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
     epArray.push(i);
   }
 
-  useEffect(() => {
-    let epindexes = document.querySelectorAll(".epindex");
-
-    Array.from(epindexes).forEach((epindex) => {
-      if (epindex.innerText === selectedOption)
-        epindex.style.backgroundColor = "red";
-      else epindex.style.backgroundColor = "#366083";
-    });
-  }, [selectedOption]);
-
+  const indexClickHandler = (e) => {
+    e.target.style.backgroundColor = "red";
+    // Array.from(document.querySelectorAll(".epindex")).forEach((item, index) => {
+    //   if (item !== e.target) {
+    //     item.style.backgroundColor = "#366083";
+    //   }
+    // });
+  };
   async function fetchVideoById(url) {
     return await axios.get(url).then((response) => {
       setCurrentStreamUrl(response.data.sources[1].url);
@@ -131,6 +129,7 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
                       className="epindex"
                       onClick={(e) => {
                         setSelectedOption(e.target.innerText);
+                        indexClickHandler(e);
                       }}
                     >
                       {ep}
@@ -140,7 +139,7 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
               </div>
             </form>
 
-            <hr></hr>
+            {/* <hr></hr> */}
 
             <h3 className="summary-title">Summary</h3>
             <p className="summary-content">
@@ -151,14 +150,14 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
             </p>
 
             <br />
-
-            <h4 style={{ color: "red" }}>
+<div className="additional-anime-info">
+            <h4 style={{ color: "red"}}>
               Genres:&nbsp;
               <span className="curranime-genres">
                 {anime.genres.join(", ")}
               </span>
             </h4>
-            <h4 style={{ color: "red" }}>
+            <h4 style={{ color: "red",}}>
               Studios:&nbsp;
               <span className="curranime-studios">
                 {anime.studios.join(", ")}
@@ -171,28 +170,26 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
                 <span className="curranime-adaptation">{adaptation}</span>
               </h4>
             )}
-            <h4 style={{ color: "red" }}>
+            <h4 style={{ color: "red",}}>
               Status:&nbsp;
               <span className="curranime-status">{anime.status}</span>
             </h4>
+            </div>
 
             <br />
             <div className="recommendations-title">
               <h3>Recommendations</h3>
-
               {/* <ReccomendCarousel
                 finalQuery={anime.recommendations}
               ></ReccomendCarousel> */}
             </div>
           </div>
-          <div style={{marginLeft:10}}>
-          <ReccomendCarousel
-                finalQuery={anime.recommendations}
-              ></ReccomendCarousel>
-            </div>
+          <div style={{ marginLeft: 10 }}>
+            <ReccomendCarousel
+              finalQuery={anime.recommendations}
+            ></ReccomendCarousel>
           </div>
-      
-      
+        </div>
       )}
       <ScrollToTop
         style={{
