@@ -45,6 +45,8 @@ a {
 }
 .nav__link {
   color: white;
+  cursor: pointer;
+  font: inherit;
 }
 
 .nav__brand {
@@ -85,6 +87,10 @@ a {
     display: block;
     cursor: pointer;
     border-radius: 5px;
+  }
+
+  .nav__item {
+    color: white;
   }
 
   .searchbar {

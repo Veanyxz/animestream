@@ -123,40 +123,55 @@ export default function Navbar() {
         />
         <ul className={active}>
           <li className="nav__item">
-            <a
+            <span
               onClick={(e) => {
                 e.preventDefault();
                 if (location.pathname !== "/") {
                   navigate("/");
                 } else document.querySelector("#popular").scrollIntoView();
               }}
-              href="/"
               className="nav__link"
             >
               Popular
-            </a>
+            </span>
           </li>
-          <li className="nav__item">
-            <Link to="/movies" style={{ color: "white", font: "inherit" }}>
-              Top Movies
-            </Link>
-          </li>
-
-          <li className="nav__item">
-            <Link to="/recentep" style={{ color: "white", font: "inherit" }}>
-              Recent Ep
-            </Link>
-          </li>
-          <li className="nav__item">
-            <Link to="/login" style={{ color: "white", font: "inherit" }}>
-              Login
-            </Link>
+          <li
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/movies");
+            }}
+            className="nav__item"
+          >
+            <span className="nav__link">Top Movies</span>
           </li>
 
-          <li className="nav__item signoutli">
-            <a href="/" className="nav__link nav__link-signout">
-              Signout
-            </a>
+          <li
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/login");
+            }}
+            className="nav__item"
+          >
+            <span className="nav__link">Login</span>
+          </li>
+          <li
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/recentep");
+            }}
+            className="nav__item"
+          >
+            <span className="nav__link">Recent Ep</span>
+          </li>
+
+          <li
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/signout");
+            }}
+            className="nav__item"
+          >
+            <span className="nav__link">Signout</span>
           </li>
         </ul>
       </div>
