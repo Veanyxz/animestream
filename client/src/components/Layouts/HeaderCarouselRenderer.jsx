@@ -1,14 +1,8 @@
 import Carousel from "react-elastic-carousel";
 
-import HeaderCarouselCard from "./HeaderCarouselCard";
+import HeaderCarouselCard from "../Cards/HeaderCarouselCard";
 import { v4 as uuidv4 } from "uuid";
 import { useState, useEffect, useRef } from "react";
-const breakPoints = [
-  { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 1 },
-  { width: 768, itemsToShow: 1 },
-  { width: 1200, itemsToShow: 1 },
-];
 
 const HeaderCarouselRenderer = ({ finalResults }) => {
   const [windowSize, setWindowSize] = useState(window.innerWidth);
@@ -21,12 +15,10 @@ const HeaderCarouselRenderer = ({ finalResults }) => {
   });
   return (
     <Carousel
+      enableAutoPlay={true}
       ref={carouselRef}
-      // enableAutoPlay={true}
       showArrows={false}
       autoPlaySpeed={2000}
-      breakPoints={breakPoints}
-
       onNextEnd={({ index }) => {
         clearTimeout(resetTimeout);
         resetTimeout = setTimeout(() => {

@@ -1,9 +1,8 @@
 import { useEffect, useState, useContext } from "react";
 import TextTruncate from "react-text-truncate";
 import axios from "axios";
-import { SharedState } from "../App";
+import { SharedState } from "../../App";
 import { useNavigate } from "react-router-dom";
-import { StarFilled } from "@ant-design/icons";
 import "./CarouselCard.css";
 export default function CarouselCard({
   title,
@@ -32,9 +31,8 @@ export default function CarouselCard({
       .get("https://consumet-api.herokuapp.com/meta/anilist/info/" + id)
       .then((res) => {
         animestate.setAnimeInfo(res.data);
-        console.log(res.data);
 
-        navigate("/animeplay", { state: { animeInfo: res.data } });
+        navigate("/watch/" + res.data.id);
       })
       .catch((e) => {
         console.log(e);
@@ -63,8 +61,7 @@ export default function CarouselCard({
           style={{
             borderRadius: "10px",
             backgroundImage: `url(${image})`,
-            // height: calculateSize(windowSize)[0],
-            // width: calculateSize(windowSize)[1],
+
             backgroundPosition: "center",
             backgroundSize: "cover",
             animation: "x 1s",
@@ -85,7 +82,7 @@ export default function CarouselCard({
         )}
 
         <a
-          href="/"
+          href={`/watch/${id}`}
           className="anime-card-title"
           style={{
             color: "white",

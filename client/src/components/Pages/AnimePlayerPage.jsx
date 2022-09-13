@@ -1,21 +1,24 @@
 import ScrollToTop from "react-scroll-to-top";
-import Vime from "./Vime";
+import AnimePlayer from "../Players/AnimePlayer";
 import "./AnimePlayerPage.css";
 import { useEffect, useState, useContext } from "react";
 import TextTruncate from "react-text-truncate";
 import { v4 as uuidv4 } from "uuid";
-
-import ReccomendCarousel from "./ReccomendCarousel";
+import { useParams } from "react-router-dom";
+import ReccomendCarousel from "../Layouts/ReccomendCarousel";
 import {
   StarFilled,
   CalendarOutlined,
   OrderedListOutlined,
   PlayCircleOutlined,
 } from "@ant-design/icons";
-import { SharedState } from "../App";
+import { SharedState } from "../../App";
 import axios from "axios";
-import Navbar from "./Navbar";
-const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
+import Navbar from "../Sections/Navbar";
+const AnimePlayerPage = ({ animeInfo }) => {
+  const { id } = useParams();
+  console.log(id);
+  console.log();
   const animestate = useContext(SharedState);
 
   animestate.setVideoIsLoading(true);
@@ -35,14 +38,6 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
     epArray.push(i);
   }
 
-  const indexClickHandler = (e) => {
-    e.target.style.backgroundColor = "red";
-    // Array.from(document.querySelectorAll(".epindex")).forEach((item, index) => {
-    //   if (item !== e.target) {
-    //     item.style.backgroundColor = "#366083";
-    //   }
-    // });
-  };
   async function fetchVideoById(url) {
     return await axios.get(url).then((response) => {
       setCurrentStreamUrl(response.data.sources[1].url);
@@ -96,8 +91,8 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
       {currentStreamUrl !== null && anime && (
         <div className="animeplayer-container">
           {animestate.setVideoIsLoading(false)}
-         
-<Vime src={currentStreamUrl}></Vime>
+
+          <AnimePlayer src={currentStreamUrl}></AnimePlayer>
 
           <div className="curranime">
             <h2 style={{ color: "#FC4747" }}>{anime.title.english}</h2>
@@ -126,7 +121,6 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
                       className="epindex"
                       onClick={(e) => {
                         setSelectedOption(e.target.innerText);
-                        indexClickHandler(e);
                       }}
                     >
                       {ep}
@@ -176,9 +170,6 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
             <br />
             <div className="recommendations-title">
               <h3>Recommendations</h3>
-              {/* <ReccomendCarousel
-                finalQuery={anime.recommendations}
-              ></ReccomendCarousel> */}
             </div>
           </div>
           <div>

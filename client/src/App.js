@@ -1,13 +1,13 @@
-import Login from "./components/Login";
+import Login from "./components/Pages/Login";
 import "./App.css";
-import Home from "./components/Home";
+import Home from "./components/Pages/Home";
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ClockLoader from "react-spinners/ClockLoader";
-import AnimePlayerPage from "./components/AnimePlayerPage";
-import MoviesSection from "./components/MoviesSection";
-import RecentSection from "./components/RecentSection";
-import SearchResults from "./components/SearchResults";
+import AnimePlayerPage from "./components/Pages/AnimePlayerPage";
+import MoviesSection from "./components/Pages/MoviesPage";
+import RecentPage from "./components/Pages/RecentPage";
+import SearchResults from "./components/Pages/SearchResults";
 export const SharedState = React.createContext();
 const App = () => {
   const [animeInfo, setAnimeInfo] = useState(null);
@@ -49,13 +49,10 @@ const App = () => {
           <>
             <Routes>
               <Route path="/login" element={<Login />} />
-              <Route
-                path="/recentep"
-                element={<RecentSection></RecentSection>}
-              />
+              <Route path="/recentep" element={<RecentPage></RecentPage>} />
 
               <Route
-                path="/animeplay"
+                path="/watch/:id"
                 element={<AnimePlayerPage animeInfo={animeInfo} />}
               />
 

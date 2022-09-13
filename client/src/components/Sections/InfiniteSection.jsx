@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import GridRenderer from "./GridRenderer.jsx";
+import GridRenderer from "../Layouts/GridRenderer.jsx";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 import ClockLoader from "react-spinners/ClockLoader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { v4 as uuidv4 } from "uuid";
@@ -57,16 +58,17 @@ export default function InfiniteSection({
   };
   useEffect(() => {
     setLoading(true);
-    fetch(url + querytype + "page=" + currpage + "&perPage=" + itemlimit)
-      .then((response) => response.json())
+    axios
+      .get(url + querytype + "page=" + currpage + "&perPage=" + itemlimit)
+
       .then((data) => {
-        if (data.hasNextPage) {
+        if (data.data.hasNextPage) {
           setHasNextPage(true);
         } else {
           setHasNextPage(false);
         }
 
-        setFetchedData(data.results);
+        setFetchedData(data.data.results);
         setLoading(false);
         if (currpage > 1) {
           document.querySelector("#" + id).scrollIntoView();

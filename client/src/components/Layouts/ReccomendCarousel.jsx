@@ -1,11 +1,10 @@
-import RecommendCard from "./RecommendCard";
+import RecommendCard from "../Cards/RecommendCard";
 import Carousel from "react-elastic-carousel";
 import { v4 as uuidv4 } from "uuid";
 export default function ReccomendCarousel({ finalQuery }) {
   const breakPoints = [
     { width: 1, itemsToShow: 2 },
     { width: 310, itemsToShow: 3 },
-
     { width: 610, itemsToShow: 4 },
   ];
 

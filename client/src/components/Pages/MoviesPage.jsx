@@ -1,8 +1,8 @@
-import InfiniteSection from "./InfiniteSection";
-import Navbar from "./Navbar";
+import InfiniteSection from "../Sections/InfiniteSection";
+import Navbar from "../Sections/Navbar";
 import React from "react";
 
-const MoviesSection = () => {
+const MoviesPage = () => {
   return (
     <>
       <Navbar></Navbar>
@@ -14,10 +14,9 @@ const MoviesSection = () => {
         sectiontitle={"Top Anime Movies"}
         id="movies"
         querytype={"&"}
-      
       ></InfiniteSection>
     </>
   );
 };
 
-export default MoviesSection;
+export default MoviesPage;

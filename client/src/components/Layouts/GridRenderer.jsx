@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-grid-system";
 import { setConfiguration } from "react-grid-system";
 import { v4 as uuidv4 } from "uuid";
-import GridCard from "./GridCard";
+import GridCard from "../Cards/GridCard";
 
 setConfiguration({ breakpoints: [768, 1000, 1700, 1800, 1900] });
 

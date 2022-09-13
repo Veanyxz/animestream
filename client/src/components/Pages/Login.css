@@ -7,7 +7,7 @@
 
   align-items: center;
   background-size: auto;
-  background-image: url("../assets/images/login-background.webp");
+  background-image: url("../../assets/images/login-background.webp");
 }
 body {
   font-family: "Poppins", sans-serif;

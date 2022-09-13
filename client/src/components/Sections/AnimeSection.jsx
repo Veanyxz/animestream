@@ -1,21 +1,14 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 
-import CarouselRenderer from "./CarouselRenderer";
+import CarouselRenderer from "../Layouts/CarouselRenderer";
 
-export default function AnimeSection({
-  onOpenModal,
-  setAnimeInfo,
-  sectiontitle,
-  url,
-  id,
-}) {
+export default function AnimeSection({ sectiontitle, url, id }) {
   const [fetchedData, setFetchedData] = useState([]);
   useEffect(() => {
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setFetchedData(data.results);
-      });
+    axios.get(url).then((data) => {
+      setFetchedData(data.data.results);
+    });
   }, []);
   return (
     <section className="section section-anime" id={id}>
@@ -23,7 +16,6 @@ export default function AnimeSection({
         <CarouselRenderer
           finalQuery={fetchedData}
           stretchedA={true}
-          // width={"75%"}
           rowTitle={sectiontitle}
         ></CarouselRenderer>
       )}

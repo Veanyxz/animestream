@@ -1,11 +1,11 @@
 import { Container, Row, Col } from "react-grid-system";
-import GridCard from "./GridCard";
+import GridCard from "../Cards/GridCard";
 import { v4 as uuidv4 } from "uuid";
 import { setConfiguration } from "react-grid-system";
 import { useLocation } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
-import Navbar from "./Navbar";
+import Navbar from "../Sections/Navbar";
 setConfiguration({ breakpoints: [768, 1170, 1500, 1700, 1800, 1900] });
 
 export default function SearchResults({ setAnimeInfo }) {
@@ -44,7 +44,6 @@ export default function SearchResults({ setAnimeInfo }) {
                   image={query.image}
                   key={uuidv4()}
                   rating={query.rating}
-                  
                   year={query.releaseDate}
                   results={query}
                 ></GridCard>

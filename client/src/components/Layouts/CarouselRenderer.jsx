@@ -1,17 +1,14 @@
 import Carousel from "react-elastic-carousel";
-
 import { v4 as uuidv4 } from "uuid";
-import CarouselCard from "./CarouselCard";
+import CarouselCard from "../Cards/CarouselCard";
 import { useState, useEffect } from "react";
-import UpcomingCard from "./UpcomingCard";
+import UpcomingCard from "../Cards/UpcomingCard";
 export default function CarouselRenderer({
   finalQuery,
   rowTitle,
   isRecent,
   isUpcoming,
   stretchedA,
-  width,
-  type = "",
   initialActiveIndex,
   setIsPlaying,
   setTrailerId,
@@ -62,7 +59,6 @@ export default function CarouselRenderer({
               title={query.title.english}
               image={query.image}
               key={uuidv4()}
-              type={type}
               rating={query.rating}
               id={query.id}
               rowTitle={rowTitle}

@@ -8,7 +8,7 @@ import { useState, useEffect, useContext } from "react";
 import { faListOl } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TextTruncate from "react-text-truncate";
-import { SharedState } from "../App";
+import { SharedState } from "../../App";
 import { useNavigate } from "react-router-dom";
 export default function HeaderCarouselCard({
   duration,
@@ -35,7 +35,6 @@ export default function HeaderCarouselCard({
 
     borderColor: "red",
   };
-  const [videoIsLoading, setVideoIsLoading] = useState(false);
 
   const [windowSize, setWindowSize] = useState(window.innerWidth);
   async function fetchVideo(id) {
@@ -46,11 +45,8 @@ export default function HeaderCarouselCard({
       .then((res) => {
         animestate.setAnimeInfo(res.data);
 
-        navigate("/animeplay");
+        navigate("/watch");
         animestate.setVideoIsLoading(false);
-      })
-      .catch((e) => {
-        console.log(e);
       });
   }
   useEffect(() => {
@@ -70,13 +66,10 @@ export default function HeaderCarouselCard({
       <div
         className="header-card"
         style={{
-          background:
-            windowSize > 800
-              ? ` linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3) ),url(${cover}),center`
-              : ` linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3) ),url(${coversmall}),center`,
+          backgroundImage: ` linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3) ),url(${cover})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
-          height: /* windowSizne < 766 ? 330 :*/ 450,
+          height: 450,
         }}
       >
         <div

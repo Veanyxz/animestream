@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import CarouselRenderer from "./CarouselRenderer";
-import TrailerPlayer from "./TrailerPlayer";
+import CarouselRenderer from "../Layouts/CarouselRenderer";
+import TrailerPlayer from "../Players/TrailerPlayer";
 import axios from "axios";
 export default function UpcomingSection() {
   const [trailerId, setTrailerId] = useState("");
@@ -8,10 +8,10 @@ export default function UpcomingSection() {
   const [upcoming, setUpComing] = useState([]);
 
   useEffect(() => {
-    fetch("https://api.jikan.moe/v4/top/anime?filter=upcoming")
-      .then((response) => response.json())
-      .then((data) => {
-        setUpComing(data.data);
+    axios
+      .get("https://api.jikan.moe/v4/top/anime?filter=upcoming")
+      .then((res) => {
+        setUpComing(res.data.data);
       });
   }, []);
   return (

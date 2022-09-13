@@ -1,7 +1,7 @@
 import "./Navbar.css";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logo from "../assets/images/image.png";
+import logo from "../../assets/images/image.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -122,13 +122,12 @@ export default function Navbar() {
           value={value}
         />
         <ul className={active}>
-          <li></li>
           <li className="nav__item">
             <a
               onClick={(e) => {
                 e.preventDefault();
                 if (location.pathname !== "/") {
-                  navigate("/", { state: { scrollTo: "#popular" } });
+                  navigate("/");
                 } else document.querySelector("#popular").scrollIntoView();
               }}
               href="/"
@@ -138,14 +137,7 @@ export default function Navbar() {
             </a>
           </li>
           <li className="nav__item">
-            <Link
-              onClick={(e) => {
-                e.preventDefault();
-                navigate("/movies");
-              }}
-              to="/wallpapers"
-              style={{ color: "white", font: "inherit" }}
-            >
+            <Link to="/movies" style={{ color: "white", font: "inherit" }}>
               Top Movies
             </Link>
           </li>

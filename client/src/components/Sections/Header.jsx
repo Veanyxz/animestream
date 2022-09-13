@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import "./Header.css";
 import React from "react";
-import HeaderCarouselRenderer from "./HeaderCarouselRenderer";
+import HeaderCarouselRenderer from "../Layouts/HeaderCarouselRenderer";
 import Navbar from "./Navbar";
 const Header = () => {
   const [finalResults, setFinalResults] = useState([]);

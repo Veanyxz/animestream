@@ -1,13 +1,10 @@
 import "./Home.css";
-import { useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import InfiniteSection from "./InfiniteSection";
+import InfiniteSection from "../Sections/InfiniteSection";
 import ScrollToTop from "react-scroll-to-top";
-import Header from "./Header";
-import UpcomingSection from "./UpcomingSection";
-import RecentSection from "./RecentSection";
-import AnimeSection from "./AnimeSection";
-import GenresCard from "./GenresCard";
+import Header from "../Sections/Header";
+import UpcomingSection from "../Sections/UpcomingSection";
+import AnimeSection from "../Sections/AnimeSection";
 export const SharedState = React.createContext();
 export default function Home() {
   const [active, setActive] = useState("nav__menu");
