@@ -17,8 +17,6 @@ import axios from "axios";
 import Navbar from "../Sections/Navbar";
 const AnimePlayerPage = ({ animeInfo }) => {
   const { id } = useParams();
-  console.log(id);
-  console.log();
   const animestate = useContext(SharedState);
 
   animestate.setVideoIsLoading(true);

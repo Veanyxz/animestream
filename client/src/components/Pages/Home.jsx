@@ -44,8 +44,6 @@ export default function Home() {
           id={"recent"}
           sectiontitle={"Recent"}
         ></AnimeSection>
-
-        {/* <GenresCard></GenresCard> */}
         <AnimeSection
           url={"https://consumet-api.herokuapp.com/meta/anilist/trending"}
           id={"trending"}

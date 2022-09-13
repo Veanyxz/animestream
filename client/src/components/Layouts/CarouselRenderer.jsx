@@ -25,10 +25,11 @@ export default function CarouselRenderer({
 
     { width: 670, itemsToShow: isUpcoming ? 3 : 3 },
 
-    { width: 1100, itemsToShow: isUpcoming ? 3 : 4 },
+    { width: 1100, itemsToShow: isUpcoming ? 4 : 4 },
 
     { width: 1580, itemsToShow: isUpcoming ? 4 : 4 },
-    { width: 1720, itemsToShow: isUpcoming ? 4 : 7 },
+    { width: 1760, itemsToShow: isUpcoming ? 4 : 7 },
+    { width: 1920, itemsToShow: isUpcoming ? 4 : 8 },
   ];
 
   return (
@@ -49,7 +50,7 @@ export default function CarouselRenderer({
         enableTilt={true}
         enableAutoPlay={true}
         autoPlaySpeed={6000}
-        pagination={windowSize < 800 ? false : true}
+        pagination={true}
         showArrows={false}
         breakPoints={breakPoints}
       >

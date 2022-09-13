@@ -30,7 +30,7 @@
 @media screen and (min-width: 390px) {
   .gridcard-card {
     height: 110px;
-    width: 180px;
+    width: 115px;
   }
 }
 @media screen and (min-width: 420px) {
@@ -51,7 +51,13 @@
     width: 145px;
   }
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 700px) {
+  .gridcard-card {
+    height: 250px;
+    width: 220px;
+  }
+}
+@media screen and (min-width: 850px) {
   .gridcard-card {
     height: 180px;
     width: 270px;
@@ -90,11 +96,24 @@
 
 @media screen and (min-width: 1168px) {
   .gridcard-card {
-    height: 250px;
-    width: 210px;
+    height: 280px;
+    width: 270px;
   }
 }
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1300px) {
+  .gridcard-card {
+    height: 330px;
+    width: 310px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .gridcard-card {
+    height: 380px;
+    width: 360px;
+  }
+}
+@media screen and (min-width: 1800px) {
   .gridcard-card {
     height: 380px;
     width: 280px;

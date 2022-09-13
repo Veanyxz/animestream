@@ -1,7 +1,6 @@
 import { Player, Hls, DefaultUi } from "@vime/react";
 
 import "@vime/core/themes/default.css";
-
 import "@vime/core/themes/light.css";
 
 export default function AnimePlayer({ src }) {
@@ -12,8 +11,11 @@ export default function AnimePlayer({ src }) {
   return (
     <div>
       <Player
+        canAutoplay={() => {
+          console.log("ready");
+        }}
         theme="dark"
-        style={{ "--vm-player-theme": "#e86c8b", width: "100%" }}
+        style={{ "--vm-player-theme": "#e86c8b" }}
         autoplay={true}
       >
         <Hls version="latest" config={hlsConfig}>

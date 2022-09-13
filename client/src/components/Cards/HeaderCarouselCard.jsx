@@ -4,7 +4,8 @@ import {
   ClockCircleOutlined,
 } from "@ant-design/icons";
 import axios from "axios";
-import { useState, useEffect, useContext } from "react";
+import "./HeaderCarouselCard.css";
+import { useContext } from "react";
 import { faListOl } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TextTruncate from "react-text-truncate";
@@ -23,20 +24,7 @@ export default function HeaderCarouselCard({
   const navigate = useNavigate();
 
   const animestate = useContext(SharedState);
-  const override = {
-    position: "fixed",
-    zIndex: 1,
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
 
-    margin: "auto",
-
-    borderColor: "red",
-  };
-
-  const [windowSize, setWindowSize] = useState(window.innerWidth);
   async function fetchVideo(id) {
     animestate.setVideoIsLoading(true);
 
@@ -49,11 +37,7 @@ export default function HeaderCarouselCard({
         animestate.setVideoIsLoading(false);
       });
   }
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setWindowSize(window.innerWidth);
-    });
-  });
+
   let regexeddescription = description.replaceAll(/<\/?[\w\s]*>|<.+[\W]>/g, "");
   regexeddescription = regexeddescription.substring(
     0,
@@ -67,83 +51,29 @@ export default function HeaderCarouselCard({
         className="header-card"
         style={{
           backgroundImage: ` linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3) ),url(${cover})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-          height: 450,
         }}
       >
-        <div
-          className="anime-info-div"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "15px",
-          }}
-        >
-          <h1
-            className="anime-title"
-            style={{
-              fontSize: windowSize < 766 ? "2.5rem" : "4rem",
-              color: "white",
-            }}
-          >
-            {title !== "" && title}
-          </h1>
-          <div
-            className="anime-info"
-            style={{ color: "white", display: "flex", gap: "20px" }}
-          >
-            <p
-              style={{
-                fontFamily: "'Inter', sans-serif",
-                fontSize: windowSize < 766 ? "1.4rem" : "",
-              }}
-            >
+        <div className="anime-info-div">
+          <h1 className="anime-title">{title !== "" && title}</h1>
+          <div className="anime-info">
+            <p className="anime-info-item">
               {" "}
               <PlayCircleOutlined /> TV
             </p>
 
-            <p
-              style={{
-                fontSize: windowSize < 766 ? "1.4rem" : "",
-                fontFamily: "'Inter', sans-serif",
-              }}
-            >
+            <p className="anime-info-item">
               <FontAwesomeIcon icon={faListOl} /> {epcount} Episodes
             </p>
-            <p
-              style={{
-                fontSize: windowSize < 766 ? "1.4rem" : "",
-                fontFamily: "'Inter', sans-serif",
-              }}
-            >
+            <p className="anime-info-item">
               <ClockCircleOutlined /> {duration} Minutes
             </p>
-            <p
-              style={{
-                fontSize: windowSize < 766 ? "1.4rem" : "",
-                fontFamily: "'Inter', sans-serif",
-              }}
-            >
+            <p className="anime-info-item">
               <CalendarOutlined /> {year}
             </p>
           </div>
-          <p
-            className="anime-description"
-            style={{
-              textAlign: "justify",
-              color: "white",
-              fontSize: windowSize < 766 ? "1.4rem" : "",
-              fontFamily: "'Inter', sans-serif",
-              lineHeight: "1.5",
-              width: windowSize < 766 ? "100%" : "50%",
-            }}
-          >
+          <p className="anime-description">
             {" "}
-            <TextTruncate
-              text={regexeddescription}
-              line={windowSize < 766 ? 3 : 6}
-            ></TextTruncate>
+            <TextTruncate text={regexeddescription} line={4}></TextTruncate>
           </p>
         </div>
         <a
