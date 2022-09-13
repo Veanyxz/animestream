@@ -1,10 +1,12 @@
 .animeplayer-container {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   margin-top: 70px;
 }
-
+vm-player {
+  width: 100vw !important;
+}
 .recommend-div {
   justify-items: center;
   display: grid;
@@ -46,7 +48,7 @@ hr {
 }
 .recommendations-title {
   font-size: 1.7rem;
-  color: #FC4747;
+  color: #fc4747;
 }
 .curranime-status,
 .curranime-adaptation,
@@ -57,10 +59,11 @@ hr {
 .summary-content {
   text-align: justify;
   color: white;
+  font-weight: lighter;
 }
 .summary-title {
   font-size: 1.7rem;
-  color: #FC4747;
+  color: #fc4747;
   margin-top: 20px;
 }
 .epindex {

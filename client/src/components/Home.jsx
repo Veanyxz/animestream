@@ -1,7 +1,6 @@
 import "./Home.css";
 import { useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import "react-responsive-modal/styles.css";
 import InfiniteSection from "./InfiniteSection";
 import ScrollToTop from "react-scroll-to-top";
 import Header from "./Header";

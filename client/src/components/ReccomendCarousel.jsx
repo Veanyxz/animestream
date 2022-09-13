@@ -1,5 +1,3 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Jedi from "./Jedi";
 import RecommendCard from "./RecommendCard";
 import Carousel from "react-elastic-carousel";
 import { v4 as uuidv4 } from "uuid";
@@ -15,12 +13,12 @@ export default function ReccomendCarousel({ finalQuery }) {
     <>
       <Carousel
         className="recommend-carousel"
-        style={{  paddingLeft: 4 }}
+        style={{ paddingLeft: 4 }}
         autoPlay={true}
         showArrows={false}
         breakPoints={breakPoints}
         emulateTouch={true}
-        itemPosition="END"
+        itemPosition="flex-end"
         pagination={false}
         initialActiveIndex={2}
       >

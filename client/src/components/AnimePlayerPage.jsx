@@ -1,6 +1,5 @@
-import ShakaPlayer from "shaka-player-react";
-import "shaka-player-react/dist/controls.css";
 import ScrollToTop from "react-scroll-to-top";
+import Vime from "./Vime";
 import "./AnimePlayerPage.css";
 import { useEffect, useState, useContext } from "react";
 import TextTruncate from "react-text-truncate";
@@ -97,13 +96,8 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
       {currentStreamUrl !== null && anime && (
         <div className="animeplayer-container">
           {animestate.setVideoIsLoading(false)}
-          {/* <div className="top-narrowbar">
-            <span style={{ color: "white", backgroundColor: "transparent" }}>
-              {" "}
-              EP {selectedOption}
-            </span>
-          </div> */}
-          <ShakaPlayer autoPlay src={currentStreamUrl} />
+         
+<Vime src={currentStreamUrl}></Vime>
 
           <div className="curranime">
             <h2 style={{ color: "#FC4747" }}>{anime.title.english}</h2>
