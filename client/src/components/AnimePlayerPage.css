@@ -6,6 +6,7 @@
 }
 
 .recommend-div {
+  justify-items: center;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-template-rows: minmax(14rem, 1fr);
@@ -86,15 +87,31 @@ hr {
   line-height: 1.5;
 }
 .recommend-carousel .recommend-card {
-  height: 110px;
-  width: 170px;
+  height: 100px;
+  width: 120px;
 }
-@media screen and (max-width: 768px) {
-  .recommend-card {
-    height: 150px;
-    width: 10px;
+@media screen and (min-width: 340px) {
+  .recommend-carousel .recommend-card {
+    height: 100px;
+    width: 130px;
   }
 }
+@media screen and (min-width: 370px) {
+  .jedi {
+    padding-left: 2px;
+  }
+  .recommend-carousel .recommend-card {
+    height: 100px;
+    width: 165px;
+  }
+}
+@media screen and (min-width: 420px) {
+  .recommend-carousel .recommend-card {
+    height: 100px;
+    width: 190px;
+  }
+}
+
 @media screen and (max-width: 670px) {
   .recommend-div {
     display: none !important;

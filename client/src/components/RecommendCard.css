@@ -1,6 +1,7 @@
 .recommend-wrapper {
   justify-content: center;
   text-align: center;
+  align-items: center;
 }
 
 .recommend-card {
@@ -11,8 +12,6 @@
   width: 200px;
 }
 
-@media screen and (min-width: 1000px) {
-}
 .recommend-card-title {
   color: white;
   font-weight: lighter;
