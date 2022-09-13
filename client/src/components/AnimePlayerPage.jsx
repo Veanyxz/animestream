@@ -97,13 +97,16 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
       {currentStreamUrl !== null && anime && (
         <div className="animeplayer-container">
           {animestate.setVideoIsLoading(false)}
-          <div className="top-narrowbar">
-            <span style={{ color: "white" }}> EP {selectedOption}</span>
-          </div>
+          {/* <div className="top-narrowbar">
+            <span style={{ color: "white", backgroundColor: "transparent" }}>
+              {" "}
+              EP {selectedOption}
+            </span>
+          </div> */}
           <ShakaPlayer autoPlay src={currentStreamUrl} />
 
           <div className="curranime">
-            <h2 style={{ color: "red" }}>{anime.title.english}</h2>
+            <h2 style={{ color: "#FC4747" }}>{anime.title.english}</h2>
             <div className="curranimeinfo">
               <span className="curranime-platform">
                 <PlayCircleOutlined /> TV Show
@@ -113,7 +116,7 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
                 {anime.rating / 10}
               </span>
               <span className="curranime-epaired">
-                <OrderedListOutlined /> Ep Total: {anime.episodes.length}
+                <OrderedListOutlined /> Total Ep: {anime.episodes.length}
               </span>
               <span className="curranime-releaseyear">
                 <CalendarOutlined /> {anime.releaseDate}
@@ -150,30 +153,30 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
             </p>
 
             <br />
-<div className="additional-anime-info">
-            <h4 style={{ color: "red"}}>
-              Genres:&nbsp;
-              <span className="curranime-genres">
-                {anime.genres.join(", ")}
-              </span>
-            </h4>
-            <h4 style={{ color: "red",}}>
-              Studios:&nbsp;
-              <span className="curranime-studios">
-                {anime.studios.join(", ")}
-              </span>
-            </h4>
-
-            {adaptation !== "" && (
-              <h4 style={{ color: "red" }}>
-                Adapation:&nbsp;
-                <span className="curranime-adaptation">{adaptation}</span>
+            <div className="additional-anime-info">
+              <h4 style={{ color: "#FC4747" }}>
+                Genres:&nbsp;
+                <span className="curranime-genres">
+                  {anime.genres.join(", ")}
+                </span>
               </h4>
-            )}
-            <h4 style={{ color: "red",}}>
-              Status:&nbsp;
-              <span className="curranime-status">{anime.status}</span>
-            </h4>
+              <h4 style={{ color: "#FC4747" }}>
+                Studios:&nbsp;
+                <span className="curranime-studios">
+                  {anime.studios.join(", ")}
+                </span>
+              </h4>
+
+              {adaptation !== "" && (
+                <h4 style={{ color: "#FC4747" }}>
+                  Adapation:&nbsp;
+                  <span className="curranime-adaptation">{adaptation}</span>
+                </h4>
+              )}
+              <h4 style={{ color: "#FC4747" }}>
+                Status:&nbsp;
+                <span className="curranime-status">{anime.status}</span>
+              </h4>
             </div>
 
             <br />
@@ -184,7 +187,7 @@ const AnimePlayerPage = ({ animeInfo, onOpenModal }) => {
               ></ReccomendCarousel> */}
             </div>
           </div>
-          <div style={{ marginLeft: 10 }}>
+          <div>
             <ReccomendCarousel
               finalQuery={anime.recommendations}
             ></ReccomendCarousel>

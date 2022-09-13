@@ -50,8 +50,8 @@ button.rec-dot {
 .gridcard-wrapper:hover,
 .recommend-card:hover,
 .recommend-wrapper:hover {
-  transform: scale(1.02);
-  transition: 150ms ease;
+  transform: scale(1.01);
+  transition: 200ms ease;
 }
 
 .contindex::-webkit-scrollbar-track {
@@ -65,7 +65,8 @@ button.rec-dot {
 }
 
 .contindex::-webkit-scrollbar-thumb {
-  background-color: #2d2d2d;
+  background-color: #366073;
+  border-radius: 4px;
 }
 
 button.rec-dot:hover,

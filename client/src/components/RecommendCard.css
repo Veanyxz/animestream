@@ -10,14 +10,14 @@
   background-position: center;
   background-size: cover;
   height: 250px;
-  width: 200px;
+  width: 190px;
+  margin-bottom: 5px;
 }
 
 .recommend-card-title {
   color: white;
   font-weight: lighter;
   font-size: 1.4rem;
-  margin-top: 5px;
 }
 
 .epnumber {

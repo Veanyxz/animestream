@@ -14,13 +14,13 @@ export default function ReccomendCarousel({ finalQuery }) {
   return (
     <>
       <Carousel
-        style={{ marginTop: 3 }}
         className="recommend-carousel"
+        style={{  paddingLeft: 4 }}
         autoPlay={true}
         showArrows={false}
         breakPoints={breakPoints}
         emulateTouch={true}
-        itemPosition="CENTER"
+        itemPosition="END"
         pagination={false}
         initialActiveIndex={2}
       >
@@ -34,7 +34,6 @@ export default function ReccomendCarousel({ finalQuery }) {
           ></RecommendCard>
         ))}
       </Carousel>
-      {/* <div className="recommend-carousel"><Jedi  finalQuery={finalQuery}></Jedi></div> */}
 
       <div className="recommend-div">
         {finalQuery.map((query, index) =>
