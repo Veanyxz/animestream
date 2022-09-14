@@ -29,15 +29,14 @@ const GridRenderer = ({ finalQuery, setAnimeInfo, isAnimate }) => {
                 isAnimated
                   ? {
                       opacity: 0,
-                      translateX: index % 2 === 0 ? -50 : 50,
-                      translateY: -50,
+                      translateX: -50,
                     }
                   : {}
               }
               animate={
-                isAnimated ? { opacity: 1, translateX: 0, translateY: 0 } : {}
+                isAnimated ? { opacity: 1,  translateX: 0 } : {}
               }
-              transition={{ duration: 0.3, delay: index * 0.08 }}
+              transition={{ duration: 0.30, delay: index * 0.05 }}
               viewport={{ once: true }}
             >
               <GridCard
