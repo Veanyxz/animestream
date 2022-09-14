@@ -1,8 +1,8 @@
 import Carousel from "react-elastic-carousel";
 import { v4 as uuidv4 } from "uuid";
 import CarouselCard from "../Cards/CarouselCard";
-import { useState, useEffect } from "react";
 import UpcomingCard from "../Cards/UpcomingCard";
+
 export default function CarouselRenderer({
   finalQuery,
   rowTitle,
@@ -13,13 +13,6 @@ export default function CarouselRenderer({
   setIsPlaying,
   setTrailerId,
 }) {
-  const [windowSize, setWindowSize] = useState(window.innerWidth);
-
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setWindowSize(window.innerWidth);
-    });
-  });
   const breakPoints = [
     { width: 1, itemsToShow: isUpcoming ? 2 : 3 },
 
@@ -35,6 +28,7 @@ export default function CarouselRenderer({
   return (
     <div className="carouselinstance">
       <h1
+        className="row-title"
         style={{
           color: "#fdba74",
           fontSize: "3rem",

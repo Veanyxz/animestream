@@ -48,17 +48,12 @@ const AnimePlayerPage = ({ animeInfo }) => {
 
   useEffect(() => {
     initialFetch();
-  }, []);
+  }, [animestate.videoIsLoading]);
   const initialFetch = async () => {
     return await axios
       .get("https://consumet-api.herokuapp.com/meta/anilist/info/" + id)
       .then((res) => {
-        setAnime(res.data);
-
-        // navigate("/watch/" + res.data.id);
-      })
-      .catch((e) => {
-        console.log(e);
+        animestate.setAnimeInfo(res.data);
       });
   };
   useEffect(() => {
@@ -143,7 +138,7 @@ const AnimePlayerPage = ({ animeInfo }) => {
               </div>
             </form>
 
-            {/* <hr></hr> */}
+            <hr></hr>
 
             <h3 className="summary-title">Summary</h3>
             <p className="summary-content">

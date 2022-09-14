@@ -2,17 +2,12 @@ import Carousel from "react-elastic-carousel";
 
 import HeaderCarouselCard from "../Cards/HeaderCarouselCard";
 import { v4 as uuidv4 } from "uuid";
-import { useState, useEffect, useRef } from "react";
+import { useRef } from "react";
 
 const HeaderCarouselRenderer = ({ finalResults }) => {
-  const [windowSize, setWindowSize] = useState(window.innerWidth);
   const carouselRef = useRef(null);
   let resetTimeout;
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setWindowSize(window.innerWidth);
-    });
-  });
+
   return (
     <Carousel
       enableAutoPlay={true}
@@ -25,7 +20,7 @@ const HeaderCarouselRenderer = ({ finalResults }) => {
           carouselRef?.current?.goTo(0);
         }, 4000);
       }}
-      pagination={windowSize > 800 ? true : false}
+      pagination={true}
     >
       {finalResults.map((item) => (
         <HeaderCarouselCard

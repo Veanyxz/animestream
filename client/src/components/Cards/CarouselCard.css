@@ -56,13 +56,21 @@
     width: 220px;
   }
 }
-
+.epnumber {
+  color: white;
+  font-weight: lighter;
+  margin-top: 5px;
+  font-size: 1.35rem;
+}
 .animecard-title {
   font-size: 1.5rem;
   color: white;
   margin-top: 5px;
 }
 @media screen and (max-width: 768px) {
+  .epnumber {
+    font-size: 1.15rem;
+  }
   .animecard-title {
     font-size: 1.2rem;
   }

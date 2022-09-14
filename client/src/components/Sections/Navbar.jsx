@@ -1,9 +1,8 @@
 import "./Navbar.css";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logo from "../../assets/images/logo1.png";
+import logo from "../../assets/images/logo.png";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import React, { useRef } from "react";
 

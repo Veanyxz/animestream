@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import axios from "axios";
 import { SharedState } from "../../App";
 import { useNavigate } from "react-router-dom";
 import { StarFilled } from "@ant-design/icons";
@@ -19,15 +18,7 @@ export default function GridCard({
   async function fetchVideo(id) {
     animestate.setVideoIsLoading(true);
 
-    return await axios
-      .get("https://consumet-api.herokuapp.com/meta/anilist/info/" + id)
-      .then((res) => {
-        animestate.setAnimeInfo(res.data);
-        navigate("/watch/" + res.data.id);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    navigate("/watch/" + id);
   }
 
   return (

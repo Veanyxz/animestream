@@ -1,6 +1,5 @@
 import TextTruncate from "react-text-truncate";
 import "./UpcomingCard.css";
-import { motion } from "framer-motion";
 const UpcomingCard = ({
   title,
   image,
@@ -13,7 +12,7 @@ const UpcomingCard = ({
 }) => {
   return (
     <>
-      <motion.div
+      <div
         onClick={(e) => {
           e.preventDefault();
           setTrailerId(trailerVideoId);
@@ -44,7 +43,7 @@ const UpcomingCard = ({
         >
           <TextTruncate text={title} line={2}></TextTruncate>
         </a>
-      </motion.div>
+      </div>
     </>
   );
 };

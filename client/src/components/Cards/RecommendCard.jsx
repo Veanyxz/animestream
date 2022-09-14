@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import TextTruncate from "react-text-truncate";
-import axios from "axios";
 import { SharedState } from "../../App";
 import "./RecommendCard.css";
 import { useNavigate } from "react-router-dom";
@@ -17,16 +16,8 @@ export default function RecommendCard({
 
   async function fetchVideo(id) {
     animestate.setVideoIsLoading(true);
-    return await axios
-      .get("https://consumet-api.herokuapp.com/meta/anilist/info/" + id)
-      .then((res) => {
-        animestate.setAnimeInfo(res.data);
-        navigate("/watch/" + res.data.id);
 
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    navigate("/watch/" + id);
   }
   return (
     <>

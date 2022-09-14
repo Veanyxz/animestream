@@ -31,6 +31,7 @@ export default function InfiniteSection({
 }) {
   const [fetchedData, setFetchedData] = useState([]);
   const [currpage, setCurrpage] = useState(1);
+  const [isAnimate, setIsAnimate] = useState(false);
   const [loading, setLoading] = useState(false);
   const [hasNextPage, setHasNextPage] = useState(true);
   const [pageNumbers, setPageNumbers] = useState([1, 2, 3, 4, 5]);
@@ -58,6 +59,10 @@ export default function InfiniteSection({
   };
   useEffect(() => {
     setLoading(true);
+    setIsAnimate(false);
+    if (currpage >= 1) {
+      document.querySelector("#" + id).scrollIntoView();
+    }
     axios
       .get(url + querytype + "page=" + currpage + "&perPage=" + itemlimit)
 
@@ -70,21 +75,12 @@ export default function InfiniteSection({
 
         setFetchedData(data.data.results);
         setLoading(false);
-        if (currpage > 1) {
-          document.querySelector("#" + id).scrollIntoView();
-        }
+        setIsAnimate(true);
       });
   }, [currpage]);
 
   return (
     <>
-      <ClockLoader
-        color={"white"}
-        loading={loading}
-        cssOverride={override}
-        size={80}
-      />
-
       <section
         id={id}
         className="section section-infinite"
@@ -101,8 +97,10 @@ export default function InfiniteSection({
               {sectiontitle}
             </h1>
 
-            <GridRenderer finalQuery={fetchedData}></GridRenderer>
-
+            <GridRenderer
+              isAnimate={isAnimate}
+              finalQuery={fetchedData}
+            ></GridRenderer>
             <div
               className="pagination-wrapper"
               style={{
