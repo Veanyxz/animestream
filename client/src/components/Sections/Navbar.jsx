@@ -1,7 +1,7 @@
 import "./Navbar.css";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logo from "../../assets/images/image.png";
+import logo from "../../assets/images/logo1.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -89,14 +89,19 @@ export default function Navbar() {
           }}
           style={{
             cursor: "pointer",
-            gap: 10,
+            gap: 20,
             display: "flex",
             alignItems: "center",
             color: "white",
             justifyContent: "center",
           }}
         >
-          <img height="40" src={logo} style={{ color: "white" }} alt="" />
+          <img
+            height="40"
+            src={logo}
+            style={{ color: "white", padding: 0 }}
+            alt=""
+          />
 
           <h3 className="brand-title">Animebliss</h3>
         </div>
@@ -144,16 +149,6 @@ export default function Navbar() {
           >
             <span className="nav__link">Top Movies</span>
           </li>
-
-          <li
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("/login");
-            }}
-            className="nav__item"
-          >
-            <span className="nav__link">Login</span>
-          </li>
           <li
             onClick={(e) => {
               e.preventDefault();
@@ -162,6 +157,15 @@ export default function Navbar() {
             className="nav__item"
           >
             <span className="nav__link">Recent Ep</span>
+          </li>
+          <li
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/login");
+            }}
+            className="nav__item"
+          >
+            <span className="nav__link">Login</span>
           </li>
 
           <li

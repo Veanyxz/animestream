@@ -25,41 +25,6 @@ const Header = () => {
             ></HeaderCarouselRenderer>
           )}
         </section>
-
-        {/* <div
-        className="sectiontabs"
-        style={{
-          border: "1px solid cyan",
-          width: "fit-content",
-          marginTop: 20,
-          justifyContent: "center",
-          display: "flex",
-          gap: 10,
-          color: "dodgerblue",
-          backgroundColor: "#282828",
-          height: 32,
-          marginLeft: "3%",
-          borderRadius: 2,
-        }}
-      >
-        <button className="btn-section">All</button>
-        <button className="btn-section">Popular</button>
-
-        <button className="btn-section">Favorite</button>
-
-        <button
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-          className="btn-section"
-        >
-          Movies
-        </button>
-
-        <button className="btn-section">Wallpapers</button>
-      </div> */}
       </header>
     </>
   );

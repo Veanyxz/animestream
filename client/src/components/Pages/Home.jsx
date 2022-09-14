@@ -70,7 +70,7 @@ export default function Home() {
             color: "white",
             boxShadow: "none",
           }}
-          className="scrolltop"
+          className="spinner"
           top={1500}
           smooth
           color="#fff"

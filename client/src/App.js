@@ -31,7 +31,7 @@ const App = () => {
     <SharedState.Provider
       value={{
         setAnimeInfo,
-
+        videoIsLoading,
         setVideoIsLoading,
       }}
     >

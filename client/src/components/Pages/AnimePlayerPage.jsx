@@ -47,6 +47,21 @@ const AnimePlayerPage = ({ animeInfo }) => {
   };
 
   useEffect(() => {
+    initialFetch();
+  }, []);
+  const initialFetch = async () => {
+    return await axios
+      .get("https://consumet-api.herokuapp.com/meta/anilist/info/" + id)
+      .then((res) => {
+        setAnime(res.data);
+
+        // navigate("/watch/" + res.data.id);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+  useEffect(() => {
     fetchVideoById(
       " https://consumet-api.herokuapp.com/meta/anilist/watch/" + currentId
     );

@@ -45,31 +45,17 @@ export default function CarouselCard({
           fetchVideo(id);
         }}
         className="animecard-wrapper"
-        style={{
-          display: "flex",
-          marginTop: 5,
-          flexDirection: "column",
-          alignItems: "center",
-          height: "fit-content",
-
-          justifyContent: "center",
-          textAlign: "center",
-        }}
       >
         <div
           className="animecard-card"
           style={{
-            borderRadius: "10px",
             backgroundImage: `url(${image})`,
-
-            backgroundPosition: "center",
-            backgroundSize: "cover",
-            animation: "x 1s",
           }}
         ></div>
 
         {episodeNumber > 0 && (
           <h5
+            className="epnumber"
             style={{
               color: "white",
               fontWeight: "lighter",
@@ -81,15 +67,7 @@ export default function CarouselCard({
           </h5>
         )}
 
-        <a
-          href={`/watch/${id}`}
-          className="anime-card-title"
-          style={{
-            color: "white",
-            fontSize: windowSize < 768 ? "1.2rem" : "1.5rem",
-            marginTop: 5,
-          }}
-        >
+        <a href={`/watch/${id}`} className="animecard-title">
           <TextTruncate text={title} line={2}></TextTruncate>
         </a>
       </div>

@@ -81,7 +81,7 @@ button.rec-dot:focus {
 
 @media screen and (max-width: 768px) {
   .header-card {
-    height: 350px !important;
+    height: 320px !important;
   }
   .anime-description {
     font-size: 1.5rem;
@@ -108,11 +108,14 @@ button.rec-dot:focus {
 }
 @media screen and (max-width: 360px) {
   .pageindex {
-display: none !important;  
+    display: none !important;
   }
 }
-
-
+@media screen and (max-width: 768px) {
+  .spinner {
+    display: none !important;
+  }
+}
 @media screen and (max-width: 1000px) {
   .pageindex {
     gap: 1px !important;
