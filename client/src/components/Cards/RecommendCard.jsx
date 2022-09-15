@@ -13,7 +13,6 @@ export default function RecommendCard({
 }) {
   const animestate = useContext(SharedState);
   const navigate = useNavigate();
-
   async function fetchVideo(id) {
     animestate.setVideoIsLoading(true);
 

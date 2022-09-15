@@ -1,0 +1,137 @@
+.animeplayer-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 70px;
+}
+vm-player {
+  width: 100vw !important;
+}
+.recommend-div {
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-rows: minmax(14rem, 1fr);
+  grid-auto-rows: 1fr;
+  grid-auto-flow: dense;
+}
+.top-narrowbar {
+  background-color: rgb(38, 50, 56);
+  height: 35px;
+  border-radius: 3px 3px 0px 0px;
+  display: flex;
+  align-items: center;
+  padding: 0px 15px;
+}
+
+.curranimeinfo {
+  margin-top: 5px;
+  display: flex;
+  gap: 25px;
+}
+.contindex {
+  overflow-y: scroll;
+  max-height: 100px;
+  height: fit-content;
+  display: grid;
+  gap: 4px 4px;
+  justify-items: start;
+  justify-content: start;
+  align-items: start;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+}
+hr {
+  border: 0;
+  background-color: cyan;
+  border-top: 2px solid #ddd;
+  margin-top: 20px;
+}
+.recommendations-title {
+  font-size: 1.7rem;
+  color: #fc4747;
+}
+.curranime-status,
+.curranime-adaptation,
+.curranime-genres,
+.curranime-studios {
+  color: white;
+}
+.summary-content {
+  text-align: justify;
+  color: white;
+  font-weight: lighter;
+}
+.summary-title {
+  font-size: 1.7rem;
+  color: #fc4747;
+  margin-top: 20px;
+}
+.epindex {
+  cursor: pointer;
+  border-radius: 3px;
+  height: 30px;
+  width: 50px;
+  color: white;
+  background-color: #366083;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+}
+@media screen and (max-width: 768px) {
+  .spinner {
+    transform: scale(0.65) !important;
+  }
+}
+.curranime-platform,
+.curranime-score,
+.curranime-epaired,
+.curranime-releaseyear {
+  color: white;
+}
+
+.curranime {
+  height: 100%;
+  padding: 15px;
+  background-color: #10141e;
+  font-family: "Inter", sans-serif;
+  line-height: 1.5;
+}
+.recommend-carousel .recommend-card {
+  height: 90px;
+  width: 140px;
+}
+@media screen and (min-width: 340px) {
+  .recommend-carousel .recommend-card {
+    height: 140px;
+    width: 100px;
+  }
+}
+
+@media screen and (min-width: 380px) {
+  .recommend-carousel .recommend-card {
+    height: 150px;
+    width: 115px;
+  }
+}
+@media screen and (min-width: 480px) {
+  .recommend-carousel .recommend-card {
+    height: 200px;
+    width: 145px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .recommend-div {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 670px) {
+  .recommend-carousel {
+    display: none !important;
+  }
+}
+.recommend-carousel {
+  display: initial;
+}

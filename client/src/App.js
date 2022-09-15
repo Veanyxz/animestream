@@ -3,7 +3,7 @@ import "./App.css";
 import Home from "./components/Pages/Home";
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ClockLoader from "react-spinners/ClockLoader";
+import ClockLoader from "react-spinners/PuffLoader";
 import AnimePlayerPage from "./components/Pages/AnimePlayerPage";
 import MoviesSection from "./components/Pages/MoviesPage";
 import RecentPage from "./components/Pages/RecentPage";

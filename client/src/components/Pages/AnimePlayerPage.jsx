@@ -16,81 +16,73 @@ import { SharedState } from "../../App";
 import axios from "axios";
 import Navbar from "../Sections/Navbar";
 const AnimePlayerPage = ({ animeInfo }) => {
-  const { id } = useParams();
   const animestate = useContext(SharedState);
-
   animestate.setVideoIsLoading(true);
 
-  if (animeInfo) {
-    localStorage.setItem("animeInfo", JSON.stringify(animeInfo));
-  }
-  const [anime, setAnime] = useState(
-    animeInfo ? animeInfo : JSON.parse(localStorage.getItem("animeInfo"))
-  );
-  useEffect(() => {}, []);
+  const { id } = useParams();
+  const [adaptation, setAdaptation] = useState(null);
+  const [description, setDescription] = useState(null);
+
+  const [anime, setAnime] = useState(null);
   const [selectedOption, setSelectedOption] = useState(1);
   const [currentStreamUrl, setCurrentStreamUrl] = useState(null);
   const [currentId, setCurrentId] = useState("");
   const epArray = [];
-  for (let i = 1; i <= anime.episodes.length; i++) {
-    epArray.push(i);
-  }
+  const [ep, setEp] = useState(null);
 
   async function fetchVideoById(url) {
     return await axios.get(url).then((response) => {
-      setCurrentStreamUrl(response.data.sources[1].url);
+      setCurrentStreamUrl([
+        response.data.sources[0].url,
+        response.data.sources[1].url,
+      ]);
     });
   }
 
-  const changeStream = () => {
-    setCurrentId(anime.episodes[selectedOption - 1].id);
-  };
-
   useEffect(() => {
     initialFetch();
-  }, [animestate.videoIsLoading]);
+  }, [id]);
   const initialFetch = async () => {
     return await axios
       .get("https://consumet-api.herokuapp.com/meta/anilist/info/" + id)
       .then((res) => {
-        animestate.setAnimeInfo(res.data);
+        setAnime(res.data);
+
+        setCurrentId(res.data.episodes[selectedOption - 1].id);
+        for (let i = 1; i <= res.data.episodes.length; i++) {
+          epArray.push(i);
+        }
+        setEp(epArray);
+        let adaptation = "";
+        for (let i = 0; i < res.data.relations.length; i++) {
+          if (res.data.relations[i].relationType === "ADAPTATION") {
+            adaptation =
+              res.data.relations[i].title.english ||
+              res.data.relations[i].title.romaji;
+          }
+        }
+
+        setAdaptation(adaptation);
+
+        let regexeddescription = res.data.description.replaceAll(
+          /<\/?[\w\s]*>|<.+[\W]>/g,
+          ""
+        );
+        setDescription(
+          regexeddescription.substring(0, regexeddescription.indexOf("("), 4)
+        );
       });
   };
   useEffect(() => {
-    fetchVideoById(
-      " https://consumet-api.herokuapp.com/meta/anilist/watch/" + currentId
-    );
+    if (currentId !== "")
+      fetchVideoById(
+        " https://consumet-api.herokuapp.com/meta/anilist/watch/" + currentId
+      );
   }, [currentId]);
 
   useEffect(() => {
-    if (animeInfo) {
-      setAnime(animeInfo);
-      setCurrentId(animeInfo.episodes[selectedOption - 1].id);
-    }
-  }, [animeInfo]);
-
-  useEffect(() => {
-    changeStream();
-  }, [selectedOption]);
-
-  let regexeddescription = anime.description.replaceAll(
-    /<\/?[\w\s]*>|<.+[\W]>/g,
-    ""
-  );
-  regexeddescription = regexeddescription.substring(
-    0,
-    regexeddescription.indexOf("("),
-    4
-  );
-  let adaptation = "";
-  if (anime.relations !== null) {
-    for (let i = 0; i < anime.relations.length; i++) {
-      if (anime.relations[i].relationType === "ADAPTATION") {
-        adaptation =
-          anime.relations[i].title.english || anime.relations[i].title.romaji;
-      }
-    }
-  }
+    if (anime) setCurrentId(anime.episodes[selectedOption - 1].id);
+  }, [selectedOption, anime]);
 
   return (
     <>
@@ -122,7 +114,7 @@ const AnimePlayerPage = ({ animeInfo }) => {
 
             <form style={{ marginTop: 15 }}>
               <div className="contindex">
-                {epArray.map((ep, index) => {
+                {ep.map((ep, index) => {
                   return (
                     <div
                       key={uuidv4()}
@@ -143,7 +135,7 @@ const AnimePlayerPage = ({ animeInfo }) => {
             <h3 className="summary-title">Summary</h3>
             <p className="summary-content">
               <TextTruncate
-                text={regexeddescription}
+                text={description}
                 line={window.innerWidth < 800 ? 4 : 8}
               ></TextTruncate>
             </p>

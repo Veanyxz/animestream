@@ -10,16 +10,24 @@ import {
 import toast, { Toaster } from "react-hot-toast";
 
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "@vime/core/themes/default.css";
 import "@vime/core/themes/light.css";
 export default function AnimePlayer({ src }) {
+  useEffect(() => {
+    if (src) setUrl(src[0]);
+    else {
+      toast.error("No servers available");
+      navigate("/");
+    }
+  }, [src]);
+  const [url, setUrl] = useState(null);
   const hlsConfig = {
     crossOrigin: "anonymous",
     enableWorker: false,
   };
-  const [time, setTime] = useState(0);
   const navigate = useNavigate();
+  const [time, setTime] = useState(0);
   return (
     <div>
       <Player
@@ -28,8 +36,13 @@ export default function AnimePlayer({ src }) {
           setTime(e.detail);
         }}
         onVmError={(e) => {
-          toast.error("Cant play that one now! going back to home");
-          navigate("/");
+          console.log(e);
+          if (url === src[1]) {
+            toast.error("Sorry we cannot play that :( Going back to home ");
+            navigate("/");
+          } else {
+            setUrl(src[1]);
+          }
         }}
         hlsConfig={hlsConfig}
         theme="dark"
@@ -39,11 +52,12 @@ export default function AnimePlayer({ src }) {
           "--vm-slider-thumb-height": "8px",
           "--vm-slider-track-focused-height": "8px",
           "--vm-slider-value-color": "#FC4747",
+          "--vm-loading-screen-dot-color": "#FC4747",
         }}
         autoplay={true}
       >
         <Hls version="latest" config={hlsConfig}>
-          <source data-src={src} type="application/x-mpegURL" />
+          <source data-src={url} type="application/x-mpegURL" />
         </Hls>
         <DefaultUi>
           <Controls
@@ -53,7 +67,7 @@ export default function AnimePlayer({ src }) {
             hideOnMouseLeave={true}
             activeDuration={1000}
           >
-            <Control keys="p" label="Rewind 15 seconds">
+            <Control keys="p" label="-15 s">
               <svg
                 onClick={() => {
                   setTime((prevTime) => prevTime - 15);
@@ -75,7 +89,7 @@ export default function AnimePlayer({ src }) {
               <Tooltip>- 15s</Tooltip>
             </Control>
             <PlaybackControl hideTooltip keys="k/" />
-            <Control keys="n" label="Forward 15 seconds">
+            <Control keys="n" label="+ 15s">
               <svg
                 onClick={() => {
                   setTime((prevTime) => prevTime + 15);
@@ -99,7 +113,7 @@ export default function AnimePlayer({ src }) {
           </Controls>
         </DefaultUi>
       </Player>
-      <Toaster></Toaster>
+      <Toaster position="top-right"></Toaster>
     </div>
   );
 }
