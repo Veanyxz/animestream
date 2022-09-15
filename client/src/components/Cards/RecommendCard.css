@@ -4,12 +4,14 @@
   text-align: center;
   align-items: center;
 }
-
+ 
 .recommend-card {
   border-radius: 10px;
   background-position: center;
   background-size: cover;
   height: 250px;
+  transition: all 0.5s;
+
   width: 190px;
   margin-bottom: 5px;
 }

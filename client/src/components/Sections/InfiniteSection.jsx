@@ -26,6 +26,7 @@ export default function InfiniteSection({
   url,
   sectiontitle,
   itemlimit,
+  isGenresPage,
   id,
   querytype,
 }) {
@@ -63,8 +64,13 @@ export default function InfiniteSection({
     if (currpage >= 1) {
       document.querySelector("#" + id).scrollIntoView();
     }
+    console.log(url);
     axios
-      .get(url + querytype + "page=" + currpage + "&perPage=" + itemlimit)
+      .get(
+        isGenresPage
+          ? url
+          : url + querytype + "page=" + currpage + "&perPage=" + itemlimit
+      )
 
       .then((data) => {
         if (data.data.hasNextPage) {

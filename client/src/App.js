@@ -8,6 +8,7 @@ import AnimePlayerPage from "./components/Pages/AnimePlayerPage";
 import MoviesSection from "./components/Pages/MoviesPage";
 import RecentPage from "./components/Pages/RecentPage";
 import SearchResults from "./components/Pages/SearchResults";
+import GenresPage from "./components/Pages/GenresPage";
 export const SharedState = React.createContext();
 const App = () => {
   const [animeInfo, setAnimeInfo] = useState(null);
@@ -50,6 +51,7 @@ const App = () => {
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/recentep" element={<RecentPage></RecentPage>} />
+              <Route path="/genres" element={<GenresPage></GenresPage>} />
 
               <Route
                 path="/watch/:id"

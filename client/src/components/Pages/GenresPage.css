@@ -1,0 +1,38 @@
+.genre-button {
+  background-color: #fc4747;
+  color: white;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  padding: 5px 15px;
+}
+
+.genres-container {
+  margin-left: 3%;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.results-title {
+  color: white;
+  margin-left: 21px;
+  margin-top: 20px;
+}
+
+.searchandfilter-container {
+  margin-left: 3%;
+  margin-left: 21px;
+  display: flex;
+  margin-top: 10px;
+  gap: 5px;
+}
+
+.btn-search-genre,
+.btn-reset-genre {
+  background-color: white;
+  color: #fc4747;
+  font-size: 1.7rem;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  padding: 5px 20px;
+}

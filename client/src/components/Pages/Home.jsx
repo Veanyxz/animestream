@@ -35,13 +35,13 @@ const Home = () => {
         id={"trending"}
         sectiontitle={"Trending"}
       ></AnimeSection>
-      <AnimeSection
+      {/* <AnimeSection
         url={
           "https://consumet-api.herokuapp.com/meta/anilist/advanced-search?format=SPECIAL"
         }
         id={"special"}
         sectiontitle={"Special"}
-      ></AnimeSection>
+      ></AnimeSection> */}
       <InfiniteSection
         url={"https://consumet-api.herokuapp.com/meta/anilist/popular"}
         itemlimit={18}

@@ -147,21 +147,21 @@ export default function Navbar() {
           <li
             onClick={(e) => {
               e.preventDefault();
-              navigate("/login");
+              navigate("/genres");
             }}
             className="nav__item"
           >
-            <span className="nav__link">Login</span>
+            <span className="nav__link">Filter</span>
           </li>
 
           <li
             onClick={(e) => {
               e.preventDefault();
-              navigate("/signout");
+              navigate("/login");
             }}
             className="nav__item"
           >
-            <span className="nav__link">Signout</span>
+            <span className="nav__link">Login</span>
           </li>
         </ul>
       </div>

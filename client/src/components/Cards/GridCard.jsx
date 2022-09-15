@@ -14,7 +14,6 @@ export default function GridCard({
 }) {
   const navigate = useNavigate();
   const animestate = useContext(SharedState);
-
   async function fetchVideo(id) {
     animestate.setVideoIsLoading(true);
 
@@ -46,7 +45,6 @@ export default function GridCard({
         )}
 
         <h4 className="grid-card-title">{title}</h4>
-
         {year && <p className="gridcardinfo-year">{year}</p>}
       </div>
     </>

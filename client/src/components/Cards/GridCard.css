@@ -54,7 +54,7 @@
 }
 @media screen and (min-width: 700px) {
   .gridcard-card {
-    height: 250px;
+    height: 300px;
     width: 220px;
   }
 }
@@ -103,17 +103,17 @@
 }
 @media screen and (min-width: 1300px) {
   .gridcard-card {
-    height: 380px;
-    width: 280px;
+    height: 430px;
+    width: 310px;
   }
 }
-
+/* 
 @media screen and (min-width: 1600px) {
   .gridcard-card {
-    height: 380px;
-    width: 280px;
+    height: 480px;
+    width: 360px;
   }
-}
+} */
 @media screen and (min-width: 1800px) {
   .gridcard-card {
     height: 380px;
