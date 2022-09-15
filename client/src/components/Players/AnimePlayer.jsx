@@ -36,7 +36,6 @@ export default function AnimePlayer({ src }) {
           setTime(e.detail);
         }}
         onVmError={(e) => {
-          console.log(e);
           if (url === src[1]) {
             toast.error("Sorry we cannot play that :( Going back to home ");
             navigate("/");

@@ -3,10 +3,9 @@ import {
   CalendarOutlined,
   ClockCircleOutlined,
 } from "@ant-design/icons";
-import axios from "axios";
 import "./HeaderCarouselCard.css";
 import { useContext } from "react";
-import { faListOl,faChevronRight,faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { faListOl } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TextTruncate from "react-text-truncate";
 import { SharedState } from "../../App";
@@ -28,14 +27,7 @@ export default function HeaderCarouselCard({
   async function fetchVideo(id) {
     animestate.setVideoIsLoading(true);
 
-    return await axios
-      .get("https://consumet-api.herokuapp.com/meta/anilist/info/" + id)
-      .then((res) => {
-        animestate.setAnimeInfo(res.data);
-
-        navigate("/watch");
-        animestate.setVideoIsLoading(false);
-      });
+    navigate("/watch/" + id);
   }
 
   let regexeddescription = description.replaceAll(/<\/?[\w\s]*>|<.+[\W]>/g, "");
