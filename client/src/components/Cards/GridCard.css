@@ -59,7 +59,7 @@
 }
 @media screen and (min-width: 850px) {
   .gridcard-card {
-    height: 290px;
+    height: 350px;
     width: 270px;
   }
   .gridcardinfo-year {
@@ -96,21 +96,21 @@
 
 @media screen and (min-width: 1168px) {
   .gridcard-card {
-    height: 280px;
+    height: 350px;
     width: 270px;
   }
 }
 @media screen and (min-width: 1300px) {
   .gridcard-card {
-    height: 330px;
-    width: 310px;
+    height: 380px;
+    width: 280px;
   }
 }
 
 @media screen and (min-width: 1600px) {
   .gridcard-card {
     height: 380px;
-    width: 360px;
+    width: 280px;
   }
 }
 @media screen and (min-width: 1800px) {

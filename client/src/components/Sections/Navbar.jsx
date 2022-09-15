@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 export default function Navbar() {
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
+  let isFirstRender = true;
   function useOutsideAlerter(ref) {
     useEffect(() => {
       function handleClickOutside(event) {
@@ -29,17 +30,7 @@ export default function Navbar() {
   useOutsideAlerter(wrapperRef);
   const location = useLocation();
   const [input, setInput] = useState("");
-  const calculateSize = (windowSize) => {
-    if (windowSize > 450) return 330;
-    else if (windowSize > 380 && windowSize < 450) return 230;
-    else return 200;
-  };
-  const [windowSize, setWindowSize] = useState(window.innerWidth);
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setWindowSize(window.innerWidth);
-    });
-  });
+
   const navigate = useNavigate();
   const searchAnime = async () => {
     return fetch("https://consumet-api.herokuapp.com/meta/anilist/" + input)
@@ -58,9 +49,8 @@ export default function Navbar() {
   useEffect(() => {
     if (input !== "") {
       searchAnime();
-    } else {
-      console.log("input cannot be empty");
     }
+    isFirstRender = false;
   }, [input]);
 
   const [value, setValue] = useState("");
@@ -119,7 +109,6 @@ export default function Navbar() {
               setInput(e.target.value);
             }
           }}
-          style={{ width: calculateSize(windowSize) }}
           placeholder="Search for anime"
           className="searchbar"
           type="text"

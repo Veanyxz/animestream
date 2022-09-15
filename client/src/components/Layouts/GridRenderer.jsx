@@ -13,7 +13,7 @@ const GridRenderer = ({ finalQuery, setAnimeInfo, isAnimate }) => {
   const [isAnimated, setIsAnimated] = useState(true);
   return (
     <Container fluid={true}>
-      <Row justify="center" gutterWidth={12}>
+      <Row justify="left" gutterWidth={12}>
         {finalQuery.map((query, index) => (
           <Col
             align="center"

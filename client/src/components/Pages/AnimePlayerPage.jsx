@@ -30,15 +30,6 @@ const AnimePlayerPage = ({ animeInfo }) => {
   const epArray = [];
   const [ep, setEp] = useState(null);
 
-  async function fetchVideoById(url) {
-    return await axios.get(url).then((response) => {
-      setCurrentStreamUrl([
-        response.data.sources[0].url,
-        response.data.sources[1].url,
-      ]);
-    });
-  }
-
   useEffect(() => {
     initialFetch();
   }, [id]);
@@ -73,6 +64,16 @@ const AnimePlayerPage = ({ animeInfo }) => {
         );
       });
   };
+
+  async function fetchVideoById(url) {
+    return await axios.get(url).then((response) => {
+      setCurrentStreamUrl([
+        response.data.sources[0].url,
+        response.data.sources[1].url,
+      ]);
+    });
+  }
+
   useEffect(() => {
     if (currentId !== "")
       fetchVideoById(
@@ -92,7 +93,13 @@ const AnimePlayerPage = ({ animeInfo }) => {
         <div className="animeplayer-container">
           {animestate.setVideoIsLoading(false)}
 
-          <AnimePlayer src={currentStreamUrl}></AnimePlayer>
+          <AnimePlayer
+            animeInfoUrl={
+              " https://consumet-api.herokuapp.com/meta/anilist/watch/" +
+              currentId
+            }
+            src={currentStreamUrl}
+          ></AnimePlayer>
 
           <div className="curranime">
             <h2 style={{ color: "#FC4747" }}>{anime.title.english}</h2>

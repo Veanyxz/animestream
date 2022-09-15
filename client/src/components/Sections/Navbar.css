@@ -31,10 +31,10 @@ a {
   right: 0;
   align-items: center;
   justify-content: center;
-  padding-right: 25px;
+  padding-right: 5%;
   height: 65px;
   z-index: 2000;
-  padding-left: 25px;
+  padding-left: 5%;
 }
 
 .nav-side-div {
@@ -175,4 +175,23 @@ a {
 .searchbar:focus {
   border: 1px solid violet;
   color: white;
+}
+@media screen and (min-width: 380px) {
+  .searchbar {
+    width: 60vw;
+  }
+
+  .nav-side-div {
+    gap: 17px;
+  }
+}
+@media screen and (min-width: 450px) {
+  .searchbar {
+    width: 330px;
+  }
+}
+@media screen and (max-width: 355px) {
+  .searchbar {
+    width: 60vw;
+  }
 }
