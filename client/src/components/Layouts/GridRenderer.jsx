@@ -5,7 +5,9 @@ import GridCard from "../Cards/GridCard";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-setConfiguration({ breakpoints: [768, 1100, 1800, 1920, 2100] });
+setConfiguration({ breakpoints: [768, 1500, 1800, 1920, 2100] });
+// setConfiguration({ breakpoints: [400, 768, 1100, 1600, 1920] });
+
 const GridRenderer = ({ finalQuery, setAnimeInfo, isAnimate }) => {
   useEffect(() => {
     setIsAnimated(isAnimate);
@@ -18,10 +20,10 @@ const GridRenderer = ({ finalQuery, setAnimeInfo, isAnimate }) => {
           <Col
             align="center"
             xxl={2}
-            md={3}
+            md={2.4}
+            lg={2}
             sm={4}
             xs={3.95}
-            lg={2}
             key={uuidv4()}
           >
             <motion.div
@@ -33,10 +35,8 @@ const GridRenderer = ({ finalQuery, setAnimeInfo, isAnimate }) => {
                     }
                   : {}
               }
-              animate={
-                isAnimated ? { opacity: 1,  translateX: 0 } : {}
-              }
-              transition={{ duration: 0.30, delay: index * 0.05 }}
+              animate={isAnimated ? { opacity: 1, translateX: 0 } : {}}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
               viewport={{ once: true }}
             >
               <GridCard

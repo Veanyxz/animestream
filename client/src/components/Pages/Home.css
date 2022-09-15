@@ -38,7 +38,7 @@ button.rec-dot {
   transition: 200ms ease;
 }
 * {
-  scroll-margin-top: 10px;
+  scroll-margin-top: 20px;
 }
 .contindex::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);

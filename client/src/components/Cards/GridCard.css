@@ -11,6 +11,7 @@
   font-size: 1.2rem;
 }
 .gridcard-card {
+  transition: all 0.5s;
   background-position: center;
   background-size: cover;
   border-radius: 15px;

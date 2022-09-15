@@ -1,7 +1,7 @@
 import "./Navbar.css";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/logo1.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import React, { useRef } from "react";
@@ -10,7 +10,6 @@ import { toast } from "react-toastify";
 export default function Navbar() {
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
-  let isFirstRender = true;
   function useOutsideAlerter(ref) {
     useEffect(() => {
       function handleClickOutside(event) {
@@ -50,7 +49,6 @@ export default function Navbar() {
     if (input !== "") {
       searchAnime();
     }
-    isFirstRender = false;
   }, [input]);
 
   const [value, setValue] = useState("");

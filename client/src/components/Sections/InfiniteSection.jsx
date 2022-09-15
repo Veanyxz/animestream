@@ -86,7 +86,7 @@ export default function InfiniteSection({
         className="section section-infinite"
         style={{
           paddingBottom: 40,
-          marginTop: querytype === "&" ? 80 : "",
+          marginTop: querytype === "&" ? 70 : "",
         }}
       >
         {fetchedData.length > 0 && (
