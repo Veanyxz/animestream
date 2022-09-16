@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import GridRenderer from "../Layouts/GridRenderer.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
-import ClockLoader from "react-spinners/ClockLoader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { v4 as uuidv4 } from "uuid";
 import toast, { Toaster } from "react-hot-toast";
@@ -10,18 +9,7 @@ import {
   faArrowLeftLong,
   faArrowRightLong,
 } from "@fortawesome/free-solid-svg-icons";
-const override = {
-  position: "fixed",
-  zIndex: 1,
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
 
-  margin: "auto",
-
-  borderColor: "red",
-};
 export default function InfiniteSection({
   url,
   sectiontitle,
