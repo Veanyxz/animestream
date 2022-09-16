@@ -9,7 +9,14 @@ setConfiguration({ breakpoints: [768, 1170, 1500, 1700, 1800, 1900] });
 
 export default function GenresPage({ setAnimeInfo }) {
   const [query, setQuery] = useState({});
-  const [queryUrl, setQueryUrl] = useState("");
+  const [queryUrl, setQueryUrl] = useState(
+    "https://consumet-api.herokuapp.com/meta/anilist/advanced-search?sort=" +
+      "[" +
+      '"' +
+      "POPULARITY_DESC" +
+      '"' +
+      "]"
+  );
   const [inResetState, setInResetState] = useState(false);
 
   const genres = [
@@ -48,7 +55,6 @@ export default function GenresPage({ setAnimeInfo }) {
     { value: "CANCELLED", label: "Cancelled" },
     { value: "HIATUS", label: "Hiatus" },
   ];
-
   const resetAll = () => {
     setInResetState(true);
     setSelectedFormat(null);
@@ -59,17 +65,18 @@ export default function GenresPage({ setAnimeInfo }) {
   };
 
   const sortCriteriaOptions = [
-    { value: "POPULARITY_DESC", label: "Popularity Descending" },
-    { value: "POPULARITY", label: "Popularity" },
-    { value: "SCORE_DESC", label: "Score Descending" },
-    { value: "SCORE", label: "Score" },
-    { value: "TRENDING_DESC", label: "Trending Descending" },
-    { value: "TRENDING", label: "Trending" },
-    { value: "UPDATED_AT", label: "Updated At" },
-    { value: "UPDATED_AT_DESC", label: "Updated At Descending" },
+    { value: "POPULARITY_DESC", label: "Popularity" },
 
-    { value: "END_DATE", label: "End Date" },
-    { value: "END_DATE_DESC", label: "End Date Descending" },
+    { value: "POPULARITY", label: "Popularity Ascending" },
+    { value: "SCORE_DESC", label: "Score" },
+    { value: "SCORE", label: "Score Ascending" },
+    { value: "TRENDING_DESC", label: "Trending" },
+    { value: "TRENDING", label: "Trending Ascending" },
+    { value: "UPDATED_AT", label: "Updated At Ascending" },
+    { value: "UPDATED_AT_DESC", label: "Updated At" },
+
+    { value: "END_DATE", label: "End Date Ascending" },
+    { value: "END_DATE_DESC", label: "End Date" },
   ];
   const yearOptions = [];
 
@@ -79,11 +86,10 @@ export default function GenresPage({ setAnimeInfo }) {
       label: i,
     });
   }
+
   const generateQueryUrl = () => {
     let isFirstParam = true;
     let url = "https://consumet-api.herokuapp.com/meta/anilist/advanced-search";
-    // "?format=" +
-    // query.selectedFormat.value;
 
     if (query.selectedFormat) {
       url += isFirstParam ? "?" : "&";
@@ -106,12 +112,26 @@ export default function GenresPage({ setAnimeInfo }) {
       if (isFirstParam) isFirstParam = false;
       url += "year=" + query.selectedYear.value;
     }
-    console.log(url);
 
+    if (selectedGenres.length > 0) {
+      url += isFirstParam ? "?" : "&";
+      url += "genres=[";
+
+      selectedGenres.forEach((selectedGenre, index) => {
+        url += '"' + selectedGenre + '"';
+        if (index !== selectedGenres.length - 1) url += ","; //whats wrong?
+      });
+
+      url += "]";
+    }
+    console.log(url);
     return url;
   };
   const [selectedFormat, setSelectedFormat] = useState(null);
-  const [selectedSortCriteria, setselectedSortCriteria] = useState(null);
+  const [selectedSortCriteria, setselectedSortCriteria] = useState({
+    value: "POPULARITY_DESC",
+    label: "Popularity",
+  });
   const [selectedYear, setselectedYear] = useState(null);
   const [selectedStatus, setSelectedStatus] = useState(null);
   const [selectedGenres, setSelectedGenres] = useState([]);
@@ -119,27 +139,24 @@ export default function GenresPage({ setAnimeInfo }) {
   useEffect(() => {
     if (selectedFormat) {
       setQuery({ ...query, selectedFormat });
-      setInResetState(true);
     }
   }, [selectedFormat]);
 
   useEffect(() => {
+    console.log(selectedGenres);
+  }, [selectedGenres]);
+  useEffect(() => {
     if (selectedYear) {
       setQuery({ ...query, selectedYear });
-      setInResetState(true);
     }
   }, [selectedYear]);
   useEffect(() => {
     if (selectedStatus) {
-      setInResetState(true);
-
       setQuery({ ...query, selectedStatus });
     }
   }, [selectedStatus]);
   useEffect(() => {
     if (selectedSortCriteria) {
-      setInResetState(true);
-
       setQuery({ ...query, selectedSortCriteria });
     }
   }, [selectedSortCriteria]);
@@ -172,7 +189,7 @@ export default function GenresPage({ setAnimeInfo }) {
 
         <Select
           options={sortCriteriaOptions}
-          defaultValue={selectedFormat}
+          defaultValue={selectedSortCriteria}
           onChange={setselectedSortCriteria}
           placeholder="Sort By"
           value={selectedSortCriteria}
@@ -199,19 +216,23 @@ export default function GenresPage({ setAnimeInfo }) {
         {genres.map((genre, index) => {
           return (
             <div
+              style={{
+                backgroundColor: selectedGenres.includes(genre)
+                  ? "white"
+                  : "#fc4747",
+                color: selectedGenres.includes(genre) ? "#fc4747" : "white",
+              }}
               key={uuidv4()}
               onClick={(e) => {
                 if (selectedGenres.includes(e.target.innerText)) {
                   setSelectedGenres(
-                    genres.filter((genre) => genre !== e.target.innerText)
+                    selectedGenres.filter(
+                      (genre) => genre !== e.target.innerText
+                    )
                   );
-                  e.target.style.backgroundColor = "red";
                 } else {
                   setSelectedGenres([...selectedGenres, e.target.innerText]);
-                  e.target.style.backgroundColor = "white";
                 }
-
-                console.log(selectedGenres);
               }}
               className="genre-button"
             >
@@ -241,7 +262,7 @@ export default function GenresPage({ setAnimeInfo }) {
         </button>
       </div>
 
-      {queryUrl !== "" && !inResetState && (
+      {!inResetState && (
         <InfiniteSection
           isGenresPage={true}
           url={queryUrl}

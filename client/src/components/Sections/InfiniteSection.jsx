@@ -102,7 +102,12 @@ export default function InfiniteSection({
         {fetchedData.length > 0 && (
           <>
             <h1
-              style={{ color: "#fdba74", fontSize: "3rem", marginLeft: "20px" }}
+              style={{
+                color: isGenresPage ? "yellow" : "#fdba74",
+                fontSize: "3rem",
+                marginLeft: "20px",
+                marginTop: isGenresPage ? 30 : "",
+              }}
             >
               {sectiontitle}
             </h1>

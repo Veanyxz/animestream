@@ -1,9 +1,8 @@
 .genre-button {
-  background-color: #fc4747;
-  color: white;
   border-radius: 20px;
   font-size: 1.2rem;
   padding: 5px 15px;
+  cursor: pointer;
 }
 
 .genres-container {
