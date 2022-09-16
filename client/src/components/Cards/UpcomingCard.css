@@ -44,19 +44,13 @@
     width: 200px;
   }
 }
-@media screen and (min-width: 475px) {
+@media screen and (min-width: 500px) {
   .upcomingcard-card {
-    height: 130px;
-    width: 220px;
+    height: 180px;
+    width: 46vw;
   }
 }
 
-@media screen and (min-width: 700px) {
-  .upcomingcard-card {
-    height: 140px;
-    width: 220px;
-  }
-}
 @media screen and (min-width: 850px) {
   .upcomingcard-card {
     height: 180px;

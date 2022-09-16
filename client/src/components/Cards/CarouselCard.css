@@ -53,8 +53,14 @@
 }
 @media screen and (min-width: 700px) {
   .animecard-card {
-    height: 180px;
-    width: 220px;
+    height: 250px;
+    width: 160px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .animecard-card {
+    height: 250px;
+    width: 180px;
   }
 }
 .epnumber {
@@ -78,55 +84,55 @@
 }
 @media screen and (min-width: 830px) {
   .animecard-card {
-    height: 180px;
-    width: 270px;
+    height: 250px;
+    width: 180px;
   }
 }
 
 @media screen and (min-width: 1010px) {
   .animecard-card {
-    height: 180px;
-    width: 320px;
+    height: 250px;
+    width: 180px;
   }
 }
 
 @media screen and (min-width: 1125px) {
   .animecard-card {
-    height: 180px;
-    width: 270px;
+    height: 250px;
+    width: 180px;
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1300px) {
   .animecard-card {
-    height: 200px;
-    width: 310px;
+    height: 340px;
+    width: 230px;
   }
 }
 
 @media screen and (min-width: 1400px) {
   .animecard-card {
-    height: 200px;
-    width: 340px;
+    height: 340px;
+    width: 230px;
   }
 }
 
 @media screen and (min-width: 1570px) {
   .animecard-card {
-    height: 200px;
-    width: 360px;
+    height: 340px;
+    width: 230px;
   }
 }
 @media screen and (min-width: 1600px) {
   .animecard-card {
-    height: 230px;
-    width: 360px;
+    height: 340px;
+    width: 230px;
   }
 }
 
 @media screen and (min-width: 1710px) {
   .animecard-card {
-    height: 230px;
-    width: 400px;
+    height: 340px;
+    width: 230px;
   }
 }
 @media screen and (min-width: 1800px) {

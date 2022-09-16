@@ -34,8 +34,8 @@ button.rec-dot {
 .gridcard-wrapper:hover,
 .recommend-card:hover,
 .recommend-wrapper:hover {
-  transform: scale(1.01);
-  transition: 200ms ease;
+  transform: scale(1.02);
+  transition: 300ms ease;
 }
 
 .contindex::-webkit-scrollbar-track {
@@ -52,12 +52,26 @@ button.rec-dot {
   background-color: #366073;
   border-radius: 4px;
 }
+button.rec-dot {
+  height: 8.5px;
+  width: 8.5px;
+}
 
-button.rec-dot:hover,
-button.rec-dot:active,
-button.rec-dot:focus {
+/* button.rec {
+  position: fixed;
+  width: 500px;
+  left: 0;
+} */
+button.rec-dot_active,
+button.rec-dot_active:focus,
+button.rec-dot_active:hover button.rec-dot:focus {
   background-color: #fc4747;
 }
+
+button.rec-dot {
+  box-shadow: none;
+}
+
 .epindex:hover {
   background-color: #3f1e26 !important;
 }
