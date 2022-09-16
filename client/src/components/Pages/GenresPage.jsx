@@ -1,8 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import { setConfiguration } from "react-grid-system";
-import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { ToastContainer } from "react-toastify";
 import InfiniteSection from "../Sections/InfiniteSection";
 import "./GenresPage.css";
 import Select from "react-select";
@@ -12,39 +10,66 @@ setConfiguration({ breakpoints: [768, 1170, 1500, 1700, 1800, 1900] });
 export default function GenresPage({ setAnimeInfo }) {
   const [query, setQuery] = useState({});
   const [queryUrl, setQueryUrl] = useState("");
+  const [inResetState, setInResetState] = useState(false);
+
+  const genres = [
+    "Action",
+    "Adventure",
+    "Comedy",
+    "Drama",
+    "Fantasy",
+    "Horror",
+    "Mecha",
+    "Music",
+    "Mystery",
+    "Psychological",
+    "Romance",
+    "Sci-Fi",
+    "Slice_Of_Life",
+    "Sports",
+    "Supernatural",
+    "Thriller",
+  ];
   const formatOptions = [
-    { value: "tv", label: "TV" },
-    { value: "tvshort", label: "TV_SHORT" },
-    { value: "ova", label: "OVA" },
-    { value: "ona", label: "ONA" },
-    { value: "movie", label: "MOVIE" },
+    { value: "TV", label: "TV" },
+    { value: "TV_SHORT", label: "TV_SHORT" },
+    { value: "OVA", label: "OVA" },
+    { value: "ONA", label: "ONA" },
+    { value: "MOVIE", label: "MOVIE" },
 
-    { value: "special", label: "SPECIAL" },
+    { value: "SPECIAL", label: "SPECIAL" },
 
-    { value: "music", label: "MUSIC" },
+    { value: "MUSIC", label: "MUSIC" },
   ];
   const statusOptions = [
-    { value: "finished", label: "Finished" },
-    { value: "releasing", label: "Releasing" },
-    { value: "notyetreleased", label: "Not Yet Released" },
-    { value: "cancelled", label: "Cancelled" },
-    { value: "hiatus", label: "Hiatus" },
+    { value: "FINISHED", label: "Finished" },
+    { value: "RELEASING", label: "Releasing" },
+    { value: "NOT_YET_RELEASED", label: "Not Yet Released" },
+    { value: "CANCELLED", label: "Cancelled" },
+    { value: "HIATUS", label: "Hiatus" },
   ];
 
   const resetAll = () => {
+    setInResetState(true);
     setSelectedFormat(null);
     setselectedSortCriteria(null);
     setSelectedStatus(null);
     setselectedYear(null);
     setQuery({});
   };
+
   const sortCriteriaOptions = [
-    { value: "popularitydescending", label: "Popularity Descending" },
-    { value: "popularityascending", label: "Popularity Ascending" },
-    { value: "scoredescending", label: "Score Descending" },
-    { value: "scoreascending", label: "Score Ascending" },
-    { value: "trendingdescending", label: "Trending Descending" },
-    { value: "trendingascending", label: "Trending Ascending" },
+    { value: "POPULARITY_DESC", label: "Popularity Descending" },
+    { value: "POPULARITY", label: "Popularity" },
+    { value: "SCORE_DESC", label: "Score Descending" },
+    { value: "SCORE", label: "Score" },
+    { value: "TRENDING_DESC", label: "Trending Descending" },
+    { value: "TRENDING", label: "Trending" },
+    { value: "UPDATED_AT", label: "Updated At" },
+    { value: "UPDATED_AT_DESC", label: "Updated At Descending" },
+
+    { value: "END_DATE", label: "End Date" },
+    { value: "END_DATE_DESC", label: "End Date Descending" },
   ];
   const yearOptions = [];
 
@@ -54,31 +79,69 @@ export default function GenresPage({ setAnimeInfo }) {
       label: i,
     });
   }
+  const generateQueryUrl = () => {
+    let isFirstParam = true;
+    let url = "https://consumet-api.herokuapp.com/meta/anilist/advanced-search";
+    // "?format=" +
+    // query.selectedFormat.value;
 
-  //   const generateQueryUrl = () => {
-  //     let url =
-  //     return url;
-  //   };
+    if (query.selectedFormat) {
+      url += isFirstParam ? "?" : "&";
+      if (isFirstParam) isFirstParam = false;
+      url += "format=" + query.selectedFormat.value;
+    }
 
+    if (query.selectedSortCriteria) {
+      url += isFirstParam ? "?" : "&";
+      if (isFirstParam) isFirstParam = false;
+      url += "sort=" + "[" + '"' + query.selectedSortCriteria.value + '"' + "]";
+    }
+    if (query.selectedStatus) {
+      url += isFirstParam ? "?" : "&";
+      if (isFirstParam) isFirstParam = false;
+      url = url + "status=" + query.selectedStatus.value;
+    }
+    if (query.selectedYear) {
+      url += isFirstParam ? "?" : "&";
+      if (isFirstParam) isFirstParam = false;
+      url += "year=" + query.selectedYear.value;
+    }
+    console.log(url);
+
+    return url;
+  };
   const [selectedFormat, setSelectedFormat] = useState(null);
   const [selectedSortCriteria, setselectedSortCriteria] = useState(null);
   const [selectedYear, setselectedYear] = useState(null);
   const [selectedStatus, setSelectedStatus] = useState(null);
+  const [selectedGenres, setSelectedGenres] = useState([]);
 
   useEffect(() => {
     if (selectedFormat) {
       setQuery({ ...query, selectedFormat });
+      setInResetState(true);
     }
   }, [selectedFormat]);
-  useEffect(() => {}, [queryUrl]);
+
   useEffect(() => {
-    if (selectedYear) setQuery({ ...query, selectedYear });
+    if (selectedYear) {
+      setQuery({ ...query, selectedYear });
+      setInResetState(true);
+    }
   }, [selectedYear]);
   useEffect(() => {
-    if (selectedStatus) setQuery({ ...query, selectedStatus });
+    if (selectedStatus) {
+      setInResetState(true);
+
+      setQuery({ ...query, selectedStatus });
+    }
   }, [selectedStatus]);
   useEffect(() => {
-    if (selectedSortCriteria) setQuery({ ...query, selectedSortCriteria });
+    if (selectedSortCriteria) {
+      setInResetState(true);
+
+      setQuery({ ...query, selectedSortCriteria });
+    }
   }, [selectedSortCriteria]);
 
   return (
@@ -122,51 +185,48 @@ export default function GenresPage({ setAnimeInfo }) {
           value={selectedYear}
         />
         <Select
-          defaultValue={selectedFormat}
+          defaultValue={selectedStatus}
           onChange={setSelectedStatus}
           options={statusOptions}
           placeholder="Status"
-          value={selectedFormat}
+          value={selectedStatus}
         />
       </div>
       <div
         className="genres-container"
         style={{ display: "flex", gap: 10, marginLeft: 21 }}
       >
-        <div className="genre-button">Action</div>
-        <div className="genre-button">Adventure</div>
-        <div className="genre-button">Comedy</div>
+        {genres.map((genre, index) => {
+          return (
+            <div
+              key={uuidv4()}
+              onClick={(e) => {
+                if (selectedGenres.includes(e.target.innerText)) {
+                  setSelectedGenres(
+                    genres.filter((genre) => genre !== e.target.innerText)
+                  );
+                  e.target.style.backgroundColor = "red";
+                } else {
+                  setSelectedGenres([...selectedGenres, e.target.innerText]);
+                  e.target.style.backgroundColor = "white";
+                }
 
-        <div className="genre-button">Drama</div>
-        <div className="genre-button">Fantasy</div>
-
-        <div className="genre-button">Horror</div>
-
-        <div className="genre-button">Mecha</div>
-        <div className="genre-button">Music</div>
-
-        <div className="genre-button">Mystery</div>
-        <div className="genre-button">Psychological</div>
-
-        <div className="genre-button">Romance</div>
-        <div className="genre-button">Sci-Fi</div>
-        <div className="genre-button">Slice Of Life</div>
-        <div className="genre-button">Sports</div>
-
-        <div className="genre-button">Supernatural</div>
-
-        <div className="genre-button">Thriller</div>
+                console.log(selectedGenres);
+              }}
+              className="genre-button"
+            >
+              {genre}
+            </div>
+          );
+        })}
       </div>
 
       <div className="searchandfilter-container">
         <button
           className="btn-search-genre"
           onClick={() => {
-            setQueryUrl(
-              "https://consumet-api.herokuapp.com/meta/anilist/advanced-search" +
-                "?format=" +
-                query.selectedFormat.label
-            );
+            setQueryUrl(generateQueryUrl());
+            setInResetState(false);
           }}
         >
           Search
@@ -181,11 +241,11 @@ export default function GenresPage({ setAnimeInfo }) {
         </button>
       </div>
 
-      <h1 className="results-title">Results</h1>
-      {queryUrl !== "" && (
+      {queryUrl !== "" && !inResetState && (
         <InfiniteSection
           isGenresPage={true}
           url={queryUrl}
+          sectiontitle={"Results"}
           itemlimit={18}
           id="filterresults"
           querytype={"?"}

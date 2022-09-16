@@ -39,7 +39,7 @@ const GridRenderer = ({ finalQuery, setAnimeInfo, isAnimate }) => {
             >
               <GridCard
                 setAnimeInfo={setAnimeInfo}
-                title={query.title.english}
+                title={query.title}
                 id={query.id}
                 image={query.image}
                 key={uuidv4()}

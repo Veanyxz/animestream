@@ -10,6 +10,9 @@ html {
     transform: scale(0.65) !important;
   }
 }
+* {
+  scroll-margin-top: 20px;
+}
 
 body {
   background-color: #10141e;

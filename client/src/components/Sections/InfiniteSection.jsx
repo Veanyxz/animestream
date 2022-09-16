@@ -35,6 +35,7 @@ export default function InfiniteSection({
   const [isAnimate, setIsAnimate] = useState(false);
   const [loading, setLoading] = useState(false);
   const [hasNextPage, setHasNextPage] = useState(true);
+
   const [pageNumbers, setPageNumbers] = useState([1, 2, 3, 4, 5]);
   const updatePageNumberButtons = (e) => {
     if (e.target.classList.contains("nextPageButton")) {
@@ -58,17 +59,20 @@ export default function InfiniteSection({
       }
     }
   };
+
+  useEffect(() => {
+    setCurrpage(1);
+  }, [url]);
   useEffect(() => {
     setLoading(true);
     setIsAnimate(false);
-    if (currpage >= 1) {
+    if (currpage > 1) {
       document.querySelector("#" + id).scrollIntoView();
     }
-    console.log(url);
     axios
       .get(
         isGenresPage
-          ? url
+          ? url + "&page=" + currpage + "&perPage=" + itemlimit
           : url + querytype + "page=" + currpage + "&perPage=" + itemlimit
       )
 
@@ -83,7 +87,7 @@ export default function InfiniteSection({
         setLoading(false);
         setIsAnimate(true);
       });
-  }, [currpage]);
+  }, [currpage, url]);
 
   return (
     <>
@@ -191,6 +195,7 @@ export default function InfiniteSection({
                     if (hasNextPage) {
                       updatePageNumberButtons(e);
                       setCurrpage((curr) => curr + 1);
+                      console.log(currpage);
                     } else {
                       toast.error("This is the last page!");
                     }
