@@ -63,11 +63,10 @@ button.rec-dot {
   width: 8.5px;
 }
 
-/* button.rec {
-  position: fixed;
-  width: 500px;
-  left: 0;
-} */
+.section-anime button.rec,
+.section-upcoming button.rec {
+  display: none;
+}
 button.rec-dot_active,
 button.rec-dot_active:focus,
 button.rec-dot_active:hover button.rec-dot:focus {
@@ -86,7 +85,7 @@ button.rec-dot {
   font-size: 1.9rem;
   width: 60%;
   margin-left: 16px;
-  margin-bottom: 1px;
+  margin-bottom: 3px;
 }
 @media screen and (min-width: 768px) {
   .row-title {
@@ -94,7 +93,7 @@ button.rec-dot {
     font-size: 2.5rem;
     width: 60%;
     margin-left: 24px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 }
 @media screen and (max-width: 768px) {

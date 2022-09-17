@@ -53,8 +53,11 @@ const Home = () => {
         style={{
           border: "1px solid dodgerblue",
           background: "rgb(33, 33, 33)",
+          opacity: 0.5,
           color: "white",
           boxShadow: "none",
+          borderTopLeftRadius: 10,
+          borderBottomLeftRadius: 10,
         }}
         className="scrolltop"
         top={1500}

@@ -16,9 +16,9 @@
   text-align: center;
 }
 
-.upcomingcard-card {
+/* .upcomingcard-card {
   min-width: 45vw;
-}
+} */
 @media screen and (max-width: 359px) {
   .upcomingcard-card {
     height: 90px;
