@@ -61,10 +61,10 @@ export default function AnimePlayer({ src, animeInfoUrl }) {
             theme="dark"
             style={{
               "--vm-player-theme": "rgba(255, 255, 255, .3)",
-              "--vm-slider-track-height": "8px",
-              "--vm-slider-thumb-height": "8px",
-              "--vm-slider-track-focused-height": "8px",
-              "--vm-slider-value-color": "#FC4747",
+              "--vm-slider-track-height": "6px",
+              "--vm-slider-thumb-height": "6px",
+              "--vm-slider-track-focused-height": "6px",
+              "--vm-slider-value-color": "#582fcb",
               "--vm-loading-screen-dot-color": "#FC4747",
             }}
             autoplay={true}

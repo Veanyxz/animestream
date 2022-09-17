@@ -14,7 +14,9 @@ import {
 } from "@ant-design/icons";
 import { SharedState } from "../../App";
 import axios from "axios";
+import VerticalCarousel from "../Layouts/VerticalCarousel";
 import Navbar from "../Sections/Navbar";
+import AnimeSection from "../Sections/AnimeSection";
 const AnimePlayerPage = ({ animeInfo }) => {
   const animestate = useContext(SharedState);
   animestate.setVideoIsLoading(true);
@@ -84,108 +86,121 @@ const AnimePlayerPage = ({ animeInfo }) => {
   useEffect(() => {
     if (anime) setCurrentId(anime.episodes[selectedOption - 1].id);
   }, [selectedOption, anime]);
-
+  console.log(anime);
   return (
     <>
       <Navbar></Navbar>
 
       {currentStreamUrl !== null && anime && (
-        <div className="animeplayer-container">
-          {animestate.setVideoIsLoading(false)}
+        <>
+          <div className="animeplayer-container">
+            {animestate.setVideoIsLoading(false)}
 
-          <AnimePlayer
-            animeInfoUrl={
-              " https://consumet-api.herokuapp.com/meta/anilist/watch/" +
-              currentId
-            }
-            src={currentStreamUrl}
-          ></AnimePlayer>
-
-          <div className="curranime">
-            <h2 style={{ color: "#FC4747" }}>{anime.title.english}</h2>
-            <div className="curranimeinfo">
-              <span className="curranime-platform">
-                <PlayCircleOutlined /> TV Show
-              </span>
-              <span className="curranime-score">
-                Rating: <StarFilled style={{ color: "yellow" }} />{" "}
-                {anime.rating / 10}
-              </span>
-              <span className="curranime-epaired">
-                <OrderedListOutlined /> Total Ep: {anime.episodes.length}
-              </span>
-              <span className="curranime-releaseyear">
-                <CalendarOutlined /> {anime.releaseDate}
-              </span>
+            <div className="vime-container">
+              <AnimePlayer
+                animeInfoUrl={
+                  " https://consumet-api.herokuapp.com/meta/anilist/watch/" +
+                  currentId
+                }
+                src={currentStreamUrl}
+              ></AnimePlayer>
             </div>
 
-            <form style={{ marginTop: 15 }}>
-              <div className="contindex">
-                {ep.map((ep, index) => {
-                  return (
-                    <div
-                      key={uuidv4()}
-                      className="epindex"
-                      onClick={(e) => {
-                        setSelectedOption(e.target.innerText);
-                      }}
-                    >
-                      {ep}
-                    </div>
-                  );
-                })}
+            <div className="curranime">
+              <h2 className="anime-title">{anime.title.english}</h2>
+              <div className="curranimeinfo">
+                <span className="curranime-platform">
+                  <PlayCircleOutlined /> TV Show
+                </span>
+                <span className="curranime-score">
+                  Rating: <StarFilled style={{ color: "yellow" }} />{" "}
+                  {anime.rating / 10}
+                </span>
+                <span className="curranime-epaired">
+                  <OrderedListOutlined /> Total Ep: {anime.episodes.length}
+                </span>
+                <span className="curranime-releaseyear">
+                  <CalendarOutlined /> {anime.releaseDate}
+                </span>
               </div>
-            </form>
 
-            <hr></hr>
+              <form style={{ marginTop: 15 }}>
+                <div className="contindex">
+                  {ep.map((ep, index) => {
+                    return (
+                      <div
+                        key={uuidv4()}
+                        className="epindex"
+                        onClick={(e) => {
+                          setSelectedOption(e.target.innerText);
+                        }}
+                      >
+                        {ep}
+                      </div>
+                    );
+                  })}
+                </div>
+              </form>
 
-            <h3 className="summary-title">Summary</h3>
-            <p className="summary-content">
-              <TextTruncate
-                text={description}
-                line={window.innerWidth < 800 ? 4 : 8}
-              ></TextTruncate>
-            </p>
+              <h3 className="summary-title">Summary</h3>
+              <p className="summary-content">
+                <TextTruncate
+                  text={description}
+                  line={window.innerWidth < 800 ? 4 : 8}
+                ></TextTruncate>
+              </p>
 
-            <br />
-            <div className="additional-anime-info">
-              <h4 style={{ color: "#FC4747" }}>
-                Genres:&nbsp;
-                <span className="curranime-genres">
-                  {anime.genres.join(", ")}
-                </span>
-              </h4>
-              <h4 style={{ color: "#FC4747" }}>
-                Studios:&nbsp;
-                <span className="curranime-studios">
-                  {anime.studios.join(", ")}
-                </span>
-              </h4>
-
-              {adaptation !== "" && (
+              <br />
+              <div className="additional-anime-info">
                 <h4 style={{ color: "#FC4747" }}>
-                  Adapation:&nbsp;
-                  <span className="curranime-adaptation">{adaptation}</span>
+                  Genres:&nbsp;
+                  <span className="curranime-genres">
+                    {anime.genres.join(", ")}
+                  </span>
                 </h4>
-              )}
-              <h4 style={{ color: "#FC4747" }}>
-                Status:&nbsp;
-                <span className="curranime-status">{anime.status}</span>
-              </h4>
+                <h4 style={{ color: "#FC4747" }}>
+                  Studios:&nbsp;
+                  <span className="curranime-studios">
+                    {anime.studios.join(", ")}
+                  </span>
+                </h4>
+
+                {adaptation !== "" && (
+                  <h4 style={{ color: "#FC4747" }}>
+                    Adapation:&nbsp;
+                    <span className="curranime-adaptation">{adaptation}</span>
+                  </h4>
+                )}
+                <h4 style={{ color: "#FC4747" }}>
+                  Status:&nbsp;
+                  <span className="curranime-status">{anime.status}</span>
+                </h4>
+              </div>
+
+              <br />
             </div>
 
-            <br />
-            <div className="recommendations-title">
-              <h3>Recommendations</h3>
+            <div>
+              <VerticalCarousel
+                rowTitle={"More Like This"}
+                finalQuery={anime.recommendations}
+              ></VerticalCarousel>
             </div>
           </div>
-          <div>
+          {anime.recommendations && (
             <ReccomendCarousel
+              rowTitle="Recommendations"
               finalQuery={anime.recommendations}
             ></ReccomendCarousel>
-          </div>
-        </div>
+          )}
+          <AnimeSection
+            url={"https://consumet-api.herokuapp.com/meta/anilist/trending"}
+            id={"trending"}
+            sectiontitle={"Trending"}
+          ></AnimeSection>
+        </>
       )}
+
       <ScrollToTop
         style={{
           border: "1px solid dodgerblue",

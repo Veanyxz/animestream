@@ -1,19 +1,48 @@
 .animeplayer-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: fit-content;
   margin-top: 70px;
 }
-vm-player {
-  width: 100vw !important;
+@media screen and (min-width: 1450px) {
+  .animeplayer-container {
+    max-width: 67vw;
+  }
 }
-.recommend-div {
-  justify-items: center;
-  display: grid;
+.vime-container {
+  width: 98%;
+  margin: 0 auto;
+}
+.vertical-grid-container {
+  position: absolute;
+  right: 35px;
+  top: 80px;
+  width: 30vw;
+}
+
+.vertical-grid::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: transparent;
+}
+
+.vertical-grid::-webkit-scrollbar {
+  width: 5px;
+  background-color: transparent;
+}
+
+.vertical-grid::-webkit-scrollbar-thumb {
+  background-color: #2f2f2f;
+  border-radius: 4px;
+}
+.vertical-grid {
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-template-rows: minmax(14rem, 1fr);
-  grid-auto-rows: 1fr;
-  grid-auto-flow: dense;
+  max-height: 1050px;
+  overflow-x: hidden;
+  display: grid;
+  overflow-y: scroll;
+  row-gap: 20px;
+}
+
+.recommend-div button.rec {
+  display: none;
 }
 .top-narrowbar {
   background-color: rgb(38, 50, 56);
@@ -47,8 +76,12 @@ hr {
   margin-top: 20px;
 }
 .recommendations-title {
+  color: white;
   font-size: 1.7rem;
-  color: #fc4747;
+}
+
+.anime-title {
+  font-size: 1.8rem;
 }
 .curranime-status,
 .curranime-adaptation,
@@ -79,6 +112,9 @@ hr {
   font-size: 1.3rem;
 }
 @media screen and (max-width: 768px) {
+  .animeplayer-container {
+    margin-left: 0px;
+  }
   .spinner {
     transform: scale(0.65) !important;
   }
@@ -91,47 +127,42 @@ hr {
 }
 
 .curranime {
-  height: 100%;
+  width: 99%;
   padding: 15px;
-  background-color: #10141e;
-  font-family: "Inter", sans-serif;
+  background-color: #0f0617;
   line-height: 1.5;
 }
-.recommend-carousel .recommend-card {
-  height: 90px;
-  width: 140px;
+
+@media screen and (max-width: 1450px) {
+  .vertical-grid-container {
+    display: none;
+  }
 }
-@media screen and (min-width: 340px) {
-  .recommend-carousel .recommend-card {
-    height: 140px;
-    width: 100px;
+@media screen and (max-width: 1700px) {
+  .vertical-grid .animecard-card {
+    height: 280px;
+    width: 200px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .vime-container {
+    margin-left: 22px;
+  }
+  .animeplayer-container {
+    margin-top: 90px;
+    margin-left: 10px;
   }
 }
 
-@media screen and (min-width: 380px) {
-  .recommend-carousel .recommend-card {
-    height: 150px;
-    width: 115px;
-  }
+button.rec {
+  display: none;
 }
-@media screen and (min-width: 480px) {
-  .recommend-carousel .recommend-card {
-    height: 200px;
-    width: 145px;
+@media screen and (min-width: 768px) {
+  .curranime {
+    padding-left: 22px;
   }
-}
 
-@media screen and (max-width: 670px) {
-  .recommend-div {
-    display: none !important;
+  .anime-title {
+    font-size: 2.6rem;
   }
-}
-
-@media screen and (min-width: 670px) {
-  .recommend-carousel {
-    display: none !important;
-  }
-}
-.recommend-carousel {
-  display: initial;
 }

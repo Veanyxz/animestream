@@ -34,9 +34,9 @@ export default function CarouselRenderer({
   return (
     <div className="carouselinstance">
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <h1 className="row-title">{rowTitle}</h1>
+        {rowTitle && <h1 className="row-title">{rowTitle}</h1>}
 
-        {!isUpcoming && (
+        {!isUpcoming && rowTitle !== "Recommendations" && (
           <a
             onClick={(event) => {
               event.preventDefault();
