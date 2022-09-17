@@ -76,11 +76,11 @@
   background-color: rgba(0, 0, 0, 0.6);
   padding: 2px 7px;
   position: absolute;
-  border-radius: 5px;
+  border-radius: 4px;
   font-size: 1.35rem;
   display: flex;
   gap: 4px;
-  border-top-left-radius: 10px;
+
   justify-content: center;
   align-items: center;
 }
@@ -95,25 +95,13 @@
   font-weight: lighter;
 }
 
-/* @media screen and (min-width: 1168px) {
-  .gridcard-card {
-    height: 340px;
-    width: 230px;
-  }
-} */
 @media screen and (min-width: 1300px) {
   .gridcard-card {
     height: 340px;
     width: 230px;
   }
 }
-/* 
-@media screen and (min-width: 1600px) {
-  .gridcard-card {
-    height: 480px;
-    width: 360px;
-  }
-} */
+
 @media screen and (min-width: 1800px) {
   .gridcard-card {
     height: 340px;

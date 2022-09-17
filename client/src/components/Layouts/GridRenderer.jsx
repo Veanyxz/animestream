@@ -15,7 +15,15 @@ const GridRenderer = ({ finalQuery, setAnimeInfo, isAnimate }) => {
     <Container fluid={true}>
       <Row justify="left" gutterWidth={12}>
         {finalQuery.map((query, index) => (
-          <Col align="center" md={2.4} lg={2} sm={3} xs={3.95} xl={1.713} key={uuidv4()}>
+          <Col
+            align="center"
+            md={2.4}
+            lg={2}
+            sm={3}
+            xs={3.95}
+            xl={1.71}
+            key={uuidv4()}
+          >
             <motion.div
               initial={
                 isAnimated

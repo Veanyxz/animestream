@@ -267,7 +267,7 @@ export default function GenresPage({ setAnimeInfo }) {
           isGenresPage={true}
           url={queryUrl}
           sectiontitle={"Results"}
-          itemlimit={18}
+          itemlimit={21}
           id="filterresults"
           querytype={"?"}
         ></InfiniteSection>

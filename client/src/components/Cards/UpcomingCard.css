@@ -40,22 +40,20 @@
     width: 180px;
   }
 }
-/* @media screen and (min-width: 420px) {
-  .upcomingcard-card {
-    height: 130px;
-    width: 190px;
-  }
-}
 
-*/
 @media screen and (min-width: 440px) {
   .upcomingcard-card {
     height: 130px;
     width: 200px;
   }
 }
-
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 460px) {
+  .upcomingcard-card {
+    height: 130px;
+    width: 220px;
+  }
+}
+@media screen and (min-width: 480px) {
   .upcomingcard-card {
     height: 150px;
     width: 225px;
