@@ -27,18 +27,7 @@ export default function CarouselRenderer({
 
   return (
     <div className="carouselinstance">
-      <h1
-        className="row-title"
-        style={{
-          color: "#fdba74",
-          fontSize: "3rem",
-          width: "60%",
-          marginLeft: "21px",
-          marginBottom: "5px",
-        }}
-      >
-        {rowTitle}
-      </h1>
+      <h1 className="row-title">{rowTitle}</h1>
       <Carousel
         initialActiveIndex={initialActiveIndex}
         enableTilt={true}

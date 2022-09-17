@@ -14,7 +14,7 @@
   transition: all 0.5s;
   background-position: center;
   background-size: cover;
-  border-radius: 15px;
+  border-radius: 5px;
 }
 @media screen and (max-width: 359px) {
   .gridcard-card {
@@ -48,7 +48,7 @@
 }
 @media screen and (min-width: 475px) {
   .gridcard-card {
-    height: 180px;
+    height: 185px;
     width: 145px;
   }
 }

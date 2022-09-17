@@ -5,6 +5,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { v4 as uuidv4 } from "uuid";
 import toast, { Toaster } from "react-hot-toast";
+import "./InfiniteSection.css";
 import {
   faArrowLeftLong,
   faArrowRightLong,
@@ -83,17 +84,15 @@ export default function InfiniteSection({
         id={id}
         className="section section-infinite"
         style={{
-          paddingBottom: 40,
           marginTop: querytype === "&" ? 70 : "",
         }}
       >
         {fetchedData.length > 0 && (
           <>
             <h1
+              className="section-title"
               style={{
-                color: isGenresPage ? "yellow" : "#fdba74",
-                fontSize: "3rem",
-                marginLeft: "20px",
+                color: isGenresPage ? "yellow" : "white",
                 marginTop: isGenresPage ? 30 : "",
               }}
             >
@@ -104,30 +103,8 @@ export default function InfiniteSection({
               isAnimate={isAnimate}
               finalQuery={fetchedData}
             ></GridRenderer>
-            <div
-              className="pagination-wrapper"
-              style={{
-                marginTop: 20,
-                display: "flex",
-                alignItems: "center",
-                width: "100vw",
-                justifyContent: "center",
-              }}
-            >
-              <div
-                className="pagination"
-                style={{
-                  height: 60,
-                  width: "96%",
-
-                  display: "flex",
-                  alignItems: "center",
-
-                  marginTop: 20,
-                  borderTop: "1px solid dodgerblue",
-                  justifyContent: "space-between",
-                }}
-              >
+            <div className="pagination-wrapper">
+              <div className="pagination">
                 <button
                   className="previousPageButton"
                   onClick={(e) => {
@@ -137,14 +114,6 @@ export default function InfiniteSection({
                       updatePageNumberButtons(e);
                       setCurrpage((prev) => prev - 1);
                     }
-                  }}
-                  style={{
-                    fontSize: "15px",
-                    outline: "none",
-                    border: "none",
-                    color: "white",
-                    width: 150,
-                    backgroundColor: "transparent",
                   }}
                 >
                   <FontAwesomeIcon icon={faArrowLeftLong}></FontAwesomeIcon>{" "}
@@ -167,12 +136,6 @@ export default function InfiniteSection({
                         setCurrpage(pageNumber);
                       }}
                       style={{
-                        border: "none",
-                        padding: "4px 8px",
-                        borderRadius: 5,
-                        color: "white",
-                        background: "none",
-                        fontSize: 14,
                         backgroundColor:
                           currpage === pageNumber ? "rgb(244, 67, 54)" : "none",
                       }}
@@ -192,15 +155,6 @@ export default function InfiniteSection({
                     } else {
                       toast.error("This is the last page!");
                     }
-                  }}
-                  style={{
-                    color: "white",
-                    width: 150,
-                    background: "red",
-                    fontSize: "15px",
-                    outline: "none",
-                    border: "none",
-                    backgroundColor: "transparent",
                   }}
                 >
                   Next&nbsp;
