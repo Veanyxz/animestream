@@ -1,6 +1,7 @@
 import Login from "./components/Pages/Login";
 import "./App.css";
 import Home from "./components/Pages/Home";
+import MoreSection from "./components/Sections/MoreSection";
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ClockLoader from "react-spinners/PuffLoader";
@@ -52,6 +53,10 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/recentep" element={<RecentPage></RecentPage>} />
               <Route path="/genres" element={<GenresPage></GenresPage>} />
+              <Route
+                path="/more/:section"
+                element={<MoreSection></MoreSection>}
+              />
 
               <Route
                 path="/watch/:id"

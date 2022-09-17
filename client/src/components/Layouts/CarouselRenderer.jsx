@@ -2,7 +2,8 @@ import Carousel from "react-elastic-carousel";
 import { v4 as uuidv4 } from "uuid";
 import CarouselCard from "../Cards/CarouselCard";
 import UpcomingCard from "../Cards/UpcomingCard";
-
+import { RightOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
 export default function CarouselRenderer({
   finalQuery,
   rowTitle,
@@ -12,13 +13,18 @@ export default function CarouselRenderer({
   initialActiveIndex,
   setIsPlaying,
   setTrailerId,
+  url,
 }) {
+  const navigate = useNavigate();
   const breakPoints = [
     { width: 1, itemsToShow: isUpcoming ? 2 : 3 },
 
-    { width: 600, itemsToShow: isUpcoming ? 2 : 4 },
+    { width: 580, itemsToShow: isUpcoming ? 2 : 4 },
+
     { width: 800, itemsToShow: isUpcoming ? 3 : 4 },
-    { width: 900, itemsToShow: isUpcoming ? 4 : 5 },
+    { width: 900, itemsToShow: isUpcoming ? 3 : 5 },
+    { width: 1100, itemsToShow: isUpcoming ? 3 : 5 },
+    { width: 1270, itemsToShow: isUpcoming ? 4 : 5 },
 
     { width: 1440, itemsToShow: isUpcoming ? 4 : 6 },
     { width: 1760, itemsToShow: isUpcoming ? 4 : 7 },
@@ -27,7 +33,25 @@ export default function CarouselRenderer({
 
   return (
     <div className="carouselinstance">
-      <h1 className="row-title">{rowTitle}</h1>
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <h1 className="row-title">{rowTitle}</h1>
+
+        {!isUpcoming && (
+          <a
+            onClick={(event) => {
+              event.preventDefault();
+              navigate("/more/" + rowTitle, {
+                state: { section: rowTitle, url },
+              });
+            }}
+            href="/more"
+            className="more-button"
+          >
+            More
+            <RightOutlined style={{ fontSize: 14 }}></RightOutlined>
+          </a>
+        )}
+      </div>
       <Carousel
         initialActiveIndex={initialActiveIndex}
         enableTilt={true}

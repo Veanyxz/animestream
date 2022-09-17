@@ -16,6 +16,7 @@ export default function InfiniteSection({
   sectiontitle,
   itemlimit,
   isGenresPage,
+  isUpcoming,
   id,
   querytype,
 }) {
@@ -58,6 +59,7 @@ export default function InfiniteSection({
     if (currpage > 1) {
       document.querySelector("#" + id).scrollIntoView();
     }
+
     axios
       .get(
         isGenresPage

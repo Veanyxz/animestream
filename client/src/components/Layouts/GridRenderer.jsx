@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import GridCard from "../Cards/GridCard";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-setConfiguration({ breakpoints: [400, 1100, 1800, 1920, 2100] });
+setConfiguration({ breakpoints: [400, 1500, 1900, 2300, 2600] });
 
 const GridRenderer = ({ finalQuery, setAnimeInfo, isAnimate }) => {
   useEffect(() => {
@@ -17,9 +17,8 @@ const GridRenderer = ({ finalQuery, setAnimeInfo, isAnimate }) => {
         {finalQuery.map((query, index) => (
           <Col
             align="center"
-            xxl={2}
-            md={3}
-            lg={2}
+            md={1.71}
+            lg={1.71}
             sm={4}
             xs={3.95}
             key={uuidv4()}

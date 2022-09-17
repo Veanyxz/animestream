@@ -6,13 +6,13 @@ export default function UpcomingSection() {
   const [trailerId, setTrailerId] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
   const [upcoming, setUpComing] = useState([]);
-
+  const [url, setUrl] = useState(
+    "https://api.jikan.moe/v4/top/anime?filter=upcoming"
+  );
   useEffect(() => {
-    axios
-      .get("https://api.jikan.moe/v4/top/anime?filter=upcoming")
-      .then((res) => {
-        setUpComing(res.data.data);
-      });
+    axios.get(url).then((res) => {
+      setUpComing(res.data.data);
+    });
   }, []);
   return (
     <section
@@ -32,6 +32,7 @@ export default function UpcomingSection() {
           isUpcoming={true}
           setIsPlaying={setIsPlaying}
           setTrailerId={setTrailerId}
+          url={url}
         ></CarouselRenderer>
       )}
       <TrailerPlayer

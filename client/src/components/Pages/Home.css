@@ -70,9 +70,11 @@ button.rec-dot {
 button.rec-dot_active,
 button.rec-dot_active:focus,
 button.rec-dot_active:hover button.rec-dot:focus {
-  background-color: #fc4747;
+  background-color: #b7b5ba;
 }
-
+button.rec-dot_active:hover {
+  box-shadow: none;
+}
 button.rec-dot {
   box-shadow: none;
 }
@@ -87,12 +89,24 @@ button.rec-dot {
   margin-left: 16px;
   margin-bottom: 3px;
 }
+.more-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+  font-size: 1.55rem;
+  gap: 5px;
+  margin-bottom: 3px;
+
+  color: #8f72db;
+}
 @media screen and (min-width: 768px) {
   .row-title {
     /* color: #fdba74; */
     font-size: 2.5rem;
     width: 60%;
-    margin-left: 24px;
+
+    margin-left: 30px;
     margin-bottom: 10px;
   }
 }
@@ -118,6 +132,9 @@ button.rec-dot {
 }
 
 @media screen and (max-width: 768px) {
+  .more-button {
+    font-size: 1.4rem;
+  }
   button.rec {
     display: none;
   }

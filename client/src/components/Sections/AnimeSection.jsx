@@ -14,6 +14,7 @@ export default function AnimeSection({ sectiontitle, url, id }) {
     <section className="section section-anime" id={id}>
       {fetchedData.length > 0 && (
         <CarouselRenderer
+          url={url}
           finalQuery={fetchedData}
           stretchedA={true}
           rowTitle={sectiontitle}

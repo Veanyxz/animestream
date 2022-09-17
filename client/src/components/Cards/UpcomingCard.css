@@ -16,9 +16,6 @@
   text-align: center;
 }
 
-/* .upcomingcard-card {
-  min-width: 45vw;
-} */
 @media screen and (max-width: 359px) {
   .upcomingcard-card {
     height: 90px;
@@ -31,39 +28,67 @@
     width: 167px;
   }
 }
+@media screen and (min-width: 380px) {
+  .upcomingcard-card {
+    height: 100px;
+    width: 175px;
+  }
+}
 @media screen and (min-width: 390px) {
   .upcomingcard-card {
     height: 110px;
     width: 180px;
   }
 }
-@media screen and (min-width: 420px) {
+/* @media screen and (min-width: 420px) {
   .upcomingcard-card {
     height: 130px;
     width: 190px;
   }
 }
+
+*/
 @media screen and (min-width: 440px) {
   .upcomingcard-card {
     height: 130px;
     width: 200px;
   }
 }
+
 @media screen and (min-width: 500px) {
   .upcomingcard-card {
     height: 150px;
-    width: 95%;
+    width: 225px;
+  }
+}
+
+@media screen and (min-width: 580px) {
+  .upcomingcard-card {
+    height: 150px;
+    width: 290px;
   }
 }
 @media screen and (min-width: 650px) {
   .upcomingcard-card {
     height: 150px;
-    width: 97%;
-    background-color: red;
+    width: 310px;
   }
 }
 
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 700px) {
+  .upcomingcard-card {
+    height: 150px;
+    width: 330px;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .upcomingcard-card {
+    height: 150px;
+    width: 350px;
+  }
+}
+@media screen and (min-width: 820px) {
   .upcomingcard-card {
     height: 180px;
     width: 270px;
@@ -72,13 +97,26 @@
     font-size: 1.5rem;
   }
 }
-/* @media screen and (min-width: 1010px) {
+@media screen and (min-width: 990px) {
   .upcomingcard-card {
     height: 180px;
     width: 320px;
   }
-} */
-@media screen and (min-width: 1300px) {
+}
+@media screen and (min-width: 1100px) {
+  .upcomingcard-card {
+    height: 200px;
+    width: 310px;
+  }
+}
+@media screen and (min-width: 1190px) {
+  .upcomingcard-card {
+    height: 200px;
+    width: 370px;
+  }
+}
+
+@media screen and (min-width: 1270px) {
   .upcomingcard-card {
     height: 200px;
     width: 310px;
@@ -112,7 +150,7 @@
 }
 
 .upcomingcard-card {
-  border-radius: 10px;
+  border-radius: 4px;
   transition: all 0.5s;
 
   background-position: center;
