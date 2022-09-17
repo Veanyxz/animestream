@@ -30,11 +30,11 @@ a {
   left: 0;
   right: 0;
   align-items: center;
-  justify-content: center;
-  padding-right: 5%;
+  justify-content: flex-start;
+  padding-right: 30px;
   height: 65px;
   z-index: 2000;
-  padding-left: 5%;
+  padding-left: 30px;
 }
 
 .nav-side-div {
@@ -80,6 +80,13 @@ a {
 @media screen and (max-width: 1050px) {
   .magnify-icon {
     display: none;
+  }
+  .searchbar {
+    background-image: url("../../assets/images/searchicon.png");
+    background-position: 8px 8.5px;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    padding: 10px 40px !important;
   }
   .nav {
     justify-content: space-between;

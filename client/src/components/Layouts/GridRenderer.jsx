@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import GridCard from "../Cards/GridCard";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-setConfiguration({ breakpoints: [400, 1500, 1900, 2300, 2600] });
+setConfiguration({ breakpoints: [604, 924, 1464, 1760, 2000, 2400] });
 
 const GridRenderer = ({ finalQuery, setAnimeInfo, isAnimate }) => {
   useEffect(() => {
@@ -15,14 +15,7 @@ const GridRenderer = ({ finalQuery, setAnimeInfo, isAnimate }) => {
     <Container fluid={true}>
       <Row justify="left" gutterWidth={12}>
         {finalQuery.map((query, index) => (
-          <Col
-            align="center"
-            md={1.71}
-            lg={1.71}
-            sm={4}
-            xs={3.95}
-            key={uuidv4()}
-          >
+          <Col align="center" md={2.4} lg={2} sm={3} xs={3.95} xl={1.713} key={uuidv4()}>
             <motion.div
               initial={
                 isAnimated

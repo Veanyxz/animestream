@@ -28,6 +28,9 @@
   width: 50%;
 }
 @media screen and (max-width: 768px) {
+  .btn-watchnow {
+    font-size: 1.2rem;
+  }
   .anime-info-item {
     font-size: 1.4rem;
   }

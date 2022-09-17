@@ -39,12 +39,13 @@
 }
 
 .btn-watchnow {
-  background-color: red;
-
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid white;
   color: white;
   padding: 12px 20px;
-  border-radius: 10px;
-  font-size: 2rem;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 .btn-section {
   font-size: 1.5rem;

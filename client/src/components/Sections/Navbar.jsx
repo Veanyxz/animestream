@@ -1,7 +1,7 @@
 import "./Navbar.css";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logo from "../../assets/images/logo1.png";
+import logo from "../../assets/images/image.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import React, { useRef } from "react";
@@ -76,7 +76,7 @@ export default function Navbar() {
           }}
           style={{
             cursor: "pointer",
-            gap: 20,
+            gap: 10,
             display: "flex",
             alignItems: "center",
             color: "white",
@@ -84,7 +84,7 @@ export default function Navbar() {
           }}
         >
           <img
-            height="40"
+            height="35"
             src={logo}
             style={{ color: "white", padding: 0 }}
             alt=""
@@ -111,7 +111,7 @@ export default function Navbar() {
           className="searchbar"
           type="text"
           value={value}
-        />
+        ></input>
         <ul className={active}>
           <li className="nav__item">
             <span

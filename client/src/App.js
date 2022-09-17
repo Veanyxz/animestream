@@ -4,7 +4,7 @@ import Home from "./components/Pages/Home";
 import MoreSection from "./components/Sections/MoreSection";
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ClockLoader from "react-spinners/PuffLoader";
+import ClockLoader from "react-spinners/MoonLoader";
 import AnimePlayerPage from "./components/Pages/AnimePlayerPage";
 import MoviesSection from "./components/Pages/MoviesPage";
 import RecentPage from "./components/Pages/RecentPage";
@@ -44,7 +44,7 @@ const App = () => {
             color={"white"}
             loading={videoIsLoading}
             cssOverride={override}
-            size={80}
+            size={50}
           />
         )}
         <BrowserRouter>

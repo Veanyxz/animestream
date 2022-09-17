@@ -77,7 +77,7 @@ export default function HeaderCarouselCard({
           href="/login"
         >
           {" "}
-          <PlayCircleOutlined /> Watch Now
+          <PlayCircleOutlined />&nbsp;&nbsp;WATCH
         </a>
       </div>
     </>

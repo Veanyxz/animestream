@@ -10,7 +10,7 @@ const MoviesPage = () => {
         url={
           "https://consumet-api.herokuapp.com/meta/anilist/advanced-search?format=MOVIE"
         }
-        itemlimit={18}
+        itemlimit={21}
         sectiontitle={"Top Anime Movies"}
         id="movies"
         querytype={"&"}

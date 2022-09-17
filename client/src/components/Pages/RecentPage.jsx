@@ -14,7 +14,7 @@ const RecentPage = () => {
 
       <InfiniteSection
         url={"https://consumet-api.herokuapp.com/meta/anilist/recent-episodes"}
-        itemlimit={18}
+        itemlimit={21}
         sectiontitle={"Recent Episodes"}
         id="recent-nav"
         querytype={"?"}
