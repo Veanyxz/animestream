@@ -65,7 +65,7 @@ export default function AnimePlayer({ src, animeInfoUrl }) {
               "--vm-slider-thumb-height": "6px",
               "--vm-slider-track-focused-height": "6px",
               "--vm-slider-value-color": "#582fcb",
-              "--vm-loading-screen-dot-color": "#FC4747",
+              "--vm-loading-screen-dot-color": "#8230c6",
             }}
             autoplay={true}
           >

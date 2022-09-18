@@ -108,10 +108,16 @@ const AnimePlayerPage = ({ animeInfo }) => {
 
             <div className="curranime">
               <h2 className="anime-title">{anime.title.english}</h2>
-              <div className="curranimeinfo">
+              <h4 style={{ color: "#FC4747" }}>
+                <span className="curranime-genres">
+                  {anime.genres.join(" • ")}
+                </span>
+              </h4>
+              <div className="curranimeinfo" style={{ marginTop: 10 }}>
                 <span className="curranime-platform">
                   <PlayCircleOutlined /> TV Show
                 </span>
+
                 <span className="curranime-score">
                   Rating: <StarFilled style={{ color: "yellow" }} />{" "}
                   {anime.rating / 10}
@@ -152,12 +158,6 @@ const AnimePlayerPage = ({ animeInfo }) => {
 
               <br />
               <div className="additional-anime-info">
-                <h4 style={{ color: "#FC4747" }}>
-                  Genres:&nbsp;
-                  <span className="curranime-genres">
-                    {anime.genres.join(", ")}
-                  </span>
-                </h4>
                 <h4 style={{ color: "#FC4747" }}>
                   Studios:&nbsp;
                   <span className="curranime-studios">

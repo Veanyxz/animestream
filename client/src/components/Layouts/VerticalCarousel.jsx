@@ -5,7 +5,10 @@ import { motion } from "framer-motion";
 export default function VerticalCarousel({ finalQuery, rowTitle, isAnimated }) {
   return (
     <div className="vertical-grid-container">
-      <h1 className="row-title" style={{ marginLeft: 17 }}>
+      <h1
+        className="row-title"
+        style={{ marginLeft: 17, color: "#D8D8D8" }}
+      >
         {rowTitle}
       </h1>
       <div className="vertical-grid">

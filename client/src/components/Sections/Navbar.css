@@ -31,10 +31,10 @@ a {
   right: 0;
   align-items: center;
   justify-content: flex-start;
-  padding-right: 30px;
+  padding-right: 25px;
   height: 65px;
   z-index: 2000;
-  padding-left: 30px;
+  padding-left: 25px;
 }
 
 .nav-side-div {
@@ -194,7 +194,7 @@ a {
 }
 @media screen and (min-width: 450px) {
   .searchbar {
-    width: 330px;
+    width: 350px;
   }
 }
 @media screen and (max-width: 355px) {

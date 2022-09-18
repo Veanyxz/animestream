@@ -22,19 +22,29 @@ const HeaderCarouselRenderer = ({ finalResults }) => {
       }}
       pagination={true}
     >
-      {finalResults.map((item) => (
-        <HeaderCarouselCard
-          key={uuidv4()}
-          id={item.id}
-          epcount={item.totalEpisodes}
-          year={item.releaseDate}
-          duration={item.duration}
-          title={item.title.english}
-          description={item.description}
-          cover={item.cover}
-          coversmall={item.image}
-        ></HeaderCarouselCard>
-      ))}
+      {finalResults.map(
+        (item) =>
+          item.totalEpisodes &&
+          item.id &&
+          item.totalEpisodes &&
+          item.releaseDate &&
+          item.duration &&
+          item.title &&
+          item.description &&
+          item.cover && (
+            <HeaderCarouselCard
+              key={uuidv4()}
+              id={item.id}
+              epcount={item.totalEpisodes}
+              year={item.releaseDate}
+              duration={item.duration}
+              title={item.title.english}
+              description={item.description}
+              cover={item.cover}
+              coversmall={item.image}
+            ></HeaderCarouselCard>
+          )
+      )}
     </Carousel>
   );
 };

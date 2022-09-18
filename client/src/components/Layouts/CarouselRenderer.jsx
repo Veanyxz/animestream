@@ -40,7 +40,7 @@ export default function CarouselRenderer({
           <a
             onClick={(event) => {
               event.preventDefault();
-              navigate("/more/" + rowTitle, {
+              navigate("/more/" + rowTitle.toLowerCase(), {
                 state: { section: rowTitle, url },
               });
             }}
