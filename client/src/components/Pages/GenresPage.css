@@ -1,6 +1,8 @@
 .genresdiv,
 .formatsdiv,
-.seasonsdiv {
+.seasonsdiv,
+.statusesdiv {
+  transition: all 300ms ease;
   width: 95%;
   margin: 0 auto;
   display: grid;
@@ -10,7 +12,10 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   column-gap: 10;
 }
-.genre:hover {
+.genre:hover,
+.format:hover,
+.status:hover,
+.season:hover {
   transform: scale(1.1);
   transition: 300ms ease;
 }
@@ -18,6 +23,8 @@
 .format,
 .status,
 .season {
+  cursor: pointer;
+
   background-color: rgb(0, 0, 0, 0.5);
   background-size: cover;
   background-position: center;
@@ -33,7 +40,8 @@
 }
 .genres-title,
 .formats-title,
-.seasons-title {
+.seasons-title,
+.statuses-title {
   margin-top: 80px;
   color: white;
   margin-bottom: 10px;
@@ -41,20 +49,55 @@
   margin-left: 2.6%;
 }
 
-@media screen and (max-width: 530px) {
+.statusesdiv {
+  padding-bottom: 50px;
+}
+
+@media screen and (max-width: 560px) {
+  .genres-title,
+  .formats-title,
+  .seasons-title,
+  .statuses-title {
+    margin-left: 4.2%;
+  }
   .genresdiv,
   .formatsdiv,
+  .statusesdiv,
   .seasonsdiv {
     width: 90%;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(41vw, 1fr));
   }
   .genresdiv div,
   .formatsdiv div,
+  .statusesdiv div,
   .seasonsdiv div {
     gap: 10px;
-    row-gap: 0px !important;
-    column-gap: 0px !important;
-    width: 43vw !important;
-    height: 130px !important;
+    row-gap: 0px;
+    column-gap: 0px;
+    width: 46vw;
+    height: 120px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .genresdiv,
+  .formatsdiv,
+  .statusesdiv .seasonsdiv {
+    width: 90%;
+    grid-template-columns: repeat(auto-fill, minmax(40vw, 1fr));
+  }
+  .genresdiv div,
+  .formatsdiv div,
+  .statusesdiv div,
+  .seasonsdiv div {
+    width: 46vw;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .genresdiv div,
+  .formatsdiv div,
+  .statusesdiv div,
+  .seasonsdiv div {
+    width: 90vw;
   }
 }

@@ -22,7 +22,6 @@ export default function GenresPage({ setAnimeInfo }) {
           location.state.value
   );
 
-  console.log(queryUrl);
   return (
     <>
       <Navbar></Navbar>

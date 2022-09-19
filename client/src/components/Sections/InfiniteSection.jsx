@@ -21,12 +21,10 @@ export default function InfiniteSection({
   id,
   querytype,
 }) {
-  const location = useLocation();
   const [fetchedData, setFetchedData] = useState([]);
   const [currpage, setCurrpage] = useState(1);
   const [isAnimate, setIsAnimate] = useState(false);
   const [hasNextPage, setHasNextPage] = useState(true);
-  console.log(location.state?.value);
   const [pageNumbers, setPageNumbers] = useState([1, 2, 3, 4, 5]);
   const updatePageNumberButtons = (e) => {
     if (e.target.classList.contains("nextPageButton")) {
@@ -151,7 +149,6 @@ export default function InfiniteSection({
                     if (hasNextPage) {
                       updatePageNumberButtons(e);
                       setCurrpage((curr) => curr + 1);
-                      console.log(currpage);
                     } else {
                       toast.error("This is the last page!");
                     }

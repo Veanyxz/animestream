@@ -5,7 +5,7 @@ import "./GenresPage.css";
 import { v4 as uuidv4 } from "uuid";
 
 import { useState } from "react";
-const Genresv2 = () => {
+const GenresPage = () => {
   const [genresinfo, setGenresInfo] = useState([
     {
       title: "Action",
@@ -157,6 +157,28 @@ const Genresv2 = () => {
         "https://s4.anilist.co/file/anilistcdn/media/anime/banner/97940-1URQdQ4U1a0b.jpg",
     },
   ]);
+  const [statusesInfo, setStatusesInfo] = useState([
+    {
+      title: "RELEASING",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/21-wf37VakJmZqs.jpg",
+    },
+    {
+      title: "NOT YET RELEASED",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/127230-lf01ya5ny8aH.jpg",
+    },
+    {
+      title: "FINISHED",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/20-HHxhPj5JD13a.jpg",
+    },
+    {
+      title: "CANCELLED",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/11757-TlEEV9weG4Ag.jpg",
+    },
+  ]);
   const navigate = useNavigate();
 
   return (
@@ -165,7 +187,7 @@ const Genresv2 = () => {
 
       <h1 className="genres-title">Genres</h1>
       <div className="genresdiv">
-        {genresinfo.map((genreinfo, index) => {
+        {genresinfo.map((genreinfo) => {
           return (
             <div
               key={uuidv4()}
@@ -184,14 +206,17 @@ const Genresv2 = () => {
           );
         })}
       </div>
-      <h1 className="formats-title">Format</h1>
+      <h1 className="formats-title">Formats</h1>
       <div className="formatsdiv">
-        {formatsInfo.map((formatInfo, index) => {
+        {formatsInfo.map((formatInfo) => {
           return (
             <div
               onClick={(e) => {
                 navigate("/filtered/format", {
-                  state: { type: "format", value: e.target.innerText },
+                  state: {
+                    type: "format",
+                    value: e.target.innerText.replaceAll(" ", "_"),
+                  },
                 });
               }}
               key={uuidv4()}
@@ -206,16 +231,17 @@ const Genresv2 = () => {
         })}
       </div>
 
-      <h1 className="seasons-title">Season</h1>
+      <h1 className="seasons-title">Seasons</h1>
       <div className="seasonsdiv">
-        {seasonsInfo.map((seasonInfo, index) => {
+        {seasonsInfo.map((seasonInfo) => {
           return (
             <div
-            onClick={(e) => {
-              navigate("/filtered/season", {
-                state: { type: "season", value: e.target.innerText },
-              });
-            }}
+              key={uuidv4()}
+              onClick={(e) => {
+                navigate("/filtered/season", {
+                  state: { type: "season", value: e.target.innerText },
+                });
+              }}
               style={{
                 backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(${seasonInfo.image})`,
               }}
@@ -227,47 +253,32 @@ const Genresv2 = () => {
         })}
       </div>
 
-      {/* <h1>Status</h1>
-      <div className="genresdiv">
-        <div
-          className="status"
-          style={{
-            backgroundImage:
-              "linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),url(https://s4.anilist.co/file/anilistcdn/media/anime/banner/21-wf37VakJmZqs.jpg)",
-          }}
-        >
-          RELEASING
-        </div>
-        <div
-          className="status"
-          style={{
-            backgroundImage:
-              "linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),url(https://s4.anilist.co/file/anilistcdn/media/anime/banner/127230-lf01ya5ny8aH.jpg)",
-          }}
-        >
-          NOT YET RELEASED
-        </div>
-        <div
-          className="status"
-          style={{
-            backgroundImage:
-              "linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),url(https://s4.anilist.co/file/anilistcdn/media/anime/banner/20-HHxhPj5JD13a.jpg)",
-          }}
-        >
-          FINISHED
-        </div>
-        <div
-          className="status"
-          style={{
-            backgroundImage:
-              "linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),url(https://s4.anilist.co/file/anilistcdn/media/anime/banner/11757-TlEEV9weG4Ag.jpg)",
-          }}
-        >
-          CANCELLED
-       
-      </div> */}
+      <h1 className="statuses-title">Status</h1>
+      <div className="statusesdiv">
+        {statusesInfo.map((statusInfo) => {
+          return (
+            <div
+              key={uuidv4()}
+              onClick={(e) => {
+                navigate("/filtered/status", {
+                  state: {
+                    type: "status",
+                    value: e.target.innerText.replaceAll(" ", "_"),
+                  },
+                });
+              }}
+              style={{
+                backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(${statusInfo.image})`,
+              }}
+              className="status"
+            >
+              {statusInfo.title}
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 };
 
-export default Genresv2;
+export default GenresPage;
