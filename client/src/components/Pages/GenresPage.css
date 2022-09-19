@@ -29,7 +29,6 @@
 
   height: 155px;
   width: 270px;
-  background-color: greenyellow;
   border-radius: 5px;
 }
 .genres-title,
@@ -49,10 +48,10 @@
     width: 90%;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
-  .genresdiv div .formatsdiv div,
+  .genresdiv div,
+  .formatsdiv div,
   .seasonsdiv div {
     gap: 10px;
-
     row-gap: 0px !important;
     column-gap: 0px !important;
     width: 43vw !important;
