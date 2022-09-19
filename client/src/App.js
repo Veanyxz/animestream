@@ -1,5 +1,6 @@
 import Login from "./components/Pages/Login";
 import "./App.css";
+import Genresv2 from "./components/Pages/GenresPage";
 import Home from "./components/Pages/Home";
 import MoreSection from "./components/Sections/MoreSection";
 import React, { useEffect, useState } from "react";
@@ -9,7 +10,7 @@ import AnimePlayerPage from "./components/Pages/AnimePlayerPage";
 import MoviesSection from "./components/Pages/MoviesPage";
 import RecentPage from "./components/Pages/RecentPage";
 import SearchResults from "./components/Pages/SearchResults";
-import GenresPage from "./components/Pages/GenresPage";
+import FilteredPage from "./components/Pages/FilteredPage";
 export const SharedState = React.createContext();
 const App = () => {
   const [animeInfo, setAnimeInfo] = useState(null);
@@ -44,7 +45,7 @@ const App = () => {
             color={"white"}
             loading={videoIsLoading}
             cssOverride={override}
-            size={50}
+            size={35}
           />
         )}
         <BrowserRouter>
@@ -52,7 +53,7 @@ const App = () => {
             <Routes>
               <Route path="/login" element={<Login />} />
               <Route path="/recentep" element={<RecentPage></RecentPage>} />
-              <Route path="/genres" element={<GenresPage></GenresPage>} />
+              <Route path="/genres" element={<Genresv2 />} />
               <Route
                 path="/more/:section"
                 element={<MoreSection></MoreSection>}
@@ -73,6 +74,10 @@ const App = () => {
                     setVideoIsLoading={setVideoIsLoading}
                   ></MoviesSection>
                 }
+              />
+              <Route
+                path="/filtered/:value"
+                element={<FilteredPage></FilteredPage>}
               />
 
               <Route

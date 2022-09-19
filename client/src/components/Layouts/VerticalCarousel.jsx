@@ -5,15 +5,13 @@ import { motion } from "framer-motion";
 export default function VerticalCarousel({ finalQuery, rowTitle, isAnimated }) {
   return (
     <div className="vertical-grid-container">
-      <h1
-        className="row-title"
-        style={{ marginLeft: 2, color: "#D8D8D8" }}
-      >
+      <h1 className="row-title" style={{ marginLeft: 2, color: "#D8D8D8" }}>
         {rowTitle}
       </h1>
       <div className="vertical-grid">
         {finalQuery.map((query, index) => (
           <motion.div
+            key={uuidv4()}
             initial={{
               opacity: 0,
               translateX: -50,
@@ -25,7 +23,6 @@ export default function VerticalCarousel({ finalQuery, rowTitle, isAnimated }) {
             <CarouselCard
               title={query.title.english}
               image={query.image}
-              key={uuidv4()}
               rating={query.rating}
               id={query.id}
               rowTitle={rowTitle}

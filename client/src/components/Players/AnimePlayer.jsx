@@ -17,9 +17,12 @@ export default function AnimePlayer({ src, animeInfoUrl }) {
   const [savedTime, setSavedTime] = useState(null);
 
   useEffect(() => {
+    console.log(animeInfoUrl);
     if (localStorage.getItem(animeInfoUrl) !== null) {
       setSavedTime(Number(localStorage.getItem(animeInfoUrl)));
     }
+
+    localStorage.setItem("recentlywatched", animeInfoUrl);
   }, []);
   const [time, setTime] = useState(0);
 

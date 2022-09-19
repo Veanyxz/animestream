@@ -26,7 +26,7 @@ export default function CarouselRenderer({
     { width: 1100, itemsToShow: isUpcoming ? 3 : 5 },
     { width: 1270, itemsToShow: isUpcoming ? 4 : 5 },
 
-    { width: 1440, itemsToShow: isUpcoming ? 4 : 6 },
+    { width: 1410, itemsToShow: isUpcoming ? 4 : 6 },
     { width: 1760, itemsToShow: isUpcoming ? 4 : 7 },
     { width: 1920, itemsToShow: isUpcoming ? 4 : 8 },
   ];
@@ -61,7 +61,7 @@ export default function CarouselRenderer({
         showArrows={false}
         breakPoints={breakPoints}
       >
-        {finalQuery.map((query, index) =>
+        {finalQuery.map((query) =>
           stretchedA ? (
             <CarouselCard
               title={query.title.english}

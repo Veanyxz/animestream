@@ -6,12 +6,7 @@ const RecentPage = () => {
   return (
     <>
       <Navbar></Navbar>
-      <br />
-      <br />
-
-      <br />
-      <br />
-
+    
       <InfiniteSection
         url={"https://consumet-api.herokuapp.com/meta/anilist/recent-episodes"}
         itemlimit={21}

@@ -43,8 +43,9 @@ export default function GridCard({
         {episodeNumber > 0 && (
           <h5 className="gridcard-epnumber">Episode {episodeNumber}</h5>
         )}
-
-        <h4 className="grid-card-title">{title.english || title.romaji}</h4>
+        {title && (
+          <h4 className="grid-card-title">{title.english || title.romaji}</h4>
+        )}
         {year && <p className="gridcardinfo-year">{year}</p>}
       </div>
     </>

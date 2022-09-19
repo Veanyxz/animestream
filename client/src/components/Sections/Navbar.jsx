@@ -5,9 +5,10 @@ import logo from "../../assets/images/image.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import React, { useRef } from "react";
-
 import { toast } from "react-toastify";
 export default function Navbar() {
+  const [isFirstRender, setIsFirstRender] = useState(false);
+
   const [active, setActive] = useState("nav__menu");
   const [icon, setIcon] = useState("nav__toggler");
   function useOutsideAlerter(ref) {
@@ -24,6 +25,10 @@ export default function Navbar() {
       };
     }, [ref]);
   }
+
+  useEffect(() => {
+    setIsFirstRender(true);
+  }, []);
 
   const wrapperRef = useRef(null);
   useOutsideAlerter(wrapperRef);
@@ -144,15 +149,7 @@ export default function Navbar() {
           >
             <span className="nav__link">Recent Ep</span>
           </li>
-          <li
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("/random");
-            }}
-            className="nav__item"
-          >
-            <span className="nav__link">Random</span>
-          </li>
+
           <li
             onClick={(e) => {
               e.preventDefault();
@@ -162,25 +159,34 @@ export default function Navbar() {
           >
             <span className="nav__link">Filter</span>
           </li>
-<div className="auth">
           <li
             onClick={(e) => {
               e.preventDefault();
-              navigate("/login");
+              navigate("/genres");
             }}
-            className="nav__item nav__item-login"
+            className="nav__item"
           >
-            <span className="nav__link">Login</span>
+            <span className="nav__link">Watchlist</span>
           </li>
-          <li
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("/signup");
-            }}
-            className="nav__item "
-          >
-            <span className="nav__link">Signup</span>
-          </li>
+          <div className="auth">
+            <li
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/login");
+              }}
+              className="nav__item nav__item-login"
+            >
+              <span className="nav__link">Login</span>
+            </li>
+            <li
+              onClick={(e) => {
+                e.preventDefault();
+                navigate("/signup");
+              }}
+              className="nav__item "
+            >
+              <span className="nav__link">Signup</span>
+            </li>
           </div>
         </ul>
       </div>

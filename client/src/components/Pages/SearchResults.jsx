@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 import Navbar from "../Sections/Navbar";
-setConfiguration({ breakpoints: [768, 1170, 1500, 1700, 1800, 1900] });
+setConfiguration({ breakpoints: [580, 924, 1434, 1767, 2000, 2400] });
 
 export default function SearchResults({ setAnimeInfo }) {
   const location = useLocation();
@@ -31,15 +31,16 @@ export default function SearchResults({ setAnimeInfo }) {
             return (
               <Col
                 align="center"
-                xxl={2}
-                md={2}
-                sm={4}
+                md={2.4}
+                lg={2}
+                sm={3}
                 xs={3.95}
+                xl={1.71}
                 key={uuidv4()}
               >
                 <GridCard
                   setAnimeInfo={setAnimeInfo}
-                  title={query.title.english}
+                  title={query.title}
                   id={query.id}
                   image={query.image}
                   key={uuidv4()}

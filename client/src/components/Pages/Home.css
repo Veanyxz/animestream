@@ -18,12 +18,12 @@ body {
   max-height: 100vh;
   max-width: 100% !important;
   font-family: "Inter", sans-serif;
-  /* font-family: "ArabatoMedium"; */
+  font-family: "ArabatoMedium";
 }
 
 .section-anime,
 .section-infinite {
-  margin-top: 5px;
+  margin-top: 2px;
 }
 
 .section-carousel {
@@ -80,7 +80,7 @@ button.rec-dot {
 }
 
 .epindex:hover {
-  background-color: #823061; 
+  background-color: #823061;
 }
 .row-title {
   color: white;
@@ -144,11 +144,7 @@ button.rec-dot {
     display: none !important;
   }
 }
-@media screen and (max-width: 768px) {
-  .spinner {
-    transform: scale(0.65) !important;
-  }
-}
+
 @media screen and (max-width: 1000px) {
   .pageindex {
     gap: 1px !important;

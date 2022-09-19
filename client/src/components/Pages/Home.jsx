@@ -1,25 +1,11 @@
 import "./Home.css";
-import React, { useEffect } from "react";
+import React from "react";
 import InfiniteSection from "../Sections/InfiniteSection";
 import ScrollToTop from "react-scroll-to-top";
 import Header from "../Sections/Header";
 import UpcomingSection from "../Sections/UpcomingSection";
 import AnimeSection from "../Sections/AnimeSection";
 const Home = () => {
-  useEffect(() => {
-    const onPageLoad = () => {
-      setTimeout(() => {
-        document.querySelector("#popular").scrollIntoView();
-      }, 1500);
-    };
-
-    if (document.readyState === "complete") {
-      onPageLoad();
-    } else {
-      window.addEventListener("load", onPageLoad);
-      return () => window.removeEventListener("load", onPageLoad);
-    }
-  }, []);
   return (
     <>
       <Header></Header>

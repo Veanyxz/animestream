@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import GridRenderer from "../Layouts/GridRenderer.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { v4 as uuidv4 } from "uuid";
 import toast, { Toaster } from "react-hot-toast";
@@ -20,12 +21,12 @@ export default function InfiniteSection({
   id,
   querytype,
 }) {
+  const location = useLocation();
   const [fetchedData, setFetchedData] = useState([]);
   const [currpage, setCurrpage] = useState(1);
   const [isAnimate, setIsAnimate] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [hasNextPage, setHasNextPage] = useState(true);
-
+  console.log(location.state?.value);
   const [pageNumbers, setPageNumbers] = useState([1, 2, 3, 4, 5]);
   const updatePageNumberButtons = (e) => {
     if (e.target.classList.contains("nextPageButton")) {
@@ -54,18 +55,17 @@ export default function InfiniteSection({
     setCurrpage(1);
   }, [url]);
   useEffect(() => {
-    setLoading(true);
     setIsAnimate(false);
     if (currpage > 1) {
       document.querySelector("#" + id).scrollIntoView();
     }
-
+    let finalurl = "";
+    if (id === "filterresults")
+      finalurl = url + querytype + "page=" + currpage + "&perPage=" + itemlimit;
+    else
+      finalurl = url + querytype + "page=" + currpage + "&perPage=" + itemlimit;
     axios
-      .get(
-        isGenresPage
-          ? url + "&page=" + currpage + "&perPage=" + itemlimit
-          : url + querytype + "page=" + currpage + "&perPage=" + itemlimit
-      )
+      .get(finalurl)
 
       .then((data) => {
         if (data.data.hasNextPage) {
@@ -75,7 +75,6 @@ export default function InfiniteSection({
         }
 
         setFetchedData(data.data.results);
-        setLoading(false);
         setIsAnimate(true);
       });
   }, [currpage, url]);
@@ -94,8 +93,7 @@ export default function InfiniteSection({
             <h1
               className="section-title"
               style={{
-                color: isGenresPage ? "yellow" : "white",
-                marginTop: isGenresPage ? 30 : "",
+                color: "white",
               }}
             >
               {sectiontitle}

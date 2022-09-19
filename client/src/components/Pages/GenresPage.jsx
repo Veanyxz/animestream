@@ -1,277 +1,273 @@
-import { v4 as uuidv4 } from "uuid";
-import { setConfiguration } from "react-grid-system";
-import { useEffect, useState } from "react";
-import InfiniteSection from "../Sections/InfiniteSection";
-import "./GenresPage.css";
-import Select from "react-select";
+import React from "react";
 import Navbar from "../Sections/Navbar";
-setConfiguration({ breakpoints: [768, 1170, 1500, 1700, 1800, 1900] });
+import { useNavigate } from "react-router-dom";
+import "./GenresPage.css";
+import { v4 as uuidv4 } from "uuid";
 
-export default function GenresPage({ setAnimeInfo }) {
-  const [query, setQuery] = useState({});
-  const [queryUrl, setQueryUrl] = useState(
-    "https://consumet-api.herokuapp.com/meta/anilist/advanced-search?sort=" +
-      "[" +
-      '"' +
-      "POPULARITY_DESC" +
-      '"' +
-      "]"
-  );
-  const [inResetState, setInResetState] = useState(false);
+import { useState } from "react";
+const Genresv2 = () => {
+  const [genresinfo, setGenresInfo] = useState([
+    {
+      title: "Action",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/16498-8jpFCOcDmneX.jpg",
+    },
+    {
+      title: "Adventure",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/101922-YfZhKBUDDS6L.jpg",
+    },
+    {
+      title: "Comedy",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/21087-sHb9zUZFsHe1.jpg",
+    },
 
-  const genres = [
-    "Action",
-    "Adventure",
-    "Comedy",
-    "Drama",
-    "Fantasy",
-    "Horror",
-    "Mecha",
-    "Music",
-    "Mystery",
-    "Psychological",
-    "Romance",
-    "Sci-Fi",
-    "Slice_Of_Life",
-    "Sports",
-    "Supernatural",
-    "Thriller",
-  ];
-  const formatOptions = [
-    { value: "TV", label: "TV" },
-    { value: "TV_SHORT", label: "TV_SHORT" },
-    { value: "OVA", label: "OVA" },
-    { value: "ONA", label: "ONA" },
-    { value: "MOVIE", label: "MOVIE" },
+    {
+      title: "Drama",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/113415-jQBSkxWAAk83.jpg",
+    },
+    {
+      title: "Fantasy",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/11757-TlEEV9weG4Ag.jpg",
+    },
+    {
+      title: "Horror",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/20605-RCJ7M71zLmrh.jpg",
+    },
+    {
+      title: "Mahou Shoujo",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/9756-d5M8NffgJJHB.jpg",
+    },
 
-    { value: "SPECIAL", label: "SPECIAL" },
+    {
+      title: "Mecha",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/99423-xu78CeWOO5FW.jpg",
+    },
+    {
+      title: "Music",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/20665-j4kSsfhfkM24.jpg",
+    },
+    {
+      title: "Mystery",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/21234-7lfSSPoMmwr2.jpg",
+    },
+    {
+      title: "Psychological",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/1535.jpg",
+    },
+    {
+      title: "Romance",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/n9253-JIhmKgBKsWUN.jpg",
+    },
+    {
+      title: "Sci-fi",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/n9253-JIhmKgBKsWUN.jpg",
+    },
 
-    { value: "MUSIC", label: "MUSIC" },
-  ];
-  const statusOptions = [
-    { value: "FINISHED", label: "Finished" },
-    { value: "RELEASING", label: "Releasing" },
-    { value: "NOT_YET_RELEASED", label: "Not Yet Released" },
-    { value: "CANCELLED", label: "Cancelled" },
-    { value: "HIATUS", label: "Hiatus" },
-  ];
-  const resetAll = () => {
-    setInResetState(true);
-    setSelectedFormat(null);
-    setselectedSortCriteria(null);
-    setSelectedStatus(null);
-    setselectedYear(null);
-    setQuery({});
-  };
+    {
+      title: "Slice of Life",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/20954-f30bHMXa5Qoe.jpg",
+    },
+    {
+      title: "Sports",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/20464-PpYjO9cPN1gs.jpg",
+    },
+    {
+      title: "Supernatural",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/20447-nlgQQzcgWbgw.jpg",
+    },
+    {
+      title: "Thriller",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/108632-yeLbrgPN4Oni.jpg",
+    },
+  ]);
 
-  const sortCriteriaOptions = [
-    { value: "POPULARITY_DESC", label: "Popularity" },
+  const [formatsInfo, setFormatsInfo] = useState([
+    {
+      title: "TV",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/16498-8jpFCOcDmneX.jpg",
+    },
+    {
+      title: "OVA",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/21087-sHb9zUZFsHe1.jpg",
+    },
+    {
+      title: "TV SHORT",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/101922-YfZhKBUDDS6L.jpg",
+    },
+    {
+      title: "ONA",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/11757-TlEEV9weG4Ag.jpg",
+    },
+    {
+      title: "MOVIE",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/113415-jQBSkxWAAk83.jpg",
+    },
+    {
+      title: "SPECIAL",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/11757-TlEEV9weG4Ag.jpg",
+    },
+    {
+      title: "MUSIC",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/11757-TlEEV9weG4Ag.jpg",
+    },
+  ]);
 
-    { value: "POPULARITY", label: "Popularity Ascending" },
-    { value: "SCORE_DESC", label: "Score" },
-    { value: "SCORE", label: "Score Ascending" },
-    { value: "TRENDING_DESC", label: "Trending" },
-    { value: "TRENDING", label: "Trending Ascending" },
-    { value: "UPDATED_AT", label: "Updated At Ascending" },
-    { value: "UPDATED_AT_DESC", label: "Updated At" },
-
-    { value: "END_DATE", label: "End Date Ascending" },
-    { value: "END_DATE_DESC", label: "End Date" },
-  ];
-  const yearOptions = [];
-
-  for (let i = 1980; i <= 2022; i++) {
-    yearOptions.push({
-      value: String(i),
-      label: i,
-    });
-  }
-
-  const generateQueryUrl = () => {
-    let isFirstParam = true;
-    let url = "https://consumet-api.herokuapp.com/meta/anilist/advanced-search";
-
-    if (query.selectedFormat) {
-      url += isFirstParam ? "?" : "&";
-      if (isFirstParam) isFirstParam = false;
-      url += "format=" + query.selectedFormat.value;
-    }
-
-    if (query.selectedSortCriteria) {
-      url += isFirstParam ? "?" : "&";
-      if (isFirstParam) isFirstParam = false;
-      url += "sort=" + "[" + '"' + query.selectedSortCriteria.value + '"' + "]";
-    }
-    if (query.selectedStatus) {
-      url += isFirstParam ? "?" : "&";
-      if (isFirstParam) isFirstParam = false;
-      url = url + "status=" + query.selectedStatus.value;
-    }
-    if (query.selectedYear) {
-      url += isFirstParam ? "?" : "&";
-      if (isFirstParam) isFirstParam = false;
-      url += "year=" + query.selectedYear.value;
-    }
-
-    if (selectedGenres.length > 0) {
-      url += isFirstParam ? "?" : "&";
-      url += "genres=[";
-
-      selectedGenres.forEach((selectedGenre, index) => {
-        url += '"' + selectedGenre + '"';
-        if (index !== selectedGenres.length - 1) url += ","; //whats wrong?
-      });
-
-      url += "]";
-    }
-    console.log(url);
-    return url;
-  };
-  const [selectedFormat, setSelectedFormat] = useState(null);
-  const [selectedSortCriteria, setselectedSortCriteria] = useState({
-    value: "POPULARITY_DESC",
-    label: "Popularity",
-  });
-  const [selectedYear, setselectedYear] = useState(null);
-  const [selectedStatus, setSelectedStatus] = useState(null);
-  const [selectedGenres, setSelectedGenres] = useState([]);
-
-  useEffect(() => {
-    if (selectedFormat) {
-      setQuery({ ...query, selectedFormat });
-    }
-  }, [selectedFormat]);
-
-  useEffect(() => {
-    console.log(selectedGenres);
-  }, [selectedGenres]);
-  useEffect(() => {
-    if (selectedYear) {
-      setQuery({ ...query, selectedYear });
-    }
-  }, [selectedYear]);
-  useEffect(() => {
-    if (selectedStatus) {
-      setQuery({ ...query, selectedStatus });
-    }
-  }, [selectedStatus]);
-  useEffect(() => {
-    if (selectedSortCriteria) {
-      setQuery({ ...query, selectedSortCriteria });
-    }
-  }, [selectedSortCriteria]);
+  const [seasonsInfo, setSeasonsInfo] = useState([
+    {
+      title: "WINTER",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/101759-MhlCoeqnODso.jpg",
+    },
+    {
+      title: "SPRING",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/5114-q0V5URebphSG.jpg",
+    },
+    {
+      title: "SUMMER",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/20997-nE9VyUa08vS0.jpg",
+    },
+    {
+      title: "FALL",
+      image:
+        "https://s4.anilist.co/file/anilistcdn/media/anime/banner/97940-1URQdQ4U1a0b.jpg",
+    },
+  ]);
+  const navigate = useNavigate();
 
   return (
     <>
       <Navbar></Navbar>
-      <h1
-        style={{
-          fontSize: "3rem",
-          color: "#fdba74",
-          marginTop: 80,
-          marginLeft: "21px",
-        }}
-      >
-        Filter
-      </h1>
 
-      <div
-        className="selections-container"
-        style={{ display: "flex", gap: 10, marginLeft: "21px", marginTop: 15 }}
-      >
-        <Select
-          defaultValue={selectedFormat}
-          onChange={setSelectedFormat}
-          options={formatOptions}
-          placeholder="Format"
-          value={selectedFormat}
-        />
-
-        <Select
-          options={sortCriteriaOptions}
-          defaultValue={selectedSortCriteria}
-          onChange={setselectedSortCriteria}
-          placeholder="Sort By"
-          value={selectedSortCriteria}
-        />
-        <Select
-          defaultValue={selectedFormat}
-          onChange={setselectedYear}
-          options={yearOptions}
-          placeholder="Year"
-          value={selectedYear}
-        />
-        <Select
-          defaultValue={selectedStatus}
-          onChange={setSelectedStatus}
-          options={statusOptions}
-          placeholder="Status"
-          value={selectedStatus}
-        />
-      </div>
-      <div
-        className="genres-container"
-        style={{ display: "flex", gap: 10, marginLeft: 21 }}
-      >
-        {genres.map((genre, index) => {
+      <h1 className="genres-title">Genres</h1>
+      <div className="genresdiv">
+        {genresinfo.map((genreinfo, index) => {
           return (
             <div
-              style={{
-                backgroundColor: selectedGenres.includes(genre)
-                  ? "white"
-                  : "#fc4747",
-                color: selectedGenres.includes(genre) ? "#fc4747" : "white",
-              }}
               key={uuidv4()}
               onClick={(e) => {
-                if (selectedGenres.includes(e.target.innerText)) {
-                  setSelectedGenres(
-                    selectedGenres.filter(
-                      (genre) => genre !== e.target.innerText
-                    )
-                  );
-                } else {
-                  setSelectedGenres([...selectedGenres, e.target.innerText]);
-                }
+                navigate("/filtered/genre", {
+                  state: { type: "genre", value: e.target.innerText },
+                });
               }}
-              className="genre-button"
+              className="genre"
+              style={{
+                backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),url(${genreinfo.image})`,
+              }}
             >
-              {genre}
+              {genreinfo.title}
+            </div>
+          );
+        })}
+      </div>
+      <h1 className="formats-title">Format</h1>
+      <div className="formatsdiv">
+        {formatsInfo.map((formatInfo, index) => {
+          return (
+            <div
+              onClick={(e) => {
+                navigate("/filtered/format", {
+                  state: { type: "format", value: e.target.innerText },
+                });
+              }}
+              key={uuidv4()}
+              className="format"
+              style={{
+                backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),url(${formatInfo.image})`,
+              }}
+            >
+              {formatInfo.title}
             </div>
           );
         })}
       </div>
 
-      <div className="searchandfilter-container">
-        <button
-          className="btn-search-genre"
-          onClick={() => {
-            setQueryUrl(generateQueryUrl());
-            setInResetState(false);
-          }}
-        >
-          Search
-        </button>
-        <button
-          className="btn-reset-genre"
-          onClick={() => {
-            resetAll();
-          }}
-        >
-          Reset
-        </button>
+      <h1 className="seasons-title">Season</h1>
+      <div className="seasonsdiv">
+        {seasonsInfo.map((seasonInfo, index) => {
+          return (
+            <div
+            onClick={(e) => {
+              navigate("/filtered/season", {
+                state: { type: "season", value: e.target.innerText },
+              });
+            }}
+              style={{
+                backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(${seasonInfo.image})`,
+              }}
+              className="season"
+            >
+              {seasonInfo.title}
+            </div>
+          );
+        })}
       </div>
 
-      {!inResetState && (
-        <InfiniteSection
-          isGenresPage={true}
-          url={queryUrl}
-          sectiontitle={"Results"}
-          itemlimit={21}
-          id="filterresults"
-          querytype={"?"}
-        ></InfiniteSection>
-      )}
+      {/* <h1>Status</h1>
+      <div className="genresdiv">
+        <div
+          className="status"
+          style={{
+            backgroundImage:
+              "linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),url(https://s4.anilist.co/file/anilistcdn/media/anime/banner/21-wf37VakJmZqs.jpg)",
+          }}
+        >
+          RELEASING
+        </div>
+        <div
+          className="status"
+          style={{
+            backgroundImage:
+              "linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),url(https://s4.anilist.co/file/anilistcdn/media/anime/banner/127230-lf01ya5ny8aH.jpg)",
+          }}
+        >
+          NOT YET RELEASED
+        </div>
+        <div
+          className="status"
+          style={{
+            backgroundImage:
+              "linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),url(https://s4.anilist.co/file/anilistcdn/media/anime/banner/20-HHxhPj5JD13a.jpg)",
+          }}
+        >
+          FINISHED
+        </div>
+        <div
+          className="status"
+          style={{
+            backgroundImage:
+              "linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ),url(https://s4.anilist.co/file/anilistcdn/media/anime/banner/11757-TlEEV9weG4Ag.jpg)",
+          }}
+        >
+          CANCELLED
+       
+      </div> */}
     </>
   );
-}
+};
+
+export default Genresv2;

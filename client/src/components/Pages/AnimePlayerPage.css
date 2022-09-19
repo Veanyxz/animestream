@@ -105,6 +105,7 @@ hr {
 
   margin-top: 20px;
 }
+
 .epindex {
   cursor: pointer;
   border-radius: 3px;
@@ -120,9 +121,6 @@ hr {
 @media screen and (max-width: 768px) {
   .animeplayer-container {
     margin-left: 0px;
-  }
-  .spinner {
-    transform: scale(0.65) !important;
   }
 }
 .curranime-platform,

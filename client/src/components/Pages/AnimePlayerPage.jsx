@@ -86,7 +86,6 @@ const AnimePlayerPage = ({ animeInfo }) => {
   useEffect(() => {
     if (anime) setCurrentId(anime.episodes[selectedOption - 1].id);
   }, [selectedOption, anime]);
-  console.log(anime);
   return (
     <>
       <Navbar></Navbar>

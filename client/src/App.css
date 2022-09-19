@@ -5,11 +5,7 @@ html {
 * {
   box-sizing: border-box;
 }
-@media screen and (max-width: 768px) {
-  .spinner {
-    transform: scale(0.65) !important;
-  }
-}
+
 * {
   scroll-margin-top: 20px;
 }
