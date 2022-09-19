@@ -88,11 +88,11 @@ hr {
 .curranime-adaptation,
 .curranime-genres,
 .curranime-studios {
-  color: white;
+  color: #d8d8d8;
 }
 
 .curranime-genres {
-  color: #767fff;
+  color: #197ee0;
 }
 .summary-content {
   text-align: justify;
@@ -101,7 +101,8 @@ hr {
 }
 .summary-title {
   font-size: 1.7rem;
-  color: #fc4747;
+  color: white;
+
   margin-top: 20px;
 }
 .epindex {

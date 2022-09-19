@@ -148,7 +148,7 @@ const AnimePlayerPage = ({ animeInfo }) => {
                 </div>
               </form>
 
-              <h3 className="summary-title">Summary</h3>
+              <h3 className="summary-title">Synopsis</h3>
               <p className="summary-content">
                 <TextTruncate
                   text={description}
@@ -158,7 +158,7 @@ const AnimePlayerPage = ({ animeInfo }) => {
 
               <br />
               <div className="additional-anime-info">
-                <h4 style={{ color: "#FC4747" }}>
+                <h4 style={{ color: "white" }}>
                   Studios:&nbsp;
                   <span className="curranime-studios">
                     {anime.studios.join(", ")}
@@ -166,12 +166,12 @@ const AnimePlayerPage = ({ animeInfo }) => {
                 </h4>
 
                 {adaptation !== "" && (
-                  <h4 style={{ color: "#FC4747" }}>
+                  <h4 style={{ color: "white" }}>
                     Adapation:&nbsp;
                     <span className="curranime-adaptation">{adaptation}</span>
                   </h4>
                 )}
-                <h4 style={{ color: "#FC4747" }}>
+                <h4 style={{ color: "white" }}>
                   Status:&nbsp;
                   <span className="curranime-status">{anime.status}</span>
                 </h4>

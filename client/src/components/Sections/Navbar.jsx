@@ -84,7 +84,7 @@ export default function Navbar() {
           }}
         >
           <img
-            height="35"
+            height="34"
             src={logo}
             style={{ color: "white", padding: 0 }}
             alt=""
@@ -147,25 +147,47 @@ export default function Navbar() {
           <li
             onClick={(e) => {
               e.preventDefault();
+              navigate("/random");
+            }}
+            className="nav__item"
+          >
+            <span className="nav__link">Random</span>
+          </li>
+          <li
+            onClick={(e) => {
+              e.preventDefault();
               navigate("/genres");
             }}
             className="nav__item"
           >
             <span className="nav__link">Filter</span>
           </li>
-
+<div className="auth">
           <li
             onClick={(e) => {
               e.preventDefault();
               navigate("/login");
             }}
-            className="nav__item"
+            className="nav__item nav__item-login"
           >
             <span className="nav__link">Login</span>
           </li>
+          <li
+            onClick={(e) => {
+              e.preventDefault();
+              navigate("/signup");
+            }}
+            className="nav__item "
+          >
+            <span className="nav__link">Signup</span>
+          </li>
+          </div>
         </ul>
       </div>
-
+      {/* <div className="auth">
+        <button>Login</button>
+        <button>Signup</button>
+      </div> */}
       <div onClick={navToggle} className={icon}>
         <div className="line1"></div>
         <div className="line2"></div>

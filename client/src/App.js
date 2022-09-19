@@ -62,6 +62,7 @@ const App = () => {
                 path="/watch/:id"
                 element={<AnimePlayerPage animeInfo={animeInfo} />}
               />
+              <Route path="/signup" element={<Home />} />
 
               <Route path="/" element={<Home />} />
               <Route
