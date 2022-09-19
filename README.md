@@ -1,5 +1,5 @@
 # Animebliss
-A beautiful anime streaming website made with react.js,framer-motion.
+A beautiful anime streaming website made with react.js,framer-motion(In development).
 
 "Made for educational purposes to learn about HTTP Live Streaming, handing async requests."
 
