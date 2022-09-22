@@ -7,5 +7,5 @@ Animebliss uses Consumet API to serve majority of data also minor use of Jikan A
 
 Please ⭐ the repo and follow!
 
-# Developer
-Kishor Krishna (kishorkrishnak2004@gmail.com)
+# Live Site :
+https://anime.vean.my.id
