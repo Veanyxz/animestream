@@ -7,5 +7,5 @@ Animebliss uses Consumet API to serve majority of data also minor use of Jikan A
 
 Please ⭐ the repo and follow!
 
-# Live Site :
+# Live :
 https://anime.vean.my.id
